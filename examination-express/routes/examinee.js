@@ -6,46 +6,110 @@ const { Examinee } = require("../db/baseApi");
 
 //新增或更改体检人信息
 router.post("/update", async function (req, res) {
-  const { id, packageId, centerId, examinee } = req.body;
-  const {
-    name,
-    identificationNumber,
-    sex,
-    birthday,
-    phone,
-    relationshipId,
-    status,
-  } = examinee;
+  try {
+    const { id, packageId, centerId, examinee, groupInformationId } = req.body;
+    const {
+      name,
+      identificationNumber,
+      sex,
+      birthday,
+      phone,
+      relationshipId,
+      status,
+    } = examinee;
 
-  let orderId, examineeId;
-  if (status === "add") {
-    const [examineeRes] = await db.query(
-      "SELECT * FROM examinee WHERE user_id = ?",
-      [id]
-    );
-    if (!examineeRes[0]?.id) {
-      const [result] = await db.query(
-        "INSERT INTO examinee (name, identification_number, sex, birthday, phone, create_time, user_id, relationship_id) VALUES (?, ?, ?, ?, ?, ?, ?, ?)",
-        [name, identificationNumber, sex, birthday, phone, new Date(), id, relationshipId]
+    let orderId, examineeId;
+    if (status === "add") {
+      const [examineeRes] = await db.query(
+        "SELECT * FROM examinee WHERE user_id = ?",
+        [id]
       );
-      examineeId = result.insertId;
+      if (!examineeRes[0]?.id) {
+        const [result] = await db.query(
+          "INSERT INTO examinee (name, identification_number, sex, birthday, phone, create_time, user_id, relationship_id) VALUES (?, ?, ?, ?, ?, ?, ?, ?)",
+          [
+            name,
+            identificationNumber,
+            sex,
+            birthday,
+            phone,
+            new Date(),
+            id,
+            relationshipId,
+          ]
+        );
+        examineeId = result.insertId;
+      } else {
+        examineeId = examineeRes[0].id;
+      }
+      const [ordeRres] = await db.query(
+        "INSERT INTO examination_order (examinee_id, package_id, status, type, examine_date, period, group_information_id, center_id, phone, breakfast) VALUES (?, ?, ?, ?, CURRENT_TIMESTAMP, ?, ?, ?, ?, ?)",
+        [examineeId, packageId, 1, 1, 0, groupInformationId, centerId, phone, 0]
+      );
+      console.log("groupInformationId:::", groupInformationId);
+      if (groupInformationId) {
+        // 团购
+        const [groupRes] = await db.query(
+          "SELECT * FROM group_information WHERE package_id = ? AND id = ?",
+          [packageId, groupInformationId]
+        );
+        console.log("groupRes:::", groupRes);
+        if (groupRes[0].number === 3) {
+          const [groupOrderRes] = await db.query(
+            "SELECT * FROM examination_order WHERE group_information_id = ?",
+            [groupInformationId]
+          );
+          const groupOrderIds = groupOrderRes.map((item) => item.id);
+          console.log("groupOrderIds:::", groupOrderIds);
+          const processPromises = groupOrderIds.map(orderId => orderProcess(orderId, packageId));
+          await Promise.all(processPromises);
+          res.send({ message: "三人拼团成功! " });
+        } else {
+          res.send({ message: "ok" });
+        }
+      } else {
+        // 订单id
+        orderId = ordeRres.insertId;
+        orderProcess(orderId, packageId);
+        res.send({ message: "ok" });
+      }
     } else {
-      examineeId = examineeRes[0].id;
+      Examinee.updateOne(examinee, examinee.id);
+      // await db.query(
+      //   "update examinee (name, identification_number, sex, birthday, phone, create_time, user_id, relation) values ($1, $2, $3, $4, $5, CURRENT_TIMESTAMP, $6, $7)",
+      //   [name, identificationNumber, sex, birthday, phone, id, relationship]
+      // )
+      res.send({ message: "ok" });
     }
-    const [ordeRres] = await db.query(
-      "INSERT INTO examination_order (examinee_id, package_id, status, type, examine_date, period, center_id, phone, breakfast) VALUES (?, ?, ?, ?, CURRENT_TIMESTAMP, ?, ?, ?, ?)",
-      [examineeId, packageId, 1, 1, 0, centerId, phone, 0]
-    );
-    // 订单id
-    orderId = ordeRres.insertId;
+  } catch (error) {
+    console.error("Error:", error);
+    res.status(500).send("Internal Server Error");
+  }
+});
 
+router.get("/list", async function (req, res) {
+  const { id } = req.body;
+  const [result] = await db.query("select * from examinee where user_id = ?", [
+    id,
+  ]);
+  res.send(underlineToCamel(result));
+});
+
+router.delete("/delete", async function (req, res) {
+  const { id } = req.query;
+  await db.query("delete from examinee where id = ?", [id]);
+  res.send();
+});
+
+const orderProcess = async (orderId, packageId) => {
+  try {
     const sql = `SELECT DISTINCT
-                    b.category_id 
-                 FROM 
-                    examination_order a
-                    JOIN package_category b ON a.package_id = b.package_id
-                 WHERE 
-                    a.id = ?`;
+                b.category_id 
+              FROM 
+                examination_order a
+                JOIN package_category b ON a.package_id = b.package_id
+              WHERE 
+              a.id = ?`;
     let [que] = await db.query(sql, [orderId]);
     let values = que.map((item) => [
       item.category_id,
@@ -72,34 +136,16 @@ router.post("/update", async function (req, res) {
     // 科室id
     const departmentIds = categoryRes.map((item) => item.department_id);
     const uniqueDepartmentIds = [...new Set(departmentIds)];
-    uniqueDepartmentIds.forEach(async (item, index) => {
-      const [departmentRes] = await db.query(
+    await Promise.all(uniqueDepartmentIds.map((item, index) => {
+      return db.query(
         "INSERT INTO queue (department_id, serial_number, order_id, time) VALUES (?, ?, ?, ?)",
         [item, orderId + index + 1, orderId, 30]
       );
-      // console.log("$$", departmentRes);
-    });
-  } else {
-    Examinee.updateOne(examinee, examinee.id);
-    // await db.query(
-    //   "update examinee (name, identification_number, sex, birthday, phone, create_time, user_id, relation) values ($1, $2, $3, $4, $5, CURRENT_TIMESTAMP, $6, $7)",
-    //   [name, identificationNumber, sex, birthday, phone, id, relationship]
-    // )
+    }));
+  } catch (error) {
+    console.error("error in orderProcess:", error);
+    throw error;
   }
-  res.send({ orderId });
-});
+};
 
-router.get("/list", async function (req, res) {
-  const { id } = req.body;
-  const [result] = await db.query("select * from examinee where user_id = ?", [
-    id,
-  ]);
-  res.send(underlineToCamel(result));
-});
-
-router.delete("/delete", async function (req, res) {
-  const { id } = req.query;
-  await db.query("delete from examinee where id = ?", [id]);
-  res.send();
-});
 module.exports = router;

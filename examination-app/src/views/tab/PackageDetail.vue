@@ -28,7 +28,14 @@
       <van-cell title="查看商品详情" is-link />
     </van-cell-group>
 
-    <van-button style="position: absolute; bottom: 0;" type="primary" @click="handlePreBook" block>立即预约</van-button>
+    <van-cell-group class="package-detail-cell-group">
+      <van-cell title="团购："><span>3人拼团，剩余{{ 3 - groupBuyNum }}人</span></van-cell>
+    </van-cell-group>
+
+    <van-button style="position: absolute; bottom: 0; width: 50%;" type="primary" @click="handlePreBook"
+      block>立即预约</van-button>
+    <van-button style="position: absolute; bottom: 0; right: 0; width: 50%;" type="warning" @click="handleGroupBuy"
+      block>团购</van-button>
   </div>
 </template>
 
@@ -36,7 +43,9 @@
 import {
   getPackageDetail,
   preBookExamination,
-  postNewAssignment
+  postNewAssignment,
+  groupBuy,
+  getGroupBuyNum
 } from '@/api/package';
 import ChangGui from '@/assets/package/ChangGui.jpg';
 import FuMu from '@/assets/package/FuMu.jpg';
@@ -44,6 +53,7 @@ import LaoNian from '@/assets/package/LaoNian.jpg';
 import QuanShen from '@/assets/package/QuanShen.jpg';
 import RuZhi from '@/assets/package/RuZhi.jpg';
 import { Dialog } from 'vant-green';
+import { Notify } from 'vant-green';
 export default {
   data: () => {
     return {
@@ -54,7 +64,8 @@ export default {
         "LaoNian.jpg": LaoNian,
         "QuanShen.jpg": QuanShen,
         "RuZhi.jpg": RuZhi
-      }
+      },
+      groupBuyNum: 0
     }
   },
   mounted() {
@@ -62,46 +73,75 @@ export default {
       this.packages = data;
       this.packages.img_src = this.imageMap[data.img_src];
     });
+    this.getNum();
   },
   methods: {
+    getNum() {
+      const packageId = this.$route.query.id;
+      const centerId = this.$route.query.centerId;
+      getGroupBuyNum({ packageId, centerId }).then(({ data }) => {
+        this.groupBuyNum = data.number;
+      });
+    },
     formatPrice() {
       return '¥' + (this.packages.price / 100).toFixed(2);
     },
     onClickLeft() {
       this.$router.back();
     },
-    async handlePreBook() {
-      const packageId = this.$route.query.id;
-      const centerId = this.$route.query.centerId;
+    async handleGroupBuy() {
+      Dialog.confirm({
+        message: '是否确认团购？',
+        confirmButtonText: '是',
+        cancelButtonText: '否'
+      }).then(async () => {
+        const packageId = this.$route.query.id;
+        const centerId = this.$route.query.centerId;
+        const res = await groupBuy({ packageId, centerId });
+        if (res.status === 200) {
+          const groupInformationId = res.data.groupInformationId;
+          this.preBook(groupInformationId)
+        }
+      })
 
-      const userInfo = this.$store.state.user.userInfo;
+    },
+    async handlePreBook() {
       Dialog.confirm({
         message: '是否确认预约？',
         confirmButtonText: '是',
         cancelButtonText: '否'
-      }).then(async () => {
-        const res = await preBookExamination({
-          id: userInfo.id,
-          packageId,
-          centerId,
-          examinee: {
-            name: userInfo.name,
-            identificationNumber: userInfo.identification_number,
-            sex: userInfo.sex,
-            birthday: this.formatDate(userInfo.birthday),
-            phone: userInfo.phone,
-            relationshipId: 1,
-            status: "add"
-          }
-        });
-        if(res.status === 200) {
-          const orderId = res.data.orderId;
-          console.log("@@@@", orderId);
-          // await postNewAssignment({ orderId });
-          this.onClickLeft();
+      }).then(() => {
+        this.preBook();
+      });
+
+    },
+    async preBook(groupInformationId) {
+      const centerId = this.$route.query.centerId;
+      const userInfo = this.$store.state.user.userInfo;
+      const packageId = this.$route.query.id;
+
+      const res = await preBookExamination({
+        id: userInfo.id,
+        packageId,
+        centerId,
+        groupInformationId,
+        examinee: {
+          name: userInfo.name,
+          identificationNumber: userInfo.identification_number,
+          sex: userInfo.sex,
+          birthday: this.formatDate(userInfo.birthday),
+          phone: userInfo.phone,
+          relationshipId: 1,
+          status: "add"
         }
       });
-      
+      if (res.status === 200) {
+        const orderId = res.data.orderId;
+        Notify({ type: 'success', message: res.message });
+        setTimeout(() => {
+          this.onClickLeft();
+        }, 1000)
+      }
     },
     formatDate(dateString) {
       const date = new Date(dateString);

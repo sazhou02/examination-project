@@ -19,3 +19,11 @@ export const preBookExamination = data => {
 export const postNewAssignment = data => {
     return http.post("/examination_order/newAssignment", data)
 }
+
+export const groupBuy = data => {
+    return http.post("/group/newGroup", data);
+}
+
+export const getGroupBuyNum = params => {
+    return http.get("/group/groupBuyNum", { params: params });
+}

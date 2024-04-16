@@ -16,8 +16,7 @@ router.post("/list", async (req, res) => {
                     d.name AS center_name,
                     a.examine_date AS examine_date,
                     a.status AS status,
-                    a.type AS type,
-                    IFNULL(e.company_name, 'N/A') AS company_name
+                    a.type AS type
                 FROM 
                     examination_order a
                     JOIN examinee b ON a.examinee_id = b.id

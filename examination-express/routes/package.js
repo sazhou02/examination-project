@@ -106,7 +106,6 @@ router.post("/packageInCenter", async (req, res) => {
         WHERE ec.id = ?
     `;
     const [results] = await db.query(sql, [centerId]);
-    console.log(results);
     if (results.length > 0) {
         const response = {
             centerInfo: {
