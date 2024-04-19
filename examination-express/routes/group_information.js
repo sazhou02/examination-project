@@ -13,7 +13,7 @@ router.post("/page", async function (req, res) {
   const { page, size } = req.body;
   // 在MySQL中，参数化查询使用 ? 作为占位符
   const [result] = await db.query(
-    "SELECT *, p.name AS package_name, g.id AS id FROM group_information AS g JOIN package AS p ON g.package_id = p.id LIMIT ?, ?",
+    "SELECT *, p.name AS package_name, e.name AS center_name, g.id AS id FROM group_information AS g JOIN package AS p ON g.package_id = p.id JOIN examination_center AS e ON g.center_id = e.id LIMIT ?, ?",
     [(page - 1) * size, size]
   );
   const [[{ count: sum }]] = await db.query(
