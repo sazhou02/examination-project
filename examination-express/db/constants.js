@@ -11,10 +11,7 @@ const COLUMNS = {
     "address",
     "nearby",
     "telephone",
-    "latitude",
-    "longitude",
-    "district_id",
-    "operator_id"
+    "morning_limit"
   ],
   examination_order: [
     "examinee_id",

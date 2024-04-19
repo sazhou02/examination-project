@@ -7,6 +7,17 @@ const xlsx = require('node-xlsx');
 const multer = require('multer');
 const fs = require('fs');
 
+router.get("/isLimit", async (req, res) => {
+  const { id } = req.query;
+  const sql1 = `SELECT morning_limit FROM examination_center WHERE id = ?`;
+  const [limitResult] = await db.query(sql1, [id]);
+  const { morning_limit } = limitResult[0];
+  const sql2 = `SELECT COUNT(*) AS count FROM examination_order WHERE center_id = ?`;
+  const [orderResult] = await db.query(sql2, [id]);
+  const { count } = orderResult[0];
+  res.send({ isLimit: count >= morning_limit });
+});
+
 router.post("/list", async (req, res) => {
   const { curPage, pageSize, searchValue } = req.body;
   const sql = `SELECT a.id AS id,

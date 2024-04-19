@@ -16,6 +16,7 @@ router.post("/update", async function (req, res) {
       phone,
       relationshipId,
       status,
+      examineDate
     } = examinee;
 
     let orderId, examineeId;
@@ -43,8 +44,8 @@ router.post("/update", async function (req, res) {
         examineeId = examineeRes[0].id;
       }
       const [ordeRres] = await db.query(
-        "INSERT INTO examination_order (examinee_id, package_id, status, type, examine_date, period, group_information_id, center_id, phone, breakfast) VALUES (?, ?, ?, ?, CURRENT_TIMESTAMP, ?, ?, ?, ?, ?)",
-        [examineeId, packageId, 1, 1, 0, groupInformationId, centerId, phone, 0]
+        "INSERT INTO examination_order (examinee_id, package_id, status, type, examine_date, period, group_information_id, center_id, phone, breakfast) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)",
+        [examineeId, packageId, 1, 1, examineDate, 0, groupInformationId, centerId, phone, 0]
       );
       console.log("groupInformationId:::", groupInformationId);
       if (groupInformationId) {

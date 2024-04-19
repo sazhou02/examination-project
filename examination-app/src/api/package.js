@@ -27,3 +27,7 @@ export const groupBuy = data => {
 export const getGroupBuyNum = params => {
     return http.get("/group/groupBuyNum", { params: params });
 }
+
+export const getCenterIsLimit = params => {
+    return http.get("/examination_center/isLimit", { params: params });
+}

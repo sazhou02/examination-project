@@ -36,6 +36,14 @@
       block>立即预约</van-button>
     <van-button style="position: absolute; bottom: 0; right: 0; width: 50%;" type="warning" @click="handleGroupBuy"
       block>团购</van-button>
+
+    <van-dialog v-model="showDialog" title="预约时间" show-cancel-button @confirm="handleDialogConfirm">
+      <van-datetime-picker
+        v-model="examineDate"
+        type="date"
+        :show-toolbar="false"
+      />
+    </van-dialog>
   </div>
 </template>
 
@@ -45,7 +53,8 @@ import {
   preBookExamination,
   postNewAssignment,
   groupBuy,
-  getGroupBuyNum
+  getGroupBuyNum,
+  getCenterIsLimit
 } from '@/api/package';
 import ChangGui from '@/assets/package/ChangGui.jpg';
 import FuMu from '@/assets/package/FuMu.jpg';
@@ -57,6 +66,9 @@ import { Notify } from 'vant-green';
 export default {
   data: () => {
     return {
+      isGroupBuy: false,
+      examineDate: new Date(),
+      showDialog: false,
       packages: {},
       imageMap: {
         "ChangGui.jpg": ChangGui,
@@ -80,7 +92,9 @@ export default {
       const packageId = this.$route.query.id;
       const centerId = this.$route.query.centerId;
       getGroupBuyNum({ packageId, centerId }).then(({ data }) => {
-        this.groupBuyNum = data.number;
+        if (data.number) {
+          this.groupBuyNum = data.number;
+        }
       });
     },
     formatPrice() {
@@ -89,12 +103,8 @@ export default {
     onClickLeft() {
       this.$router.back();
     },
-    async handleGroupBuy() {
-      Dialog.confirm({
-        message: '是否确认团购？',
-        confirmButtonText: '是',
-        cancelButtonText: '否'
-      }).then(async () => {
+    async handleDialogConfirm() {
+      if (this.isGroupBuy) {
         const packageId = this.$route.query.id;
         const centerId = this.$route.query.centerId;
         const res = await groupBuy({ packageId, centerId });
@@ -102,18 +112,58 @@ export default {
           const groupInformationId = res.data.groupInformationId;
           this.preBook(groupInformationId)
         }
+      } else {
+        this.preBook();
+      }
+    },
+    async handleGroupBuy() {
+      this.isGroupBuy = true;
+      Dialog.confirm({
+        message: '是否确认团购？',
+        confirmButtonText: '是',
+        cancelButtonText: '否'
+      }).then(async () => {
+        if (!await this.getLimit()) {
+          this.showDialog = true;
+        } else {
+          Dialog.alert({
+            message: "该体检中心预约人数已上限，请稍后再试！"
+          }).then(() => {
+            // on close
+          });
+        }
       })
 
     },
     async handlePreBook() {
+      this.isGroupBuy = false;
       Dialog.confirm({
         message: '是否确认预约？',
         confirmButtonText: '是',
         cancelButtonText: '否'
-      }).then(() => {
-        this.preBook();
+      }).then(async () => {
+        if (!await this.getLimit()) {
+          this.showDialog = true;
+        } else {
+          Dialog.alert({
+            message: "该体检中心预约人数已上限，请稍后再试！"
+          }).then(() => {
+            // on close
+          });
+        }
       });
 
+    },
+    async getLimit() {
+      try {
+        const centerId = this.$route.query.centerId;
+        const { data, status } = await getCenterIsLimit({ id: centerId });
+        if (status === 200) {
+          return data.isLimit;
+        }
+      } catch (error) {
+        console.error(error);
+      }
     },
     async preBook(groupInformationId) {
       const centerId = this.$route.query.centerId;
@@ -132,7 +182,8 @@ export default {
           birthday: this.formatDate(userInfo.birthday),
           phone: userInfo.phone,
           relationshipId: 1,
-          status: "add"
+          status: "add",
+          examineDate: this.formatDate(this.examineDate)
         }
       });
       if (res.status === 200) {
