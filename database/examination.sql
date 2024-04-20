@@ -1,380 +1,298 @@
-/*
- Navicat Premium Data Transfer
+-- MySQL dump 10.13  Distrib 8.0.33, for Win64 (x86_64)
+--
+-- Host: localhost    Database: examination
+-- ------------------------------------------------------
+-- Server version	8.0.31
 
- Source Server         : localhost_3306
- Source Server Type    : MySQL
- Source Server Version : 80031 (8.0.31)
- Source Host           : localhost:3306
- Source Schema         : examination
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!50503 SET NAMES utf8 */;
+/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
+/*!40103 SET TIME_ZONE='+00:00' */;
+/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
- Target Server Type    : MySQL
- Target Server Version : 80031 (8.0.31)
- File Encoding         : 65001
+--
+-- Table structure for table `admin`
+--
 
- Date: 05/03/2024 17:02:54
-*/
-
-SET NAMES utf8mb4;
-SET FOREIGN_KEY_CHECKS = 0;
-
--- ----------------------------
--- Table structure for admin
--- ----------------------------
 DROP TABLE IF EXISTS `admin`;
-CREATE TABLE `admin`  (
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `admin` (
   `id` int NOT NULL AUTO_INCREMENT,
-  `name` char(32) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci NOT NULL COMMENT '姓名',
-  `phone` char(11) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci NOT NULL COMMENT '手机号（用作账号）',
-  `password` varchar(16) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci NOT NULL COMMENT '密码',
+  `name` char(32) NOT NULL COMMENT '姓名',
+  `phone` char(11) NOT NULL COMMENT '手机号（用作账号）',
+  `password` varchar(16) NOT NULL COMMENT '密码',
   `role_id` int NOT NULL COMMENT '角色id',
   `create_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
-  PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 75 CHARACTER SET = utf8mb3 COLLATE = utf8mb3_general_ci ROW_FORMAT = Dynamic;
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=75 DEFAULT CHARSET=utf8mb3;
+/*!40101 SET character_set_client = @saved_cs_client */;
 
--- ----------------------------
--- Records of admin
--- ----------------------------
-INSERT INTO `admin` VALUES (3, '李佳晨', '13928483978', '123456', 1, '2024-01-12 18:12:30');
-INSERT INTO `admin` VALUES (4, '赵云贵', '13749828594', '135246', 1, '2024-01-10 12:31:44');
-INSERT INTO `admin` VALUES (5, '王丽', '17849820543', '123123', 1, '2024-01-11 13:48:34');
-INSERT INTO `admin` VALUES (6, '孙思蕊', '16738749385', '142536', 1, '2024-01-11 13:48:34');
-INSERT INTO `admin` VALUES (7, '王富贵', '17839842654', '346456', 1, '2024-01-18 15:05:02');
-INSERT INTO `admin` VALUES (16, '王绥', '17836728473', '135246', 1, '2024-01-18 19:07:41');
-INSERT INTO `admin` VALUES (58, '王德法', '17839826473', '135267', 1, '2024-01-18 19:32:19');
-INSERT INTO `admin` VALUES (59, '武广', '17842626473', '135267', 1, '2024-01-18 19:33:29');
-INSERT INTO `admin` VALUES (60, '崔荟', '17839824325', '111111', 1, '2024-01-18 01:35:05');
-INSERT INTO `admin` VALUES (61, '李存', '17839827384', '123123', 1, '2024-01-18 01:35:44');
-INSERT INTO `admin` VALUES (62, '吴语', '17893827342', '123123', 1, '2024-01-18 01:46:32');
-INSERT INTO `admin` VALUES (64, '医生一', '16728736455', '111111', 1, '2024-01-18 02:28:40');
-INSERT INTO `admin` VALUES (66, '河汉清', '16738728394', '123123', 19, '2024-01-18 02:45:43');
-INSERT INTO `admin` VALUES (67, '王主任', '16738723412', '123123', 20, '2024-01-18 02:54:20');
-INSERT INTO `admin` VALUES (68, '王波', '17839827394', '111111', 21, '2024-01-18 09:53:18');
-INSERT INTO `admin` VALUES (69, '伍慕庭', '13472413472', '123456', 1, '2024-01-18 19:16:21');
-INSERT INTO `admin` VALUES (72, '心血管内科一号机', '11111111111', '123456', 22, '2024-01-18 11:15:59');
-INSERT INTO `admin` VALUES (73, '血液内科一号机', '11111111111', '123456', 24, '2024-01-18 18:10:05');
-INSERT INTO `admin` VALUES (74, '测试姓名', '14532038606', '123456', 30, '2024-01-25 21:25:33');
+--
+-- Dumping data for table `admin`
+--
 
--- ----------------------------
--- Table structure for assignment
--- ----------------------------
+LOCK TABLES `admin` WRITE;
+/*!40000 ALTER TABLE `admin` DISABLE KEYS */;
+INSERT INTO `admin` VALUES (3,'李佳晨','13928483978','123456',1,'2024-01-12 10:12:30'),(4,'赵云贵','13749828594','135246',1,'2024-01-10 04:31:44'),(5,'王丽','17849820543','123123',1,'2024-01-11 05:48:34'),(6,'孙思蕊','16738749385','142536',1,'2024-01-11 05:48:34'),(7,'王富贵','17839842654','346456',1,'2024-01-18 07:05:02'),(16,'王绥','17836728473','135246',1,'2024-01-18 11:07:41'),(58,'王德法','17839826473','135267',1,'2024-01-18 11:32:19'),(59,'武广','17842626473','135267',1,'2024-01-18 11:33:29'),(60,'崔荟','17839824325','111111',1,'2024-01-17 17:35:05'),(61,'李存','17839827384','123123',1,'2024-01-17 17:35:44'),(62,'吴语','17893827342','123123',1,'2024-01-17 17:46:32'),(64,'医生一','16728736455','111111',1,'2024-01-17 18:28:40'),(66,'河汉清','16738728394','123123',19,'2024-01-17 18:45:43'),(67,'王主任','16738723412','123123',20,'2024-01-17 18:54:20'),(68,'王波','17839827394','111111',21,'2024-01-18 01:53:18'),(69,'伍慕庭','13472413472','123456',1,'2024-01-18 11:16:21'),(72,'心血管内科一号机','11111111111','123456',22,'2024-01-18 03:15:59'),(73,'血液内科一号机','11111111111','123456',24,'2024-01-18 10:10:05'),(74,'测试姓名','14532038606','123456',30,'2024-01-25 13:25:33');
+/*!40000 ALTER TABLE `admin` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `assignment`
+--
+
 DROP TABLE IF EXISTS `assignment`;
-CREATE TABLE `assignment`  (
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `assignment` (
   `id` int NOT NULL AUTO_INCREMENT,
   `category_id` int NOT NULL COMMENT '项目分类id',
   `order_id` int NOT NULL COMMENT '订单id',
-  `doctor_id` int NULL DEFAULT NULL COMMENT '医生id',
+  `doctor_id` int DEFAULT NULL COMMENT '医生id',
   `status` smallint NOT NULL COMMENT '0-待检查 1-已完成',
   `is_extra` tinyint(1) NOT NULL COMMENT '是否为增检项目',
-  `create_time` varchar(255) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci NULL DEFAULT NULL,
-  PRIMARY KEY (`id`) USING BTREE,
-  INDEX `doctor_id`(`doctor_id` ASC) USING BTREE,
-  INDEX `category_id`(`category_id` ASC) USING BTREE,
-  INDEX `order_id`(`order_id` ASC) USING BTREE,
-  CONSTRAINT `assignment_ibfk_1` FOREIGN KEY (`doctor_id`) REFERENCES `admin` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT,
-  CONSTRAINT `assignment_ibfk_2` FOREIGN KEY (`category_id`) REFERENCES `category` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT,
-  CONSTRAINT `assignment_ibfk_3` FOREIGN KEY (`order_id`) REFERENCES `examination_order` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT
-) ENGINE = InnoDB AUTO_INCREMENT = 282 CHARACTER SET = utf8mb3 COLLATE = utf8mb3_general_ci ROW_FORMAT = Dynamic;
+  `create_time` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `doctor_id` (`doctor_id`),
+  KEY `category_id` (`category_id`),
+  KEY `order_id` (`order_id`),
+  CONSTRAINT `assignment_ibfk_1` FOREIGN KEY (`doctor_id`) REFERENCES `admin` (`id`),
+  CONSTRAINT `assignment_ibfk_2` FOREIGN KEY (`category_id`) REFERENCES `category` (`id`),
+  CONSTRAINT `assignment_ibfk_3` FOREIGN KEY (`order_id`) REFERENCES `examination_order` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=372 DEFAULT CHARSET=utf8mb3;
+/*!40101 SET character_set_client = @saved_cs_client */;
 
--- ----------------------------
--- Records of assignment
--- ----------------------------
-INSERT INTO `assignment` VALUES (206, 2, 2, NULL, 0, 0, NULL);
-INSERT INTO `assignment` VALUES (207, 7, 2, 3, 1, 0, NULL);
-INSERT INTO `assignment` VALUES (208, 5, 2, NULL, 0, 0, NULL);
-INSERT INTO `assignment` VALUES (209, 4, 2, NULL, 0, 0, NULL);
-INSERT INTO `assignment` VALUES (210, 9, 2, 3, 1, 0, NULL);
-INSERT INTO `assignment` VALUES (211, 12, 2, 3, 1, 0, NULL);
-INSERT INTO `assignment` VALUES (212, 13, 2, 3, 1, 0, NULL);
-INSERT INTO `assignment` VALUES (213, 14, 2, 3, 1, 0, NULL);
-INSERT INTO `assignment` VALUES (214, 8, 2, NULL, 0, 0, NULL);
-INSERT INTO `assignment` VALUES (216, 11, 2, 3, 1, 0, NULL);
-INSERT INTO `assignment` VALUES (217, 1, 2, NULL, 0, 0, NULL);
-INSERT INTO `assignment` VALUES (218, 3, 2, NULL, 0, 0, NULL);
-INSERT INTO `assignment` VALUES (219, 6, 2, NULL, 0, 0, NULL);
-INSERT INTO `assignment` VALUES (220, 9, 1, NULL, 0, 1, NULL);
-INSERT INTO `assignment` VALUES (221, 6, 1, NULL, 0, 1, NULL);
-INSERT INTO `assignment` VALUES (223, 1, 9, NULL, 0, 0, NULL);
-INSERT INTO `assignment` VALUES (224, 2, 9, NULL, 0, 0, NULL);
-INSERT INTO `assignment` VALUES (225, 3, 9, NULL, 0, 0, NULL);
-INSERT INTO `assignment` VALUES (226, 4, 9, NULL, 0, 0, NULL);
-INSERT INTO `assignment` VALUES (227, 5, 9, NULL, 0, 0, NULL);
-INSERT INTO `assignment` VALUES (228, 6, 9, NULL, 0, 0, NULL);
-INSERT INTO `assignment` VALUES (229, 7, 9, NULL, 0, 0, NULL);
-INSERT INTO `assignment` VALUES (230, 8, 9, NULL, 0, 0, NULL);
-INSERT INTO `assignment` VALUES (231, 9, 9, NULL, 0, 0, NULL);
-INSERT INTO `assignment` VALUES (233, 11, 9, NULL, 0, 0, NULL);
-INSERT INTO `assignment` VALUES (234, 12, 9, NULL, 0, 0, NULL);
-INSERT INTO `assignment` VALUES (235, 13, 9, NULL, 0, 0, NULL);
-INSERT INTO `assignment` VALUES (236, 14, 9, NULL, 0, 0, NULL);
-INSERT INTO `assignment` VALUES (237, 1, 25, 3, 1, 0, '2024-02-29 20:40:44.285');
-INSERT INTO `assignment` VALUES (238, 2, 25, 3, 1, 0, '2024-02-29 20:40:44.285');
-INSERT INTO `assignment` VALUES (239, 3, 25, 3, 1, 0, '2024-02-29 20:40:44.285');
-INSERT INTO `assignment` VALUES (240, 4, 25, 3, 1, 0, '2024-02-29 20:40:44.285');
-INSERT INTO `assignment` VALUES (241, 5, 25, 3, 1, 0, '2024-02-29 20:40:44.285');
-INSERT INTO `assignment` VALUES (242, 6, 25, 3, 1, 0, '2024-02-29 20:40:44.285');
-INSERT INTO `assignment` VALUES (243, 7, 25, 3, 1, 0, '2024-02-29 20:40:44.285');
-INSERT INTO `assignment` VALUES (244, 8, 25, 3, 1, 0, '2024-02-29 20:40:44.285');
-INSERT INTO `assignment` VALUES (245, 9, 25, 3, 1, 0, '2024-02-29 20:40:44.285');
-INSERT INTO `assignment` VALUES (247, 11, 25, 3, 1, 0, '2024-02-29 20:40:44.285');
-INSERT INTO `assignment` VALUES (248, 12, 25, 3, 1, 0, '2024-02-29 20:40:44.285');
-INSERT INTO `assignment` VALUES (249, 13, 25, 3, 1, 0, '2024-02-29 20:40:44.285');
-INSERT INTO `assignment` VALUES (250, 14, 25, 3, 1, 0, '2024-02-29 20:40:44.285');
-INSERT INTO `assignment` VALUES (251, 2, 26, 3, 1, 0, '2024-03-03 21:24:10.481');
-INSERT INTO `assignment` VALUES (252, 3, 26, 3, 1, 0, '2024-03-03 21:24:10.481');
-INSERT INTO `assignment` VALUES (253, 4, 26, 3, 1, 0, '2024-03-03 21:24:10.481');
-INSERT INTO `assignment` VALUES (254, 5, 26, 3, 1, 0, '2024-03-03 21:24:10.481');
-INSERT INTO `assignment` VALUES (255, 7, 26, 3, 1, 0, '2024-03-03 21:24:10.481');
-INSERT INTO `assignment` VALUES (256, 9, 26, 3, 1, 0, '2024-03-03 21:24:10.481');
-INSERT INTO `assignment` VALUES (257, 10, 26, NULL, 0, 0, '2024-03-03 21:24:10.481');
-INSERT INTO `assignment` VALUES (258, 2, 27, 3, 1, 0, '2024-03-04 15:56:22.478');
-INSERT INTO `assignment` VALUES (259, 3, 27, 3, 1, 0, '2024-03-04 15:56:22.478');
-INSERT INTO `assignment` VALUES (260, 4, 27, 3, 1, 0, '2024-03-04 15:56:22.478');
-INSERT INTO `assignment` VALUES (261, 5, 27, 3, 1, 0, '2024-03-04 15:56:22.478');
-INSERT INTO `assignment` VALUES (262, 7, 27, 3, 1, 0, '2024-03-04 15:56:22.478');
-INSERT INTO `assignment` VALUES (263, 9, 27, 3, 1, 0, '2024-03-04 15:56:22.478');
-INSERT INTO `assignment` VALUES (264, 1, 28, 3, 1, 0, '2024-03-05 16:00:43.532');
-INSERT INTO `assignment` VALUES (265, 2, 28, 3, 1, 0, '2024-03-05 16:00:43.532');
-INSERT INTO `assignment` VALUES (266, 3, 28, 3, 1, 0, '2024-03-05 16:00:43.532');
-INSERT INTO `assignment` VALUES (267, 4, 28, 3, 1, 0, '2024-03-05 16:00:43.532');
-INSERT INTO `assignment` VALUES (268, 5, 28, 3, 1, 0, '2024-03-05 16:00:43.532');
-INSERT INTO `assignment` VALUES (269, 6, 28, 3, 1, 0, '2024-03-05 16:00:43.532');
-INSERT INTO `assignment` VALUES (270, 8, 28, 3, 1, 0, '2024-03-05 16:00:43.532');
-INSERT INTO `assignment` VALUES (271, 9, 28, 3, 1, 0, '2024-03-05 16:00:43.532');
-INSERT INTO `assignment` VALUES (272, 11, 28, 3, 1, 0, '2024-03-05 16:00:43.532');
-INSERT INTO `assignment` VALUES (273, 12, 28, 3, 1, 0, '2024-03-05 16:00:43.532');
-INSERT INTO `assignment` VALUES (274, 13, 28, 3, 1, 0, '2024-03-05 16:00:43.532');
-INSERT INTO `assignment` VALUES (275, 14, 28, 3, 1, 0, '2024-03-05 16:00:43.532');
-INSERT INTO `assignment` VALUES (276, 2, 29, 3, 1, 0, '2024-03-05 16:58:33.466');
-INSERT INTO `assignment` VALUES (277, 3, 29, 3, 1, 0, '2024-03-05 16:58:33.466');
-INSERT INTO `assignment` VALUES (278, 4, 29, 3, 1, 0, '2024-03-05 16:58:33.466');
-INSERT INTO `assignment` VALUES (279, 5, 29, 3, 1, 0, '2024-03-05 16:58:33.466');
-INSERT INTO `assignment` VALUES (280, 7, 29, 3, 1, 0, '2024-03-05 16:58:33.466');
-INSERT INTO `assignment` VALUES (281, 9, 29, 3, 1, 0, '2024-03-05 16:58:33.466');
+--
+-- Dumping data for table `assignment`
+--
 
--- ----------------------------
--- Table structure for category
--- ----------------------------
+LOCK TABLES `assignment` WRITE;
+/*!40000 ALTER TABLE `assignment` DISABLE KEYS */;
+INSERT INTO `assignment` VALUES (206,2,2,NULL,0,0,NULL),(207,7,2,3,1,0,NULL),(208,5,2,NULL,0,0,NULL),(209,4,2,NULL,0,0,NULL),(210,9,2,3,1,0,NULL),(211,12,2,3,1,0,NULL),(212,13,2,3,1,0,NULL),(213,14,2,3,1,0,NULL),(214,8,2,NULL,0,0,NULL),(216,11,2,3,1,0,NULL),(217,1,2,NULL,0,0,NULL),(218,3,2,NULL,0,0,NULL),(219,6,2,NULL,0,0,NULL),(220,9,1,NULL,0,1,NULL),(221,6,1,NULL,0,1,NULL),(223,1,9,NULL,0,0,NULL),(224,2,9,NULL,0,0,NULL),(225,3,9,NULL,0,0,NULL),(226,4,9,NULL,0,0,NULL),(227,5,9,NULL,0,0,NULL),(228,6,9,NULL,0,0,NULL),(229,7,9,NULL,0,0,NULL),(230,8,9,NULL,0,0,NULL),(231,9,9,NULL,0,0,NULL),(233,11,9,NULL,0,0,NULL),(234,12,9,NULL,0,0,NULL),(235,13,9,NULL,0,0,NULL),(236,14,9,NULL,0,0,NULL),(237,1,25,3,1,0,'2024-02-29 20:40:44.285'),(238,2,25,3,1,0,'2024-02-29 20:40:44.285'),(239,3,25,3,1,0,'2024-02-29 20:40:44.285'),(240,4,25,3,1,0,'2024-02-29 20:40:44.285'),(241,5,25,3,1,0,'2024-02-29 20:40:44.285'),(242,6,25,3,1,0,'2024-02-29 20:40:44.285'),(243,7,25,3,1,0,'2024-02-29 20:40:44.285'),(244,8,25,3,1,0,'2024-02-29 20:40:44.285'),(245,9,25,3,1,0,'2024-02-29 20:40:44.285'),(247,11,25,3,1,0,'2024-02-29 20:40:44.285'),(248,12,25,3,1,0,'2024-02-29 20:40:44.285'),(249,13,25,3,1,0,'2024-02-29 20:40:44.285'),(250,14,25,3,1,0,'2024-02-29 20:40:44.285'),(251,2,26,3,1,0,'2024-03-03 21:24:10.481'),(252,3,26,3,1,0,'2024-03-03 21:24:10.481'),(253,4,26,3,1,0,'2024-03-03 21:24:10.481'),(254,5,26,3,1,0,'2024-03-03 21:24:10.481'),(255,7,26,3,1,0,'2024-03-03 21:24:10.481'),(256,9,26,3,1,0,'2024-03-03 21:24:10.481'),(257,10,26,NULL,0,0,'2024-03-03 21:24:10.481'),(258,2,27,3,1,0,'2024-03-04 15:56:22.478'),(259,3,27,3,1,0,'2024-03-04 15:56:22.478'),(260,4,27,3,1,0,'2024-03-04 15:56:22.478'),(261,5,27,3,1,0,'2024-03-04 15:56:22.478'),(262,7,27,3,1,0,'2024-03-04 15:56:22.478'),(263,9,27,3,1,0,'2024-03-04 15:56:22.478'),(264,1,28,3,1,0,'2024-03-05 16:00:43.532'),(265,2,28,3,1,0,'2024-03-05 16:00:43.532'),(266,3,28,3,1,0,'2024-03-05 16:00:43.532'),(267,4,28,3,1,0,'2024-03-05 16:00:43.532'),(268,5,28,3,1,0,'2024-03-05 16:00:43.532'),(269,6,28,3,1,0,'2024-03-05 16:00:43.532'),(270,8,28,3,1,0,'2024-03-05 16:00:43.532'),(271,9,28,3,1,0,'2024-03-05 16:00:43.532'),(272,11,28,3,1,0,'2024-03-05 16:00:43.532'),(273,12,28,3,1,0,'2024-03-05 16:00:43.532'),(274,13,28,3,1,0,'2024-03-05 16:00:43.532'),(275,14,28,3,1,0,'2024-03-05 16:00:43.532'),(276,2,29,3,1,0,'2024-03-05 16:58:33.466'),(277,3,29,3,1,0,'2024-03-05 16:58:33.466'),(278,4,29,3,1,0,'2024-03-05 16:58:33.466'),(279,5,29,3,1,0,'2024-03-05 16:58:33.466'),(280,7,29,3,1,0,'2024-03-05 16:58:33.466'),(281,9,29,3,1,0,'2024-03-05 16:58:33.466'),(354,2,37,3,1,0,'2024-04-16 15:52:37.266'),(355,3,37,3,1,0,'2024-04-16 15:52:37.266'),(356,4,37,3,1,0,'2024-04-16 15:52:37.266'),(357,5,37,3,1,0,'2024-04-16 15:52:37.266'),(358,7,37,3,1,0,'2024-04-16 15:52:37.266'),(359,9,37,3,1,0,'2024-04-16 15:52:37.266'),(360,2,38,3,1,0,'2024-04-16 15:52:37.266'),(361,3,38,3,1,0,'2024-04-16 15:52:37.266'),(362,4,38,3,1,0,'2024-04-16 15:52:37.266'),(363,5,38,3,1,0,'2024-04-16 15:52:37.266'),(364,7,38,3,1,0,'2024-04-16 15:52:37.266'),(365,9,38,3,1,0,'2024-04-16 15:52:37.266'),(366,2,43,3,1,0,'2024-04-16 15:52:37.266'),(367,3,43,3,1,0,'2024-04-16 15:52:37.266'),(368,4,43,3,1,0,'2024-04-16 15:52:37.266'),(369,5,43,3,1,0,'2024-04-16 15:52:37.266'),(370,7,43,3,1,0,'2024-04-16 15:52:37.266'),(371,9,43,3,1,0,'2024-04-16 15:52:37.266');
+/*!40000 ALTER TABLE `assignment` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `category`
+--
+
 DROP TABLE IF EXISTS `category`;
-CREATE TABLE `category`  (
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `category` (
   `id` int NOT NULL AUTO_INCREMENT,
-  `name` varchar(20) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci NOT NULL COMMENT '项目分类名称',
+  `name` varchar(20) NOT NULL COMMENT '项目分类名称',
   `package_id` int NOT NULL COMMENT '套餐id',
-  `average_duration` float NULL DEFAULT NULL COMMENT '该大项目平均检查时间',
-  `price` smallint NULL DEFAULT NULL COMMENT '该大项目的价格',
+  `average_duration` float DEFAULT NULL COMMENT '该大项目平均检查时间',
+  `price` smallint DEFAULT NULL COMMENT '该大项目的价格',
   `department_id` int NOT NULL COMMENT '科室id',
-  PRIMARY KEY (`id`) USING BTREE,
-  INDEX `department_id`(`department_id` ASC) USING BTREE,
-  INDEX `package_id`(`package_id` ASC) USING BTREE,
-  CONSTRAINT `category_ibfk_1` FOREIGN KEY (`department_id`) REFERENCES `department` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT,
-  CONSTRAINT `category_ibfk_2` FOREIGN KEY (`package_id`) REFERENCES `package` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT
-) ENGINE = InnoDB AUTO_INCREMENT = 16 CHARACTER SET = utf8mb3 COLLATE = utf8mb3_general_ci ROW_FORMAT = Dynamic;
+  PRIMARY KEY (`id`),
+  KEY `department_id` (`department_id`),
+  KEY `package_id` (`package_id`),
+  CONSTRAINT `category_ibfk_1` FOREIGN KEY (`department_id`) REFERENCES `department` (`id`),
+  CONSTRAINT `category_ibfk_2` FOREIGN KEY (`package_id`) REFERENCES `package` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8mb3;
+/*!40101 SET character_set_client = @saved_cs_client */;
 
--- ----------------------------
--- Records of category
--- ----------------------------
-INSERT INTO `category` VALUES (1, '一般检查', 1, 90, NULL, 25);
-INSERT INTO `category` VALUES (2, '内科检查', 1, 90, NULL, 10);
-INSERT INTO `category` VALUES (3, '外科检查', 1, 90, NULL, 19);
-INSERT INTO `category` VALUES (4, '心电图', 1, 90, NULL, 9);
-INSERT INTO `category` VALUES (5, '耳鼻喉检查', 1, 120, NULL, 17);
-INSERT INTO `category` VALUES (6, '肝胆脾胰彩超', 1, 180, NULL, 24);
-INSERT INTO `category` VALUES (7, '眼科检查', 1, 180, NULL, 16);
-INSERT INTO `category` VALUES (8, '甲状腺超声', 1, 30, NULL, 24);
-INSERT INTO `category` VALUES (9, '血常规', 1, 240, NULL, 14);
-INSERT INTO `category` VALUES (10, '尿常规', 1, NULL, NULL, 21);
-INSERT INTO `category` VALUES (11, '肾功能', 1, NULL, NULL, 14);
-INSERT INTO `category` VALUES (12, '糖化血红蛋白', 1, NULL, NULL, 14);
-INSERT INTO `category` VALUES (13, '空腹血糖', 1, NULL, NULL, 14);
-INSERT INTO `category` VALUES (14, '肿瘤12项', 1, NULL, NULL, 14);
-INSERT INTO `category` VALUES (15, '多喝热水', 1, NULL, NULL, 1);
+--
+-- Dumping data for table `category`
+--
 
--- ----------------------------
--- Table structure for center_package
--- ----------------------------
+LOCK TABLES `category` WRITE;
+/*!40000 ALTER TABLE `category` DISABLE KEYS */;
+INSERT INTO `category` VALUES (1,'一般检查',1,90,NULL,25),(2,'内科检查',1,90,NULL,10),(3,'外科检查',1,90,NULL,19),(4,'心电图',1,90,NULL,9),(5,'耳鼻喉检查',1,120,NULL,17),(6,'肝胆脾胰彩超',1,180,NULL,24),(7,'眼科检查',1,180,NULL,16),(8,'甲状腺超声',1,30,NULL,24),(9,'血常规',1,240,NULL,14),(10,'尿常规',1,NULL,NULL,21),(11,'肾功能',1,NULL,NULL,14),(12,'糖化血红蛋白',1,NULL,NULL,14),(13,'空腹血糖',1,NULL,NULL,14),(14,'肿瘤12项',1,NULL,NULL,14),(15,'多喝热水',1,NULL,NULL,1);
+/*!40000 ALTER TABLE `category` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `center_package`
+--
+
 DROP TABLE IF EXISTS `center_package`;
-CREATE TABLE `center_package`  (
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `center_package` (
   `id` int NOT NULL,
   `center_id` int NOT NULL COMMENT '体检机构id',
   `package_id` int NOT NULL COMMENT '套餐id',
-  PRIMARY KEY (`id`) USING BTREE,
-  INDEX `center_package_ibfk1`(`center_id` ASC) USING BTREE,
-  INDEX `center_package_ibfk2`(`package_id` ASC) USING BTREE,
+  PRIMARY KEY (`id`),
+  KEY `center_package_ibfk1` (`center_id`),
+  KEY `center_package_ibfk2` (`package_id`),
   CONSTRAINT `center_package_ibfk1` FOREIGN KEY (`center_id`) REFERENCES `examination_center` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT,
   CONSTRAINT `center_package_ibfk2` FOREIGN KEY (`package_id`) REFERENCES `package` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT
-) ENGINE = InnoDB CHARACTER SET = utf8mb3 COLLATE = utf8mb3_general_ci ROW_FORMAT = Dynamic;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
+/*!40101 SET character_set_client = @saved_cs_client */;
 
--- ----------------------------
--- Records of center_package
--- ----------------------------
-INSERT INTO `center_package` VALUES (1, 1, 1);
-INSERT INTO `center_package` VALUES (2, 1, 4);
-INSERT INTO `center_package` VALUES (3, 1, 5);
-INSERT INTO `center_package` VALUES (4, 1, 6);
-INSERT INTO `center_package` VALUES (5, 1, 7);
-INSERT INTO `center_package` VALUES (6, 2, 1);
-INSERT INTO `center_package` VALUES (7, 2, 4);
-INSERT INTO `center_package` VALUES (8, 2, 5);
-INSERT INTO `center_package` VALUES (9, 2, 6);
-INSERT INTO `center_package` VALUES (10, 2, 7);
-INSERT INTO `center_package` VALUES (11, 3, 6);
-INSERT INTO `center_package` VALUES (12, 4, 5);
-INSERT INTO `center_package` VALUES (13, 5, 6);
-INSERT INTO `center_package` VALUES (14, 6, 6);
-INSERT INTO `center_package` VALUES (15, 7, 1);
-INSERT INTO `center_package` VALUES (16, 8, 5);
-INSERT INTO `center_package` VALUES (17, 9, 5);
+--
+-- Dumping data for table `center_package`
+--
 
--- ----------------------------
--- Table structure for department
--- ----------------------------
+LOCK TABLES `center_package` WRITE;
+/*!40000 ALTER TABLE `center_package` DISABLE KEYS */;
+INSERT INTO `center_package` VALUES (1,1,1),(2,1,4),(3,1,5),(4,1,6),(5,1,7),(6,2,1),(7,2,4),(8,2,5),(9,2,6),(10,2,7),(11,3,6),(12,4,5),(13,5,6),(14,6,6),(15,7,1),(16,8,5),(17,9,5);
+/*!40000 ALTER TABLE `center_package` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `department`
+--
+
 DROP TABLE IF EXISTS `department`;
-CREATE TABLE `department`  (
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `department` (
   `id` int NOT NULL AUTO_INCREMENT,
-  `name` char(10) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci NOT NULL COMMENT '科室名称',
+  `name` char(10) NOT NULL COMMENT '科室名称',
   `parent_id` int NOT NULL COMMENT '父级科室id',
   `level` smallint NOT NULL COMMENT '科室等级',
-  `is_full` tinyint(1) NULL DEFAULT NULL COMMENT '是否已满',
+  `is_full` tinyint(1) DEFAULT NULL COMMENT '是否已满',
   `queue_length` int NOT NULL,
-  PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 26 CHARACTER SET = utf8mb3 COLLATE = utf8mb3_general_ci ROW_FORMAT = Dynamic;
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=26 DEFAULT CHARSET=utf8mb3;
+/*!40101 SET character_set_client = @saved_cs_client */;
 
--- ----------------------------
--- Records of department
--- ----------------------------
-INSERT INTO `department` VALUES (1, '医院', 0, 0, NULL, 0);
-INSERT INTO `department` VALUES (2, '内科学', 1, 1, NULL, 0);
-INSERT INTO `department` VALUES (3, '外科学', 1, 1, NULL, 0);
-INSERT INTO `department` VALUES (4, '医学影像学', 1, 1, NULL, 0);
-INSERT INTO `department` VALUES (5, '其它科室', 1, 1, NULL, 0);
-INSERT INTO `department` VALUES (6, '呼吸内科', 2, 2, NULL, 0);
-INSERT INTO `department` VALUES (7, '消化内科', 2, 2, NULL, 0);
-INSERT INTO `department` VALUES (8, '儿科', 2, 2, NULL, 0);
-INSERT INTO `department` VALUES (9, '心血管内科', 2, 2, NULL, -240);
-INSERT INTO `department` VALUES (10, '神经内科', 2, 2, NULL, -90);
-INSERT INTO `department` VALUES (11, '内分泌科', 2, 2, NULL, 0);
-INSERT INTO `department` VALUES (12, '肿瘤科', 2, 2, NULL, 0);
-INSERT INTO `department` VALUES (13, '肾脏内科', 2, 2, NULL, 0);
-INSERT INTO `department` VALUES (14, '血液内科', 2, 2, NULL, 360);
-INSERT INTO `department` VALUES (15, '口腔科', 3, 2, NULL, 0);
-INSERT INTO `department` VALUES (16, '眼科', 3, 2, NULL, -810);
-INSERT INTO `department` VALUES (17, '耳鼻喉科', 3, 2, NULL, -120);
-INSERT INTO `department` VALUES (18, '妇科', 3, 2, NULL, 0);
-INSERT INTO `department` VALUES (19, '普外科', 3, 2, NULL, -120);
-INSERT INTO `department` VALUES (20, '骨科', 3, 2, NULL, 0);
-INSERT INTO `department` VALUES (21, '泌尿外科', 3, 2, NULL, 0);
-INSERT INTO `department` VALUES (22, '乳腺外科', 3, 2, NULL, 0);
-INSERT INTO `department` VALUES (23, '放射科', 4, 2, NULL, 0);
-INSERT INTO `department` VALUES (24, '超声科', 4, 2, NULL, -60);
-INSERT INTO `department` VALUES (25, '体检科', 5, 2, NULL, -60);
+--
+-- Dumping data for table `department`
+--
 
--- ----------------------------
--- Table structure for department_doctor
--- ----------------------------
+LOCK TABLES `department` WRITE;
+/*!40000 ALTER TABLE `department` DISABLE KEYS */;
+INSERT INTO `department` VALUES (1,'医院',0,0,NULL,0),(2,'内科学',1,1,NULL,0),(3,'外科学',1,1,NULL,0),(4,'医学影像学',1,1,NULL,0),(5,'其它科室',1,1,NULL,0),(6,'呼吸内科',2,2,NULL,0),(7,'消化内科',2,2,NULL,0),(8,'儿科',2,2,NULL,0),(9,'心血管内科',2,2,NULL,-360),(10,'神经内科',2,2,NULL,-210),(11,'内分泌科',2,2,NULL,0),(12,'肿瘤科',2,2,NULL,0),(13,'肾脏内科',2,2,NULL,0),(14,'血液内科',2,2,NULL,240),(15,'口腔科',3,2,NULL,0),(16,'眼科',3,2,NULL,-930),(17,'耳鼻喉科',3,2,NULL,-240),(18,'妇科',3,2,NULL,0),(19,'普外科',3,2,NULL,-240),(20,'骨科',3,2,NULL,0),(21,'泌尿外科',3,2,NULL,0),(22,'乳腺外科',3,2,NULL,0),(23,'放射科',4,2,NULL,0),(24,'超声科',4,2,NULL,-60),(25,'体检科',5,2,NULL,-60);
+/*!40000 ALTER TABLE `department` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `department_doctor`
+--
+
 DROP TABLE IF EXISTS `department_doctor`;
-CREATE TABLE `department_doctor`  (
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `department_doctor` (
   `id` int NOT NULL AUTO_INCREMENT,
   `department_id` int NOT NULL COMMENT '科室id',
   `administer_id` int NOT NULL COMMENT '医生的用户id',
-  PRIMARY KEY (`id`) USING BTREE,
-  INDEX `administer_id`(`administer_id` ASC) USING BTREE,
-  INDEX `department_id`(`department_id` ASC) USING BTREE,
-  CONSTRAINT `department_doctor_ibfk_1` FOREIGN KEY (`administer_id`) REFERENCES `admin` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT,
-  CONSTRAINT `department_doctor_ibfk_2` FOREIGN KEY (`department_id`) REFERENCES `department` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT
-) ENGINE = InnoDB AUTO_INCREMENT = 2 CHARACTER SET = utf8mb3 COLLATE = utf8mb3_general_ci ROW_FORMAT = Dynamic;
+  PRIMARY KEY (`id`),
+  KEY `administer_id` (`administer_id`),
+  KEY `department_id` (`department_id`),
+  CONSTRAINT `department_doctor_ibfk_1` FOREIGN KEY (`administer_id`) REFERENCES `admin` (`id`),
+  CONSTRAINT `department_doctor_ibfk_2` FOREIGN KEY (`department_id`) REFERENCES `department` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb3;
+/*!40101 SET character_set_client = @saved_cs_client */;
 
--- ----------------------------
--- Records of department_doctor
--- ----------------------------
-INSERT INTO `department_doctor` VALUES (1, 6, 64);
+--
+-- Dumping data for table `department_doctor`
+--
 
--- ----------------------------
--- Table structure for district
--- ----------------------------
+LOCK TABLES `department_doctor` WRITE;
+/*!40000 ALTER TABLE `department_doctor` DISABLE KEYS */;
+INSERT INTO `department_doctor` VALUES (1,6,64);
+/*!40000 ALTER TABLE `department_doctor` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `district`
+--
+
 DROP TABLE IF EXISTS `district`;
-CREATE TABLE `district`  (
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `district` (
   `id` int NOT NULL AUTO_INCREMENT,
-  `name` char(8) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci NOT NULL COMMENT '区县名称',
-  PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 17 CHARACTER SET = utf8mb3 COLLATE = utf8mb3_general_ci ROW_FORMAT = Dynamic;
+  `name` char(8) NOT NULL COMMENT '区县名称',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8mb3;
+/*!40101 SET character_set_client = @saved_cs_client */;
 
--- ----------------------------
--- Records of district
--- ----------------------------
-INSERT INTO `district` VALUES (1, '南开区');
-INSERT INTO `district` VALUES (2, '河西区');
-INSERT INTO `district` VALUES (3, '河东区');
-INSERT INTO `district` VALUES (4, '和平区');
-INSERT INTO `district` VALUES (5, '河北区');
-INSERT INTO `district` VALUES (6, '北辰区');
-INSERT INTO `district` VALUES (7, '西青区');
-INSERT INTO `district` VALUES (8, '红桥区');
-INSERT INTO `district` VALUES (9, '武清区');
-INSERT INTO `district` VALUES (10, '东丽区');
-INSERT INTO `district` VALUES (11, '津南区');
-INSERT INTO `district` VALUES (12, '滨海新区');
-INSERT INTO `district` VALUES (13, '宝坻区');
-INSERT INTO `district` VALUES (14, '蓟州区');
+--
+-- Dumping data for table `district`
+--
 
--- ----------------------------
--- Table structure for doctor_status
--- ----------------------------
+LOCK TABLES `district` WRITE;
+/*!40000 ALTER TABLE `district` DISABLE KEYS */;
+INSERT INTO `district` VALUES (1,'南开区'),(2,'河西区'),(3,'河东区'),(4,'和平区'),(5,'河北区'),(6,'北辰区'),(7,'西青区'),(8,'红桥区'),(9,'武清区'),(10,'东丽区'),(11,'津南区'),(12,'滨海新区'),(13,'宝坻区'),(14,'蓟州区');
+/*!40000 ALTER TABLE `district` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `doctor_status`
+--
+
 DROP TABLE IF EXISTS `doctor_status`;
-CREATE TABLE `doctor_status`  (
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `doctor_status` (
   `id` int NOT NULL,
   `doctor_id` int NOT NULL COMMENT '等同于admin_id',
   `is_busy` tinyint(1) NOT NULL COMMENT '是否忙碌（正在检查）',
-  PRIMARY KEY (`id`) USING BTREE,
-  INDEX `doctor_id`(`doctor_id` ASC) USING BTREE,
-  CONSTRAINT `doctor_status_ibfk_1` FOREIGN KEY (`doctor_id`) REFERENCES `admin` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT
-) ENGINE = InnoDB CHARACTER SET = utf8mb3 COLLATE = utf8mb3_general_ci ROW_FORMAT = Dynamic;
+  PRIMARY KEY (`id`),
+  KEY `doctor_id` (`doctor_id`),
+  CONSTRAINT `doctor_status_ibfk_1` FOREIGN KEY (`doctor_id`) REFERENCES `admin` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
+/*!40101 SET character_set_client = @saved_cs_client */;
 
--- ----------------------------
--- Records of doctor_status
--- ----------------------------
-INSERT INTO `doctor_status` VALUES (1, 64, 1);
+--
+-- Dumping data for table `doctor_status`
+--
 
--- ----------------------------
--- Table structure for examination_center
--- ----------------------------
+LOCK TABLES `doctor_status` WRITE;
+/*!40000 ALTER TABLE `doctor_status` DISABLE KEYS */;
+INSERT INTO `doctor_status` VALUES (1,64,1);
+/*!40000 ALTER TABLE `doctor_status` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `examination_center`
+--
+
 DROP TABLE IF EXISTS `examination_center`;
-CREATE TABLE `examination_center`  (
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `examination_center` (
   `id` int NOT NULL AUTO_INCREMENT,
-  `name` varchar(26) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci NOT NULL COMMENT '体检机构名称',
-  `address` varchar(50) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci NOT NULL COMMENT '地址',
-  `nearby` varchar(50) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci NULL DEFAULT NULL COMMENT '最近的交通站点',
-  `telephone` char(13) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci NOT NULL COMMENT '联系电话',
-  `announcement` varchar(70) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci NULL DEFAULT NULL COMMENT '公告',
-  `img_src` varchar(255) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci NULL DEFAULT NULL COMMENT '医院图片',
+  `name` varchar(26) NOT NULL COMMENT '体检机构名称',
+  `address` varchar(50) NOT NULL COMMENT '地址',
+  `nearby` varchar(50) DEFAULT NULL COMMENT '最近的交通站点',
+  `telephone` char(13) NOT NULL COMMENT '联系电话',
+  `announcement` varchar(70) DEFAULT NULL COMMENT '公告',
+  `img_src` varchar(255) DEFAULT NULL COMMENT '医院图片',
   `response_time` varchar(255) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci NOT NULL COMMENT '响应时间\r\n响应时间',
   `consult_num` float NOT NULL COMMENT '咨询人数',
-  `morning_limit` smallint NULL DEFAULT NULL COMMENT '上午体检人数限制',
-  `afternoon_limit` smallint NULL DEFAULT NULL COMMENT '下午体检人数限制',
+  `morning_limit` smallint DEFAULT NULL COMMENT '上午体检人数限制',
+  `afternoon_limit` smallint DEFAULT NULL COMMENT '下午体检人数限制',
   `district_id` int NOT NULL COMMENT '区县id',
-  `is_hot` int NOT NULL DEFAULT 1 COMMENT '是否热门 1热门 ',
-  `price` decimal(10, 2) NOT NULL DEFAULT 666.00 COMMENT '价格',
-  PRIMARY KEY (`id`) USING BTREE,
-  INDEX `district_id`(`district_id` ASC) USING BTREE,
-  CONSTRAINT `examination_center_ibfk_1` FOREIGN KEY (`district_id`) REFERENCES `district` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT
-) ENGINE = InnoDB AUTO_INCREMENT = 10 CHARACTER SET = utf8mb3 COLLATE = utf8mb3_general_ci ROW_FORMAT = Dynamic;
+  `is_hot` int NOT NULL DEFAULT '1' COMMENT '是否热门 1热门 ',
+  `price` decimal(10,2) NOT NULL DEFAULT '666.00' COMMENT '价格',
+  PRIMARY KEY (`id`),
+  KEY `district_id` (`district_id`),
+  CONSTRAINT `examination_center_ibfk_1` FOREIGN KEY (`district_id`) REFERENCES `district` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb3;
+/*!40101 SET character_set_client = @saved_cs_client */;
 
--- ----------------------------
--- Records of examination_center
--- ----------------------------
-INSERT INTO `examination_center` VALUES (1, '天津市南开医院体检中心', '长江道6号', '地铁11号线', '62543212', '提前一天预约', 'NanKai.jpg', '2分56秒', 123, 24, 13, 1, 1, 333.00);
-INSERT INTO `examination_center` VALUES (2, '天津市黄河医院体检中心', '黄河道42号', '地铁6号线', '12345678', '当天8:30前预约', 'HuangHe.png', '5分56秒', 123, 24, 13, 1, 1, 626.00);
-INSERT INTO `examination_center` VALUES (3, '天津华苑民众体检中心', '榕苑路2号', '地铁3号线', '12345678', '当天8:30前预约', 'MinZhong.png', '10分56秒', 123, 24, 13, 1, 0, 686.00);
-INSERT INTO `examination_center` VALUES (4, '天津二七二医院体检中心', '多伦道182号', '地铁1号线', '12345678', '当天7:30前预约', 'ErQiEr.jpg', '6分56秒', 123, 24, 13, 4, 1, 888.00);
-INSERT INTO `examination_center` VALUES (5, '天津九华体检中心', '津湾广场6号', '地铁5号线', '12345678', '提前1天预约', 'JiuHua.jpg', '2分56秒', 123, 24, 13, 4, 0, 236.00);
-INSERT INTO `examination_center` VALUES (6, '天津美年大健康体检中心', '曲阜道38号', '地铁4号线', '12345678', '提前3天预约', 'MeiNian.jpg', '9分56秒', 123, 24, 13, 4, 0, 645.00);
-INSERT INTO `examination_center` VALUES (7, '天津市第四中心医院体检中心', '中山路3号', '地铁5号线', '12345678', '当天8:00前预约', 'DiSi.jpg', '2分59秒', 123, 24, 13, 5, 0, 555.00);
-INSERT INTO `examination_center` VALUES (8, '天津市第二医院体检中心', '正义道10号', '地铁7号线', '12345678', '当天7:00前预约', 'DiEr.jpg', '2分33秒', 123, 24, 13, 5, 0, 777.00);
-INSERT INTO `examination_center` VALUES (9, '天津市第一医院体检中心', '南口路186号', '地铁6号线', '12345678', '当天7:00前预约', 'DiYi.jpg', '2分56秒', 123, 24, 13, 5, 0, 666.00);
+--
+-- Dumping data for table `examination_center`
+--
 
--- ----------------------------
--- Table structure for examination_order
--- ----------------------------
+LOCK TABLES `examination_center` WRITE;
+/*!40000 ALTER TABLE `examination_center` DISABLE KEYS */;
+INSERT INTO `examination_center` VALUES (1,'天津市南开医院体检中心','长江道6号','地铁11号线','62543212','提前一天预约','NanKai.jpg','2分56秒',123,8,13,1,1,333.00),(2,'南开区','黄河道42号','地铁6号线','12345678','当天8:30前预约','HuangHe.png','5分56秒',123,15,13,1,1,626.00),(3,'南开区','榕苑路2号','地铁3号线','12345678','当天8:30前预约','MinZhong.png','10分56秒',123,15,13,1,0,686.00),(4,'和平区','多伦道182号','地铁1号线','12345678','当天7:30前预约','ErQiEr.jpg','6分56秒',123,15,13,4,1,888.00),(5,'和平区','津湾广场6号','地铁5号线','12345678','提前1天预约','JiuHua.jpg','2分56秒',123,18,13,4,0,236.00),(6,'天津美年大健康体检中心','曲阜道38号','地铁4号线','12345678','提前3天预约','MeiNian.jpg','9分56秒',123,24,13,4,0,645.00),(7,'天津市第四中心医院体检中心','中山路3号','地铁5号线','12345678','当天8:00前预约','DiSi.jpg','2分59秒',123,24,13,5,0,555.00),(8,'天津市第二医院体检中心','正义道10号','地铁7号线','12345678','当天7:00前预约','DiEr.jpg','2分33秒',123,24,13,5,0,777.00),(9,'天津市第一医院体检中心','南口路186号','地铁6号线','12345678','当天7:00前预约','DiYi.jpg','2分56秒',123,24,13,5,0,666.00);
+/*!40000 ALTER TABLE `examination_center` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `examination_order`
+--
+
 DROP TABLE IF EXISTS `examination_order`;
-CREATE TABLE `examination_order`  (
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `examination_order` (
   `id` int NOT NULL AUTO_INCREMENT,
   `examinee_id` int NOT NULL COMMENT '体检人id',
   `package_id` int NOT NULL COMMENT '套餐id',
@@ -382,1032 +300,478 @@ CREATE TABLE `examination_order`  (
   `type` smallint NOT NULL COMMENT '0-团检 1-个人体检',
   `examine_date` date NOT NULL COMMENT '预约日期',
   `period` smallint NOT NULL COMMENT '0-上午 1-下午',
-  `group_information_id` int NULL DEFAULT NULL COMMENT '关联团检信息表id',
+  `group_information_id` int DEFAULT NULL COMMENT '关联团检信息表id',
   `center_id` int NOT NULL COMMENT '所选体检中心id',
-  `phone` char(11) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci NULL DEFAULT NULL,
-  `breakfast` smallint NULL DEFAULT 0 COMMENT '吃饭状态',
-  PRIMARY KEY (`id`) USING BTREE,
-  INDEX `center_id`(`center_id` ASC) USING BTREE,
-  INDEX `examinee_id`(`examinee_id` ASC) USING BTREE,
-  INDEX `group_information_id`(`group_information_id` ASC) USING BTREE,
-  INDEX `package_id`(`package_id` ASC) USING BTREE,
-  CONSTRAINT `examination_order_ibfk_1` FOREIGN KEY (`center_id`) REFERENCES `examination_center` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT,
-  CONSTRAINT `examination_order_ibfk_2` FOREIGN KEY (`examinee_id`) REFERENCES `examinee` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT,
-  CONSTRAINT `examination_order_ibfk_3` FOREIGN KEY (`group_information_id`) REFERENCES `group_information` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT,
-  CONSTRAINT `examination_order_ibfk_4` FOREIGN KEY (`package_id`) REFERENCES `package` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT
-) ENGINE = InnoDB AUTO_INCREMENT = 30 CHARACTER SET = utf8mb3 COLLATE = utf8mb3_general_ci ROW_FORMAT = Dynamic;
+  `phone` char(11) DEFAULT NULL,
+  `breakfast` smallint DEFAULT '0' COMMENT '吃饭状态',
+  PRIMARY KEY (`id`),
+  KEY `center_id` (`center_id`),
+  KEY `examinee_id` (`examinee_id`),
+  KEY `group_information_id` (`group_information_id`),
+  KEY `package_id` (`package_id`),
+  CONSTRAINT `examination_order_ibfk_1` FOREIGN KEY (`center_id`) REFERENCES `examination_center` (`id`),
+  CONSTRAINT `examination_order_ibfk_2` FOREIGN KEY (`examinee_id`) REFERENCES `examinee` (`id`),
+  CONSTRAINT `examination_order_ibfk_3` FOREIGN KEY (`group_information_id`) REFERENCES `group_information` (`id`),
+  CONSTRAINT `examination_order_ibfk_4` FOREIGN KEY (`package_id`) REFERENCES `package` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=44 DEFAULT CHARSET=utf8mb3;
+/*!40101 SET character_set_client = @saved_cs_client */;
 
--- ----------------------------
--- Records of examination_order
--- ----------------------------
-INSERT INTO `examination_order` VALUES (1, 1, 3, 3, 1, '2024-02-11', 0, NULL, 1, '18317035553', 0);
-INSERT INTO `examination_order` VALUES (2, 2, 1, 5, 1, '2024-02-11', 0, NULL, 1, '13829223132', 0);
-INSERT INTO `examination_order` VALUES (9, 1, 1, 1, 1, '2024-02-28', 0, NULL, 1, '13829223132', 0);
-INSERT INTO `examination_order` VALUES (25, 2, 1, 5, 1, '2024-02-29', 0, NULL, 1, '13829223132', 0);
-INSERT INTO `examination_order` VALUES (26, 1, 6, 1, 1, '2024-03-03', 0, NULL, 1, '18937829582', 0);
-INSERT INTO `examination_order` VALUES (27, 2, 6, 5, 1, '2024-03-04', 0, NULL, 1, '13829223132', 0);
-INSERT INTO `examination_order` VALUES (28, 7, 7, 5, 1, '2024-03-05', 0, NULL, 1, '13291625628', 0);
-INSERT INTO `examination_order` VALUES (29, 8, 6, 5, 1, '2024-03-05', 0, NULL, 5, '13720999653', 0);
+--
+-- Dumping data for table `examination_order`
+--
 
--- ----------------------------
--- Table structure for examination_result
--- ----------------------------
+LOCK TABLES `examination_order` WRITE;
+/*!40000 ALTER TABLE `examination_order` DISABLE KEYS */;
+INSERT INTO `examination_order` VALUES (1,1,3,3,1,'2024-02-11',0,NULL,1,'18317035553',0),(2,2,1,5,1,'2024-02-11',0,NULL,1,'13829223132',0),(9,1,1,1,1,'2024-02-28',0,NULL,1,'13829223132',0),(25,2,1,5,1,'2024-02-29',0,NULL,1,'13829223132',0),(26,1,6,1,1,'2024-03-03',0,NULL,1,'18937829582',0),(27,2,6,5,1,'2024-03-04',0,NULL,1,'13829223132',0),(28,7,7,5,1,'2024-03-05',0,NULL,1,'13291625628',0),(29,8,6,5,1,'2024-03-05',0,NULL,5,'13720999653',0),(37,7,6,5,1,'2024-04-16',0,7,3,'13291625628',0),(38,2,6,5,1,'2024-04-16',0,7,3,'13829223132',0),(43,9,6,5,1,'2024-04-16',0,7,3,'18773703523',0);
+/*!40000 ALTER TABLE `examination_order` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `examination_result`
+--
+
 DROP TABLE IF EXISTS `examination_result`;
-CREATE TABLE `examination_result`  (
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `examination_result` (
   `id` int NOT NULL AUTO_INCREMENT,
-  `result_value` float NULL DEFAULT NULL COMMENT '数值型结果',
-  `text_option_id` int NULL DEFAULT NULL COMMENT '文本型结果',
+  `result_value` float DEFAULT NULL COMMENT '数值型结果',
+  `text_option_id` int DEFAULT NULL COMMENT '文本型结果',
   `assignment_id` int NOT NULL COMMENT '委托id',
   `item_id` int NOT NULL COMMENT '体检项目id',
-  `create_time` varchar(255) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci NULL DEFAULT NULL,
-  PRIMARY KEY (`id`) USING BTREE,
-  INDEX `assignment_id`(`assignment_id` ASC) USING BTREE,
-  INDEX `item_id`(`item_id` ASC) USING BTREE,
-  INDEX `text_option_id`(`text_option_id` ASC) USING BTREE,
-  CONSTRAINT `examination_result_ibfk_1` FOREIGN KEY (`assignment_id`) REFERENCES `assignment` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT,
-  CONSTRAINT `examination_result_ibfk_2` FOREIGN KEY (`item_id`) REFERENCES `item` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT,
-  CONSTRAINT `examination_result_ibfk_3` FOREIGN KEY (`text_option_id`) REFERENCES `result_text_option` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT
-) ENGINE = InnoDB AUTO_INCREMENT = 397 CHARACTER SET = utf8mb3 COLLATE = utf8mb3_general_ci ROW_FORMAT = Dynamic;
+  `create_time` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `assignment_id` (`assignment_id`),
+  KEY `item_id` (`item_id`),
+  KEY `text_option_id` (`text_option_id`),
+  CONSTRAINT `examination_result_ibfk_1` FOREIGN KEY (`assignment_id`) REFERENCES `assignment` (`id`),
+  CONSTRAINT `examination_result_ibfk_2` FOREIGN KEY (`item_id`) REFERENCES `item` (`id`),
+  CONSTRAINT `examination_result_ibfk_3` FOREIGN KEY (`text_option_id`) REFERENCES `result_text_option` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=550 DEFAULT CHARSET=utf8mb3;
+/*!40101 SET character_set_client = @saved_cs_client */;
 
--- ----------------------------
--- Records of examination_result
--- ----------------------------
-INSERT INTO `examination_result` VALUES (1, 5.5, 2, 206, 10, NULL);
-INSERT INTO `examination_result` VALUES (2, NULL, 2, 207, 11, NULL);
-INSERT INTO `examination_result` VALUES (3, 0.362042, NULL, 210, 46, NULL);
-INSERT INTO `examination_result` VALUES (4, 0.560208, NULL, 210, 47, NULL);
-INSERT INTO `examination_result` VALUES (5, 0.800163, NULL, 210, 48, NULL);
-INSERT INTO `examination_result` VALUES (6, 0.94074, NULL, 210, 49, NULL);
-INSERT INTO `examination_result` VALUES (7, 0.683253, NULL, 210, 50, NULL);
-INSERT INTO `examination_result` VALUES (8, 0.1277, NULL, 210, 51, NULL);
-INSERT INTO `examination_result` VALUES (9, 0.708434, NULL, 210, 52, NULL);
-INSERT INTO `examination_result` VALUES (10, 0.154371, NULL, 210, 53, NULL);
-INSERT INTO `examination_result` VALUES (11, 0.827237, NULL, 210, 54, NULL);
-INSERT INTO `examination_result` VALUES (12, 0.570998, NULL, 210, 55, NULL);
-INSERT INTO `examination_result` VALUES (13, 0.484247, NULL, 210, 56, NULL);
-INSERT INTO `examination_result` VALUES (14, 0.573186, NULL, 210, 57, NULL);
-INSERT INTO `examination_result` VALUES (15, 0.240981, NULL, 210, 58, NULL);
-INSERT INTO `examination_result` VALUES (16, 0.93789, NULL, 210, 59, NULL);
-INSERT INTO `examination_result` VALUES (17, 0.0728485, NULL, 210, 60, NULL);
-INSERT INTO `examination_result` VALUES (18, 0.55819, NULL, 210, 61, NULL);
-INSERT INTO `examination_result` VALUES (19, 0.499972, NULL, 210, 62, NULL);
-INSERT INTO `examination_result` VALUES (20, 0.399657, NULL, 210, 46, NULL);
-INSERT INTO `examination_result` VALUES (21, 0.887822, NULL, 210, 47, NULL);
-INSERT INTO `examination_result` VALUES (22, 0.717858, NULL, 210, 48, NULL);
-INSERT INTO `examination_result` VALUES (23, 0.62393, NULL, 210, 49, NULL);
-INSERT INTO `examination_result` VALUES (24, 0.109194, NULL, 210, 50, NULL);
-INSERT INTO `examination_result` VALUES (25, 0.0974508, NULL, 210, 51, NULL);
-INSERT INTO `examination_result` VALUES (26, 0.729188, NULL, 210, 52, NULL);
-INSERT INTO `examination_result` VALUES (27, 0.797693, NULL, 210, 53, NULL);
-INSERT INTO `examination_result` VALUES (28, 0.775213, NULL, 210, 54, NULL);
-INSERT INTO `examination_result` VALUES (29, 0.465284, NULL, 210, 55, NULL);
-INSERT INTO `examination_result` VALUES (30, 0.176948, NULL, 210, 56, NULL);
-INSERT INTO `examination_result` VALUES (31, 0.545902, NULL, 210, 57, NULL);
-INSERT INTO `examination_result` VALUES (32, 0.0734282, NULL, 210, 58, NULL);
-INSERT INTO `examination_result` VALUES (33, 0.376831, NULL, 210, 59, NULL);
-INSERT INTO `examination_result` VALUES (34, 0.149222, NULL, 210, 60, NULL);
-INSERT INTO `examination_result` VALUES (35, 0.330495, NULL, 210, 61, NULL);
-INSERT INTO `examination_result` VALUES (36, 0.0889997, NULL, 210, 62, NULL);
-INSERT INTO `examination_result` VALUES (37, 0.139056, NULL, 212, 82, NULL);
-INSERT INTO `examination_result` VALUES (38, 0.45067, NULL, 210, 46, NULL);
-INSERT INTO `examination_result` VALUES (39, 0.159177, NULL, 210, 47, NULL);
-INSERT INTO `examination_result` VALUES (40, 0.238505, NULL, 210, 48, NULL);
-INSERT INTO `examination_result` VALUES (41, 0.690357, NULL, 210, 49, NULL);
-INSERT INTO `examination_result` VALUES (42, 0.15269, NULL, 210, 50, NULL);
-INSERT INTO `examination_result` VALUES (43, 0.373391, NULL, 210, 51, NULL);
-INSERT INTO `examination_result` VALUES (44, 0.512685, NULL, 210, 52, NULL);
-INSERT INTO `examination_result` VALUES (45, 0.450082, NULL, 210, 53, NULL);
-INSERT INTO `examination_result` VALUES (46, 0.510906, NULL, 210, 54, NULL);
-INSERT INTO `examination_result` VALUES (47, 0.0191328, NULL, 210, 55, NULL);
-INSERT INTO `examination_result` VALUES (48, 0.975633, NULL, 210, 56, NULL);
-INSERT INTO `examination_result` VALUES (49, 0.379343, NULL, 210, 57, NULL);
-INSERT INTO `examination_result` VALUES (50, 0.0110458, NULL, 210, 58, NULL);
-INSERT INTO `examination_result` VALUES (51, 0.669174, NULL, 210, 59, NULL);
-INSERT INTO `examination_result` VALUES (52, 0.863612, NULL, 210, 60, NULL);
-INSERT INTO `examination_result` VALUES (53, 0.762777, NULL, 210, 61, NULL);
-INSERT INTO `examination_result` VALUES (54, 0.648272, NULL, 210, 62, NULL);
-INSERT INTO `examination_result` VALUES (55, 0.222949, NULL, 207, 38, NULL);
-INSERT INTO `examination_result` VALUES (56, 0.655243, NULL, 207, 39, NULL);
-INSERT INTO `examination_result` VALUES (57, NULL, 12, 207, 2, NULL);
-INSERT INTO `examination_result` VALUES (58, NULL, 12, 207, 3, NULL);
-INSERT INTO `examination_result` VALUES (59, NULL, 12, 207, 4, NULL);
-INSERT INTO `examination_result` VALUES (60, NULL, 12, 207, 5, NULL);
-INSERT INTO `examination_result` VALUES (61, NULL, 12, 207, 6, NULL);
-INSERT INTO `examination_result` VALUES (62, 0.901262, NULL, 211, 81, NULL);
-INSERT INTO `examination_result` VALUES (63, 0.207591, NULL, 216, 78, NULL);
-INSERT INTO `examination_result` VALUES (64, 0.316518, NULL, 216, 79, NULL);
-INSERT INTO `examination_result` VALUES (65, 0.695284, NULL, 216, 80, NULL);
-INSERT INTO `examination_result` VALUES (66, 0.787833, NULL, 213, 83, NULL);
-INSERT INTO `examination_result` VALUES (67, 0.988637, NULL, 213, 84, NULL);
-INSERT INTO `examination_result` VALUES (68, 0.992415, NULL, 213, 85, NULL);
-INSERT INTO `examination_result` VALUES (69, 0.790477, NULL, 213, 86, NULL);
-INSERT INTO `examination_result` VALUES (70, 0.392347, NULL, 213, 87, NULL);
-INSERT INTO `examination_result` VALUES (71, 0.732787, NULL, 213, 88, NULL);
-INSERT INTO `examination_result` VALUES (72, 0.953918, NULL, 213, 89, NULL);
-INSERT INTO `examination_result` VALUES (73, 0.818204, NULL, 213, 90, NULL);
-INSERT INTO `examination_result` VALUES (74, 0.341388, NULL, 213, 91, NULL);
-INSERT INTO `examination_result` VALUES (75, 0.991448, NULL, 213, 92, NULL);
-INSERT INTO `examination_result` VALUES (76, 0.20172, NULL, 213, 93, NULL);
-INSERT INTO `examination_result` VALUES (77, 0.21405, NULL, 213, 94, NULL);
-INSERT INTO `examination_result` VALUES (78, 0.388251, NULL, 210, 46, NULL);
-INSERT INTO `examination_result` VALUES (79, 0.854824, NULL, 210, 47, NULL);
-INSERT INTO `examination_result` VALUES (80, 0.390501, NULL, 210, 48, NULL);
-INSERT INTO `examination_result` VALUES (81, 0.399157, NULL, 210, 49, NULL);
-INSERT INTO `examination_result` VALUES (82, 0.824502, NULL, 210, 50, NULL);
-INSERT INTO `examination_result` VALUES (83, 0.418726, NULL, 210, 51, NULL);
-INSERT INTO `examination_result` VALUES (84, 0.318352, NULL, 210, 52, NULL);
-INSERT INTO `examination_result` VALUES (85, 0.450714, NULL, 210, 53, NULL);
-INSERT INTO `examination_result` VALUES (86, 0.501075, NULL, 210, 54, NULL);
-INSERT INTO `examination_result` VALUES (87, 0.971424, NULL, 210, 55, NULL);
-INSERT INTO `examination_result` VALUES (88, 0.62663, NULL, 210, 56, NULL);
-INSERT INTO `examination_result` VALUES (89, 0.772, NULL, 210, 57, NULL);
-INSERT INTO `examination_result` VALUES (90, 0.125362, NULL, 210, 58, NULL);
-INSERT INTO `examination_result` VALUES (91, 0.702358, NULL, 210, 59, NULL);
-INSERT INTO `examination_result` VALUES (92, 0.455153, NULL, 210, 60, NULL);
-INSERT INTO `examination_result` VALUES (93, 0.481519, NULL, 210, 61, NULL);
-INSERT INTO `examination_result` VALUES (94, 0.709247, NULL, 210, 62, NULL);
-INSERT INTO `examination_result` VALUES (95, 0.203892, NULL, 212, 82, NULL);
-INSERT INTO `examination_result` VALUES (96, 0.461376, NULL, 240, 24, '2024-02-29 21:36:29.568');
-INSERT INTO `examination_result` VALUES (97, NULL, 2, 240, 25, '2024-02-29 21:36:29.570');
-INSERT INTO `examination_result` VALUES (98, NULL, 2, 240, 26, '2024-02-29 21:36:29.571');
-INSERT INTO `examination_result` VALUES (99, 0.327323, NULL, 253, 24, '2024-03-03 22:47:18.042');
-INSERT INTO `examination_result` VALUES (100, NULL, 2, 253, 25, '2024-03-03 22:47:18.044');
-INSERT INTO `examination_result` VALUES (101, NULL, 2, 253, 26, '2024-03-03 22:47:18.045');
-INSERT INTO `examination_result` VALUES (102, 0.594408, NULL, 238, 5, '2024-03-04 08:42:54.962');
-INSERT INTO `examination_result` VALUES (103, NULL, 2, 238, 6, '2024-03-04 08:42:54.964');
-INSERT INTO `examination_result` VALUES (104, NULL, 2, 238, 7, '2024-03-04 08:42:54.965');
-INSERT INTO `examination_result` VALUES (105, NULL, 2, 238, 8, '2024-03-04 08:42:54.965');
-INSERT INTO `examination_result` VALUES (106, NULL, 2, 238, 9, '2024-03-04 08:42:54.966');
-INSERT INTO `examination_result` VALUES (107, 0.66589, NULL, 238, 10, '2024-03-04 08:42:54.966');
-INSERT INTO `examination_result` VALUES (108, NULL, 2, 238, 11, '2024-03-04 08:42:54.966');
-INSERT INTO `examination_result` VALUES (109, NULL, 2, 238, 12, '2024-03-04 08:42:54.967');
-INSERT INTO `examination_result` VALUES (110, NULL, 2, 238, 13, '2024-03-04 08:42:54.967');
-INSERT INTO `examination_result` VALUES (111, NULL, 2, 238, 14, '2024-03-04 08:42:54.968');
-INSERT INTO `examination_result` VALUES (112, 0.0398548, NULL, 245, 46, '2024-03-04 08:45:22.405');
-INSERT INTO `examination_result` VALUES (113, 0.489023, NULL, 245, 47, '2024-03-04 08:45:22.405');
-INSERT INTO `examination_result` VALUES (114, 0.414569, NULL, 245, 48, '2024-03-04 08:45:22.405');
-INSERT INTO `examination_result` VALUES (115, 0.404361, NULL, 245, 49, '2024-03-04 08:45:22.405');
-INSERT INTO `examination_result` VALUES (116, 0.64244, NULL, 245, 50, '2024-03-04 08:45:22.405');
-INSERT INTO `examination_result` VALUES (117, 0.330247, NULL, 245, 51, '2024-03-04 08:45:22.405');
-INSERT INTO `examination_result` VALUES (118, 0.54207, NULL, 245, 52, '2024-03-04 08:45:22.405');
-INSERT INTO `examination_result` VALUES (119, 0.540487, NULL, 245, 53, '2024-03-04 08:45:22.405');
-INSERT INTO `examination_result` VALUES (120, 0.649336, NULL, 245, 54, '2024-03-04 08:45:22.405');
-INSERT INTO `examination_result` VALUES (121, 0.516118, NULL, 245, 55, '2024-03-04 08:45:22.405');
-INSERT INTO `examination_result` VALUES (122, 0.334309, NULL, 245, 56, '2024-03-04 08:45:22.405');
-INSERT INTO `examination_result` VALUES (123, 0.963967, NULL, 245, 57, '2024-03-04 08:45:22.405');
-INSERT INTO `examination_result` VALUES (124, 0.860555, NULL, 245, 58, '2024-03-04 08:45:22.405');
-INSERT INTO `examination_result` VALUES (125, 0.604679, NULL, 245, 59, '2024-03-04 08:45:22.405');
-INSERT INTO `examination_result` VALUES (126, 0.923196, NULL, 245, 60, '2024-03-04 08:45:22.405');
-INSERT INTO `examination_result` VALUES (127, 0.544436, NULL, 245, 61, '2024-03-04 08:45:22.405');
-INSERT INTO `examination_result` VALUES (128, 0.00347083, NULL, 245, 62, '2024-03-04 08:45:22.405');
-INSERT INTO `examination_result` VALUES (129, 0.327594, NULL, 249, 82, '2024-03-04 08:48:12.786');
-INSERT INTO `examination_result` VALUES (130, 0.157491, NULL, 248, 81, '2024-03-04 08:48:15.811');
-INSERT INTO `examination_result` VALUES (131, 0.741102, NULL, 247, 78, '2024-03-04 08:48:18.145');
-INSERT INTO `examination_result` VALUES (132, 0.939326, NULL, 247, 79, '2024-03-04 08:48:18.145');
-INSERT INTO `examination_result` VALUES (133, 0.00495724, NULL, 247, 80, '2024-03-04 08:48:18.145');
-INSERT INTO `examination_result` VALUES (134, 0.604292, NULL, 250, 83, '2024-03-04 08:48:19.538');
-INSERT INTO `examination_result` VALUES (135, 0.466235, NULL, 250, 84, '2024-03-04 08:48:19.538');
-INSERT INTO `examination_result` VALUES (136, 0.780037, NULL, 250, 85, '2024-03-04 08:48:19.538');
-INSERT INTO `examination_result` VALUES (137, 0.903248, NULL, 250, 86, '2024-03-04 08:48:19.538');
-INSERT INTO `examination_result` VALUES (138, 0.264951, NULL, 250, 87, '2024-03-04 08:48:19.538');
-INSERT INTO `examination_result` VALUES (139, 0.780678, NULL, 250, 88, '2024-03-04 08:48:19.538');
-INSERT INTO `examination_result` VALUES (140, 0.475491, NULL, 250, 89, '2024-03-04 08:48:19.538');
-INSERT INTO `examination_result` VALUES (141, 0.838279, NULL, 250, 90, '2024-03-04 08:48:19.538');
-INSERT INTO `examination_result` VALUES (142, 0.169905, NULL, 250, 91, '2024-03-04 08:48:19.538');
-INSERT INTO `examination_result` VALUES (143, 0.189279, NULL, 250, 92, '2024-03-04 08:48:19.538');
-INSERT INTO `examination_result` VALUES (144, 0.14482, NULL, 250, 93, '2024-03-04 08:48:19.538');
-INSERT INTO `examination_result` VALUES (145, 0.746324, NULL, 250, 94, '2024-03-04 08:48:19.538');
-INSERT INTO `examination_result` VALUES (146, 0.88794, NULL, 243, 38, '2024-03-04 08:53:12.620');
-INSERT INTO `examination_result` VALUES (147, 0.825028, NULL, 243, 39, '2024-03-04 08:53:12.620');
-INSERT INTO `examination_result` VALUES (148, NULL, 2, 243, 40, '2024-03-04 08:53:12.621');
-INSERT INTO `examination_result` VALUES (149, NULL, 2, 243, 41, '2024-03-04 08:53:12.621');
-INSERT INTO `examination_result` VALUES (150, NULL, 2, 243, 42, '2024-03-04 08:53:12.622');
-INSERT INTO `examination_result` VALUES (151, NULL, 2, 243, 43, '2024-03-04 08:53:12.622');
-INSERT INTO `examination_result` VALUES (152, NULL, 2, 243, 44, '2024-03-04 08:53:12.622');
-INSERT INTO `examination_result` VALUES (153, 0.464003, NULL, 241, 27, '2024-03-04 09:02:59.141');
-INSERT INTO `examination_result` VALUES (154, NULL, 2, 241, 28, '2024-03-04 09:02:59.142');
-INSERT INTO `examination_result` VALUES (155, NULL, 2, 241, 29, '2024-03-04 09:02:59.143');
-INSERT INTO `examination_result` VALUES (156, NULL, 2, 241, 30, '2024-03-04 09:02:59.143');
-INSERT INTO `examination_result` VALUES (157, NULL, 2, 241, 31, '2024-03-04 09:02:59.144');
-INSERT INTO `examination_result` VALUES (158, 0.147627, NULL, 239, 15, '2024-03-04 09:08:36.082');
-INSERT INTO `examination_result` VALUES (159, NULL, 2, 239, 16, '2024-03-04 09:08:36.083');
-INSERT INTO `examination_result` VALUES (160, NULL, 2, 239, 17, '2024-03-04 09:08:36.083');
-INSERT INTO `examination_result` VALUES (161, NULL, 2, 239, 18, '2024-03-04 09:08:36.084');
-INSERT INTO `examination_result` VALUES (162, NULL, 2, 239, 19, '2024-03-04 09:08:36.084');
-INSERT INTO `examination_result` VALUES (163, NULL, 2, 239, 20, '2024-03-04 09:08:36.085');
-INSERT INTO `examination_result` VALUES (164, NULL, 2, 239, 21, '2024-03-04 09:08:36.085');
-INSERT INTO `examination_result` VALUES (165, NULL, 2, 239, 22, '2024-03-04 09:08:36.085');
-INSERT INTO `examination_result` VALUES (166, NULL, 2, 239, 23, '2024-03-04 09:08:36.086');
-INSERT INTO `examination_result` VALUES (167, 0.278776, NULL, 242, 32, '2024-03-04 09:10:33.514');
-INSERT INTO `examination_result` VALUES (168, NULL, 2, 242, 33, '2024-03-04 09:10:33.516');
-INSERT INTO `examination_result` VALUES (169, NULL, 2, 242, 34, '2024-03-04 09:10:33.516');
-INSERT INTO `examination_result` VALUES (170, NULL, 2, 242, 35, '2024-03-04 09:10:33.517');
-INSERT INTO `examination_result` VALUES (171, NULL, 2, 242, 36, '2024-03-04 09:10:33.517');
-INSERT INTO `examination_result` VALUES (172, NULL, 2, 242, 37, '2024-03-04 09:10:33.518');
-INSERT INTO `examination_result` VALUES (173, 0.404217, NULL, 244, 45, '2024-03-04 09:10:36.465');
-INSERT INTO `examination_result` VALUES (174, 0.711672, NULL, 237, 1, '2024-03-04 09:10:59.630');
-INSERT INTO `examination_result` VALUES (175, 0.161149, NULL, 237, 2, '2024-03-04 09:10:59.630');
-INSERT INTO `examination_result` VALUES (176, 0.708688, NULL, 237, 3, '2024-03-04 09:10:59.630');
-INSERT INTO `examination_result` VALUES (177, 0.974307, NULL, 237, 4, '2024-03-04 09:10:59.630');
-INSERT INTO `examination_result` VALUES (178, 0.793647, NULL, 251, 5, '2024-03-04 14:56:16.111');
-INSERT INTO `examination_result` VALUES (179, NULL, 2, 251, 6, '2024-03-04 14:56:16.111');
-INSERT INTO `examination_result` VALUES (180, NULL, 2, 251, 7, '2024-03-04 14:56:16.112');
-INSERT INTO `examination_result` VALUES (181, NULL, 2, 251, 8, '2024-03-04 14:56:16.113');
-INSERT INTO `examination_result` VALUES (182, NULL, 2, 251, 9, '2024-03-04 14:56:16.113');
-INSERT INTO `examination_result` VALUES (183, 0.648759, NULL, 251, 10, '2024-03-04 14:56:16.113');
-INSERT INTO `examination_result` VALUES (184, NULL, 2, 251, 11, '2024-03-04 14:56:16.114');
-INSERT INTO `examination_result` VALUES (185, NULL, 2, 251, 12, '2024-03-04 14:56:16.114');
-INSERT INTO `examination_result` VALUES (186, NULL, 2, 251, 13, '2024-03-04 14:56:16.115');
-INSERT INTO `examination_result` VALUES (187, NULL, 2, 251, 14, '2024-03-04 14:56:16.115');
-INSERT INTO `examination_result` VALUES (188, 0.22473, NULL, 255, 38, '2024-03-04 15:41:16.982');
-INSERT INTO `examination_result` VALUES (189, 0.162745, NULL, 255, 39, '2024-03-04 15:41:16.982');
-INSERT INTO `examination_result` VALUES (190, NULL, 12, 255, 40, '2024-03-04 15:41:16.983');
-INSERT INTO `examination_result` VALUES (191, NULL, 12, 255, 41, '2024-03-04 15:41:16.983');
-INSERT INTO `examination_result` VALUES (192, NULL, 12, 255, 42, '2024-03-04 15:41:16.984');
-INSERT INTO `examination_result` VALUES (193, NULL, 12, 255, 43, '2024-03-04 15:41:16.984');
-INSERT INTO `examination_result` VALUES (194, NULL, 12, 255, 44, '2024-03-04 15:41:16.985');
-INSERT INTO `examination_result` VALUES (195, 0.981964, NULL, 254, 27, '2024-03-04 15:41:19.641');
-INSERT INTO `examination_result` VALUES (196, NULL, 12, 254, 28, '2024-03-04 15:41:19.641');
-INSERT INTO `examination_result` VALUES (197, NULL, 12, 254, 29, '2024-03-04 15:41:19.641');
-INSERT INTO `examination_result` VALUES (198, NULL, 12, 254, 30, '2024-03-04 15:41:19.642');
-INSERT INTO `examination_result` VALUES (199, NULL, 12, 254, 31, '2024-03-04 15:41:19.642');
-INSERT INTO `examination_result` VALUES (200, 0.608974, NULL, 252, 15, '2024-03-04 15:41:22.027');
-INSERT INTO `examination_result` VALUES (201, NULL, 12, 252, 16, '2024-03-04 15:41:22.028');
-INSERT INTO `examination_result` VALUES (202, NULL, 12, 252, 17, '2024-03-04 15:41:22.028');
-INSERT INTO `examination_result` VALUES (203, NULL, 12, 252, 18, '2024-03-04 15:41:22.028');
-INSERT INTO `examination_result` VALUES (204, NULL, 12, 252, 19, '2024-03-04 15:41:22.029');
-INSERT INTO `examination_result` VALUES (205, NULL, 12, 252, 20, '2024-03-04 15:41:22.029');
-INSERT INTO `examination_result` VALUES (206, NULL, 12, 252, 21, '2024-03-04 15:41:22.030');
-INSERT INTO `examination_result` VALUES (207, NULL, 12, 252, 22, '2024-03-04 15:41:22.030');
-INSERT INTO `examination_result` VALUES (208, NULL, 12, 252, 23, '2024-03-04 15:41:22.030');
-INSERT INTO `examination_result` VALUES (209, 0.658693, NULL, 256, 46, '2024-03-04 15:43:52.315');
-INSERT INTO `examination_result` VALUES (210, 0.0636746, NULL, 256, 47, '2024-03-04 15:43:52.315');
-INSERT INTO `examination_result` VALUES (211, 0.464184, NULL, 256, 48, '2024-03-04 15:43:52.315');
-INSERT INTO `examination_result` VALUES (212, 0.08377, NULL, 256, 49, '2024-03-04 15:43:52.315');
-INSERT INTO `examination_result` VALUES (213, 0.452304, NULL, 256, 50, '2024-03-04 15:43:52.315');
-INSERT INTO `examination_result` VALUES (214, 0.717203, NULL, 256, 51, '2024-03-04 15:43:52.315');
-INSERT INTO `examination_result` VALUES (215, 0.461962, NULL, 256, 52, '2024-03-04 15:43:52.315');
-INSERT INTO `examination_result` VALUES (216, 0.174121, NULL, 256, 53, '2024-03-04 15:43:52.315');
-INSERT INTO `examination_result` VALUES (217, 0.874083, NULL, 256, 54, '2024-03-04 15:43:52.315');
-INSERT INTO `examination_result` VALUES (218, 0.732162, NULL, 256, 55, '2024-03-04 15:43:52.315');
-INSERT INTO `examination_result` VALUES (219, 0.35315, NULL, 256, 56, '2024-03-04 15:43:52.315');
-INSERT INTO `examination_result` VALUES (220, 0.124174, NULL, 256, 57, '2024-03-04 15:43:52.315');
-INSERT INTO `examination_result` VALUES (221, 0.112883, NULL, 256, 58, '2024-03-04 15:43:52.315');
-INSERT INTO `examination_result` VALUES (222, 0.445798, NULL, 256, 59, '2024-03-04 15:43:52.315');
-INSERT INTO `examination_result` VALUES (223, 0.721123, NULL, 256, 60, '2024-03-04 15:43:52.315');
-INSERT INTO `examination_result` VALUES (224, 0.763668, NULL, 256, 61, '2024-03-04 15:43:52.315');
-INSERT INTO `examination_result` VALUES (225, 0.534537, NULL, 256, 62, '2024-03-04 15:43:52.315');
-INSERT INTO `examination_result` VALUES (226, 0.271829, NULL, 258, 5, '2024-03-04 15:57:16.128');
-INSERT INTO `examination_result` VALUES (227, NULL, 2, 258, 6, '2024-03-04 15:57:16.129');
-INSERT INTO `examination_result` VALUES (228, NULL, 2, 258, 7, '2024-03-04 15:57:16.129');
-INSERT INTO `examination_result` VALUES (229, NULL, 2, 258, 8, '2024-03-04 15:57:16.130');
-INSERT INTO `examination_result` VALUES (230, NULL, 2, 258, 9, '2024-03-04 15:57:16.130');
-INSERT INTO `examination_result` VALUES (231, 0.125666, NULL, 258, 10, '2024-03-04 15:57:16.130');
-INSERT INTO `examination_result` VALUES (232, NULL, 2, 258, 11, '2024-03-04 15:57:16.130');
-INSERT INTO `examination_result` VALUES (233, NULL, 2, 258, 12, '2024-03-04 15:57:16.131');
-INSERT INTO `examination_result` VALUES (234, NULL, 2, 258, 13, '2024-03-04 15:57:16.131');
-INSERT INTO `examination_result` VALUES (235, NULL, 2, 258, 14, '2024-03-04 15:57:16.131');
-INSERT INTO `examination_result` VALUES (236, 0.992902, NULL, 263, 46, '2024-03-04 15:57:28.518');
-INSERT INTO `examination_result` VALUES (237, 0.159915, NULL, 263, 47, '2024-03-04 15:57:28.518');
-INSERT INTO `examination_result` VALUES (238, 0.550889, NULL, 263, 48, '2024-03-04 15:57:28.518');
-INSERT INTO `examination_result` VALUES (239, 0.89553, NULL, 263, 49, '2024-03-04 15:57:28.518');
-INSERT INTO `examination_result` VALUES (240, 0.424726, NULL, 263, 50, '2024-03-04 15:57:28.518');
-INSERT INTO `examination_result` VALUES (241, 0.706367, NULL, 263, 51, '2024-03-04 15:57:28.518');
-INSERT INTO `examination_result` VALUES (242, 0.159589, NULL, 263, 52, '2024-03-04 15:57:28.518');
-INSERT INTO `examination_result` VALUES (243, 0.788746, NULL, 263, 53, '2024-03-04 15:57:28.518');
-INSERT INTO `examination_result` VALUES (244, 0.766129, NULL, 263, 54, '2024-03-04 15:57:28.518');
-INSERT INTO `examination_result` VALUES (245, 0.87858, NULL, 263, 55, '2024-03-04 15:57:28.518');
-INSERT INTO `examination_result` VALUES (246, 0.300813, NULL, 263, 56, '2024-03-04 15:57:28.518');
-INSERT INTO `examination_result` VALUES (247, 0.327974, NULL, 263, 57, '2024-03-04 15:57:28.518');
-INSERT INTO `examination_result` VALUES (248, 0.679596, NULL, 263, 58, '2024-03-04 15:57:28.518');
-INSERT INTO `examination_result` VALUES (249, 0.390731, NULL, 263, 59, '2024-03-04 15:57:28.518');
-INSERT INTO `examination_result` VALUES (250, 0.48045, NULL, 263, 60, '2024-03-04 15:57:28.518');
-INSERT INTO `examination_result` VALUES (251, 0.787249, NULL, 263, 61, '2024-03-04 15:57:28.518');
-INSERT INTO `examination_result` VALUES (252, 0.761974, NULL, 263, 62, '2024-03-04 15:57:28.518');
-INSERT INTO `examination_result` VALUES (253, 0.0185433, NULL, 262, 38, '2024-03-04 15:57:38.698');
-INSERT INTO `examination_result` VALUES (254, 0.254492, NULL, 262, 39, '2024-03-04 15:57:38.698');
-INSERT INTO `examination_result` VALUES (255, NULL, 2, 262, 40, '2024-03-04 15:57:38.698');
-INSERT INTO `examination_result` VALUES (256, NULL, 2, 262, 41, '2024-03-04 15:57:38.699');
-INSERT INTO `examination_result` VALUES (257, NULL, 2, 262, 42, '2024-03-04 15:57:38.699');
-INSERT INTO `examination_result` VALUES (258, NULL, 2, 262, 43, '2024-03-04 15:57:38.700');
-INSERT INTO `examination_result` VALUES (259, NULL, 2, 262, 44, '2024-03-04 15:57:38.700');
-INSERT INTO `examination_result` VALUES (260, 0.745012, NULL, 261, 27, '2024-03-04 15:57:50.507');
-INSERT INTO `examination_result` VALUES (261, NULL, 2, 261, 28, '2024-03-04 15:57:50.508');
-INSERT INTO `examination_result` VALUES (262, NULL, 2, 261, 29, '2024-03-04 15:57:50.509');
-INSERT INTO `examination_result` VALUES (263, NULL, 2, 261, 30, '2024-03-04 15:57:50.509');
-INSERT INTO `examination_result` VALUES (264, NULL, 2, 261, 31, '2024-03-04 15:57:50.509');
-INSERT INTO `examination_result` VALUES (265, 0.624131, NULL, 259, 15, '2024-03-04 15:58:00.583');
-INSERT INTO `examination_result` VALUES (266, NULL, 2, 259, 16, '2024-03-04 15:58:00.584');
-INSERT INTO `examination_result` VALUES (267, NULL, 2, 259, 17, '2024-03-04 15:58:00.584');
-INSERT INTO `examination_result` VALUES (268, NULL, 2, 259, 18, '2024-03-04 15:58:00.584');
-INSERT INTO `examination_result` VALUES (269, NULL, 2, 259, 19, '2024-03-04 15:58:00.584');
-INSERT INTO `examination_result` VALUES (270, NULL, 2, 259, 20, '2024-03-04 15:58:00.584');
-INSERT INTO `examination_result` VALUES (271, NULL, 2, 259, 21, '2024-03-04 15:58:00.585');
-INSERT INTO `examination_result` VALUES (272, NULL, 2, 259, 22, '2024-03-04 15:58:00.585');
-INSERT INTO `examination_result` VALUES (273, NULL, 2, 259, 23, '2024-03-04 15:58:00.585');
-INSERT INTO `examination_result` VALUES (274, 0.0824779, NULL, 267, 24, '2024-03-05 16:01:31.423');
-INSERT INTO `examination_result` VALUES (275, NULL, 2, 267, 25, '2024-03-05 16:01:31.424');
-INSERT INTO `examination_result` VALUES (276, NULL, 2, 267, 26, '2024-03-05 16:01:31.424');
-INSERT INTO `examination_result` VALUES (277, 0.68671, NULL, 265, 5, '2024-03-05 16:03:38.701');
-INSERT INTO `examination_result` VALUES (278, NULL, 2, 265, 6, '2024-03-05 16:03:38.704');
-INSERT INTO `examination_result` VALUES (279, NULL, 2, 265, 7, '2024-03-05 16:03:38.705');
-INSERT INTO `examination_result` VALUES (280, NULL, 2, 265, 8, '2024-03-05 16:03:38.705');
-INSERT INTO `examination_result` VALUES (281, NULL, 2, 265, 9, '2024-03-05 16:03:38.706');
-INSERT INTO `examination_result` VALUES (282, 0.189104, NULL, 265, 10, '2024-03-05 16:03:38.706');
-INSERT INTO `examination_result` VALUES (283, NULL, 2, 265, 11, '2024-03-05 16:03:38.707');
-INSERT INTO `examination_result` VALUES (284, NULL, 2, 265, 12, '2024-03-05 16:03:38.708');
-INSERT INTO `examination_result` VALUES (285, NULL, 2, 265, 13, '2024-03-05 16:03:38.709');
-INSERT INTO `examination_result` VALUES (286, NULL, 2, 265, 14, '2024-03-05 16:03:38.710');
-INSERT INTO `examination_result` VALUES (287, 0.813691, NULL, 271, 46, '2024-03-05 16:03:56.594');
-INSERT INTO `examination_result` VALUES (288, 0.327118, NULL, 271, 47, '2024-03-05 16:03:56.595');
-INSERT INTO `examination_result` VALUES (289, 0.802487, NULL, 271, 48, '2024-03-05 16:03:56.595');
-INSERT INTO `examination_result` VALUES (290, 0.165428, NULL, 271, 49, '2024-03-05 16:03:56.595');
-INSERT INTO `examination_result` VALUES (291, 0.356398, NULL, 271, 50, '2024-03-05 16:03:56.595');
-INSERT INTO `examination_result` VALUES (292, 0.523305, NULL, 271, 51, '2024-03-05 16:03:56.595');
-INSERT INTO `examination_result` VALUES (293, 0.738061, NULL, 271, 52, '2024-03-05 16:03:56.595');
-INSERT INTO `examination_result` VALUES (294, 0.572946, NULL, 271, 53, '2024-03-05 16:03:56.595');
-INSERT INTO `examination_result` VALUES (295, 0.954184, NULL, 271, 54, '2024-03-05 16:03:56.595');
-INSERT INTO `examination_result` VALUES (296, 0.28047, NULL, 271, 55, '2024-03-05 16:03:56.595');
-INSERT INTO `examination_result` VALUES (297, 0.532114, NULL, 271, 56, '2024-03-05 16:03:56.595');
-INSERT INTO `examination_result` VALUES (298, 0.895883, NULL, 271, 57, '2024-03-05 16:03:56.595');
-INSERT INTO `examination_result` VALUES (299, 0.52311, NULL, 271, 58, '2024-03-05 16:03:56.595');
-INSERT INTO `examination_result` VALUES (300, 0.52631, NULL, 271, 59, '2024-03-05 16:03:56.595');
-INSERT INTO `examination_result` VALUES (301, 0.431972, NULL, 271, 60, '2024-03-05 16:03:56.595');
-INSERT INTO `examination_result` VALUES (302, 0.810705, NULL, 271, 61, '2024-03-05 16:03:56.595');
-INSERT INTO `examination_result` VALUES (303, 0.138952, NULL, 271, 62, '2024-03-05 16:03:56.595');
-INSERT INTO `examination_result` VALUES (304, 0.924688, NULL, 274, 82, '2024-03-05 16:04:06.735');
-INSERT INTO `examination_result` VALUES (305, 0.746191, NULL, 273, 81, '2024-03-05 16:04:10.152');
-INSERT INTO `examination_result` VALUES (306, 0.531041, NULL, 272, 78, '2024-03-05 16:04:13.682');
-INSERT INTO `examination_result` VALUES (307, 0.0876225, NULL, 272, 79, '2024-03-05 16:04:13.682');
-INSERT INTO `examination_result` VALUES (308, 0.418085, NULL, 272, 80, '2024-03-05 16:04:13.682');
-INSERT INTO `examination_result` VALUES (309, 0.324684, NULL, 275, 83, '2024-03-05 16:04:16.863');
-INSERT INTO `examination_result` VALUES (310, 0.891379, NULL, 275, 84, '2024-03-05 16:04:16.863');
-INSERT INTO `examination_result` VALUES (311, 0.851448, NULL, 275, 85, '2024-03-05 16:04:16.863');
-INSERT INTO `examination_result` VALUES (312, 0.200673, NULL, 275, 86, '2024-03-05 16:04:16.863');
-INSERT INTO `examination_result` VALUES (313, 0.759374, NULL, 275, 87, '2024-03-05 16:04:16.863');
-INSERT INTO `examination_result` VALUES (314, 0.988386, NULL, 275, 88, '2024-03-05 16:04:16.863');
-INSERT INTO `examination_result` VALUES (315, 0.22302, NULL, 275, 89, '2024-03-05 16:04:16.863');
-INSERT INTO `examination_result` VALUES (316, 0.0422219, NULL, 275, 90, '2024-03-05 16:04:16.863');
-INSERT INTO `examination_result` VALUES (317, 0.788885, NULL, 275, 91, '2024-03-05 16:04:16.863');
-INSERT INTO `examination_result` VALUES (318, 0.616643, NULL, 275, 92, '2024-03-05 16:04:16.863');
-INSERT INTO `examination_result` VALUES (319, 0.272652, NULL, 275, 93, '2024-03-05 16:04:16.863');
-INSERT INTO `examination_result` VALUES (320, 0.924295, NULL, 275, 94, '2024-03-05 16:04:16.863');
-INSERT INTO `examination_result` VALUES (321, 0.182779, NULL, 268, 27, '2024-03-05 16:05:02.340');
-INSERT INTO `examination_result` VALUES (322, NULL, 2, 268, 28, '2024-03-05 16:05:02.341');
-INSERT INTO `examination_result` VALUES (323, NULL, 2, 268, 29, '2024-03-05 16:05:02.341');
-INSERT INTO `examination_result` VALUES (324, NULL, 2, 268, 30, '2024-03-05 16:05:02.342');
-INSERT INTO `examination_result` VALUES (325, NULL, 2, 268, 31, '2024-03-05 16:05:02.342');
-INSERT INTO `examination_result` VALUES (326, 0.91719, NULL, 266, 15, '2024-03-05 16:05:25.522');
-INSERT INTO `examination_result` VALUES (327, NULL, 2, 266, 16, '2024-03-05 16:05:25.523');
-INSERT INTO `examination_result` VALUES (328, NULL, 2, 266, 17, '2024-03-05 16:05:25.523');
-INSERT INTO `examination_result` VALUES (329, NULL, 2, 266, 18, '2024-03-05 16:05:25.523');
-INSERT INTO `examination_result` VALUES (330, NULL, 2, 266, 19, '2024-03-05 16:05:25.523');
-INSERT INTO `examination_result` VALUES (331, NULL, 2, 266, 20, '2024-03-05 16:05:25.524');
-INSERT INTO `examination_result` VALUES (332, NULL, 2, 266, 21, '2024-03-05 16:05:25.524');
-INSERT INTO `examination_result` VALUES (333, NULL, 2, 266, 22, '2024-03-05 16:05:25.524');
-INSERT INTO `examination_result` VALUES (334, NULL, 2, 266, 23, '2024-03-05 16:05:25.524');
-INSERT INTO `examination_result` VALUES (335, 0.176142, NULL, 269, 32, '2024-03-05 16:05:41.111');
-INSERT INTO `examination_result` VALUES (336, NULL, 2, 269, 33, '2024-03-05 16:05:41.112');
-INSERT INTO `examination_result` VALUES (337, NULL, 2, 269, 34, '2024-03-05 16:05:41.113');
-INSERT INTO `examination_result` VALUES (338, NULL, 2, 269, 35, '2024-03-05 16:05:41.114');
-INSERT INTO `examination_result` VALUES (339, NULL, 2, 269, 36, '2024-03-05 16:05:41.114');
-INSERT INTO `examination_result` VALUES (340, NULL, 2, 269, 37, '2024-03-05 16:05:41.115');
-INSERT INTO `examination_result` VALUES (341, 0.590774, NULL, 270, 45, '2024-03-05 16:05:43.112');
-INSERT INTO `examination_result` VALUES (342, 0.561503, NULL, 264, 1, '2024-03-05 16:05:51.400');
-INSERT INTO `examination_result` VALUES (343, 0.928514, NULL, 264, 2, '2024-03-05 16:05:51.400');
-INSERT INTO `examination_result` VALUES (344, 0.296244, NULL, 264, 3, '2024-03-05 16:05:51.400');
-INSERT INTO `examination_result` VALUES (345, 0.76458, NULL, 264, 4, '2024-03-05 16:05:51.400');
-INSERT INTO `examination_result` VALUES (346, 0.530062, NULL, 278, 24, '2024-03-05 16:59:34.409');
-INSERT INTO `examination_result` VALUES (347, NULL, 2, 278, 25, '2024-03-05 16:59:34.414');
-INSERT INTO `examination_result` VALUES (348, NULL, 2, 278, 26, '2024-03-05 16:59:34.416');
-INSERT INTO `examination_result` VALUES (349, 0.927446, NULL, 276, 5, '2024-03-05 16:59:45.225');
-INSERT INTO `examination_result` VALUES (350, NULL, 2, 276, 6, '2024-03-05 16:59:45.226');
-INSERT INTO `examination_result` VALUES (351, NULL, 2, 276, 7, '2024-03-05 16:59:45.227');
-INSERT INTO `examination_result` VALUES (352, NULL, 2, 276, 8, '2024-03-05 16:59:45.228');
-INSERT INTO `examination_result` VALUES (353, NULL, 2, 276, 9, '2024-03-05 16:59:45.228');
-INSERT INTO `examination_result` VALUES (354, 0.210165, NULL, 276, 10, '2024-03-05 16:59:45.228');
-INSERT INTO `examination_result` VALUES (355, NULL, 2, 276, 11, '2024-03-05 16:59:45.229');
-INSERT INTO `examination_result` VALUES (356, NULL, 2, 276, 12, '2024-03-05 16:59:45.229');
-INSERT INTO `examination_result` VALUES (357, NULL, 2, 276, 13, '2024-03-05 16:59:45.230');
-INSERT INTO `examination_result` VALUES (358, NULL, 2, 276, 14, '2024-03-05 16:59:45.232');
-INSERT INTO `examination_result` VALUES (359, 0.263571, NULL, 281, 46, '2024-03-05 16:59:51.377');
-INSERT INTO `examination_result` VALUES (360, 0.185101, NULL, 281, 47, '2024-03-05 16:59:51.377');
-INSERT INTO `examination_result` VALUES (361, 0.0760271, NULL, 281, 48, '2024-03-05 16:59:51.377');
-INSERT INTO `examination_result` VALUES (362, 0.195691, NULL, 281, 49, '2024-03-05 16:59:51.377');
-INSERT INTO `examination_result` VALUES (363, 0.0343708, NULL, 281, 50, '2024-03-05 16:59:51.377');
-INSERT INTO `examination_result` VALUES (364, 0.77755, NULL, 281, 51, '2024-03-05 16:59:51.377');
-INSERT INTO `examination_result` VALUES (365, 0.210858, NULL, 281, 52, '2024-03-05 16:59:51.377');
-INSERT INTO `examination_result` VALUES (366, 0.86422, NULL, 281, 53, '2024-03-05 16:59:51.377');
-INSERT INTO `examination_result` VALUES (367, 0.379652, NULL, 281, 54, '2024-03-05 16:59:51.377');
-INSERT INTO `examination_result` VALUES (368, 0.580503, NULL, 281, 55, '2024-03-05 16:59:51.377');
-INSERT INTO `examination_result` VALUES (369, 0.711367, NULL, 281, 56, '2024-03-05 16:59:51.377');
-INSERT INTO `examination_result` VALUES (370, 0.669025, NULL, 281, 57, '2024-03-05 16:59:51.377');
-INSERT INTO `examination_result` VALUES (371, 0.107442, NULL, 281, 58, '2024-03-05 16:59:51.377');
-INSERT INTO `examination_result` VALUES (372, 0.410094, NULL, 281, 59, '2024-03-05 16:59:51.377');
-INSERT INTO `examination_result` VALUES (373, 0.970783, NULL, 281, 60, '2024-03-05 16:59:51.377');
-INSERT INTO `examination_result` VALUES (374, 0.0505679, NULL, 281, 61, '2024-03-05 16:59:51.377');
-INSERT INTO `examination_result` VALUES (375, 0.167469, NULL, 281, 62, '2024-03-05 16:59:51.377');
-INSERT INTO `examination_result` VALUES (376, 0.0855084, NULL, 280, 38, '2024-03-05 17:00:00.926');
-INSERT INTO `examination_result` VALUES (377, 0.0194923, NULL, 280, 39, '2024-03-05 17:00:00.926');
-INSERT INTO `examination_result` VALUES (378, NULL, 2, 280, 40, '2024-03-05 17:00:00.927');
-INSERT INTO `examination_result` VALUES (379, NULL, 2, 280, 41, '2024-03-05 17:00:00.927');
-INSERT INTO `examination_result` VALUES (380, NULL, 2, 280, 42, '2024-03-05 17:00:00.928');
-INSERT INTO `examination_result` VALUES (381, NULL, 2, 280, 43, '2024-03-05 17:00:00.928');
-INSERT INTO `examination_result` VALUES (382, NULL, 2, 280, 44, '2024-03-05 17:00:00.928');
-INSERT INTO `examination_result` VALUES (383, 0.608513, NULL, 279, 27, '2024-03-05 17:00:07.893');
-INSERT INTO `examination_result` VALUES (384, NULL, 2, 279, 28, '2024-03-05 17:00:07.894');
-INSERT INTO `examination_result` VALUES (385, NULL, 2, 279, 29, '2024-03-05 17:00:07.894');
-INSERT INTO `examination_result` VALUES (386, NULL, 2, 279, 30, '2024-03-05 17:00:07.894');
-INSERT INTO `examination_result` VALUES (387, NULL, 2, 279, 31, '2024-03-05 17:00:07.894');
-INSERT INTO `examination_result` VALUES (388, 0.505593, NULL, 277, 15, '2024-03-05 17:00:16.500');
-INSERT INTO `examination_result` VALUES (389, NULL, 2, 277, 16, '2024-03-05 17:00:16.501');
-INSERT INTO `examination_result` VALUES (390, NULL, 2, 277, 17, '2024-03-05 17:00:16.502');
-INSERT INTO `examination_result` VALUES (391, NULL, 2, 277, 18, '2024-03-05 17:00:16.503');
-INSERT INTO `examination_result` VALUES (392, NULL, 2, 277, 19, '2024-03-05 17:00:16.506');
-INSERT INTO `examination_result` VALUES (393, NULL, 2, 277, 20, '2024-03-05 17:00:16.508');
-INSERT INTO `examination_result` VALUES (394, NULL, 2, 277, 21, '2024-03-05 17:00:16.509');
-INSERT INTO `examination_result` VALUES (395, NULL, 2, 277, 22, '2024-03-05 17:00:16.510');
-INSERT INTO `examination_result` VALUES (396, NULL, 2, 277, 23, '2024-03-05 17:00:16.510');
+--
+-- Dumping data for table `examination_result`
+--
 
--- ----------------------------
--- Table structure for examinee
--- ----------------------------
+LOCK TABLES `examination_result` WRITE;
+/*!40000 ALTER TABLE `examination_result` DISABLE KEYS */;
+INSERT INTO `examination_result` VALUES (1,5.5,2,206,10,NULL),(2,NULL,2,207,11,NULL),(3,0.362042,NULL,210,46,NULL),(4,0.560208,NULL,210,47,NULL),(5,0.800163,NULL,210,48,NULL),(6,0.94074,NULL,210,49,NULL),(7,0.683253,NULL,210,50,NULL),(8,0.1277,NULL,210,51,NULL),(9,0.708434,NULL,210,52,NULL),(10,0.154371,NULL,210,53,NULL),(11,0.827237,NULL,210,54,NULL),(12,0.570998,NULL,210,55,NULL),(13,0.484247,NULL,210,56,NULL),(14,0.573186,NULL,210,57,NULL),(15,0.240981,NULL,210,58,NULL),(16,0.93789,NULL,210,59,NULL),(17,0.0728485,NULL,210,60,NULL),(18,0.55819,NULL,210,61,NULL),(19,0.499972,NULL,210,62,NULL),(20,0.399657,NULL,210,46,NULL),(21,0.887822,NULL,210,47,NULL),(22,0.717858,NULL,210,48,NULL),(23,0.62393,NULL,210,49,NULL),(24,0.109194,NULL,210,50,NULL),(25,0.0974508,NULL,210,51,NULL),(26,0.729188,NULL,210,52,NULL),(27,0.797693,NULL,210,53,NULL),(28,0.775213,NULL,210,54,NULL),(29,0.465284,NULL,210,55,NULL),(30,0.176948,NULL,210,56,NULL),(31,0.545902,NULL,210,57,NULL),(32,0.0734282,NULL,210,58,NULL),(33,0.376831,NULL,210,59,NULL),(34,0.149222,NULL,210,60,NULL),(35,0.330495,NULL,210,61,NULL),(36,0.0889997,NULL,210,62,NULL),(37,0.139056,NULL,212,82,NULL),(38,0.45067,NULL,210,46,NULL),(39,0.159177,NULL,210,47,NULL),(40,0.238505,NULL,210,48,NULL),(41,0.690357,NULL,210,49,NULL),(42,0.15269,NULL,210,50,NULL),(43,0.373391,NULL,210,51,NULL),(44,0.512685,NULL,210,52,NULL),(45,0.450082,NULL,210,53,NULL),(46,0.510906,NULL,210,54,NULL),(47,0.0191328,NULL,210,55,NULL),(48,0.975633,NULL,210,56,NULL),(49,0.379343,NULL,210,57,NULL),(50,0.0110458,NULL,210,58,NULL),(51,0.669174,NULL,210,59,NULL),(52,0.863612,NULL,210,60,NULL),(53,0.762777,NULL,210,61,NULL),(54,0.648272,NULL,210,62,NULL),(55,0.222949,NULL,207,38,NULL),(56,0.655243,NULL,207,39,NULL),(57,NULL,12,207,2,NULL),(58,NULL,12,207,3,NULL),(59,NULL,12,207,4,NULL),(60,NULL,12,207,5,NULL),(61,NULL,12,207,6,NULL),(62,0.901262,NULL,211,81,NULL),(63,0.207591,NULL,216,78,NULL),(64,0.316518,NULL,216,79,NULL),(65,0.695284,NULL,216,80,NULL),(66,0.787833,NULL,213,83,NULL),(67,0.988637,NULL,213,84,NULL),(68,0.992415,NULL,213,85,NULL),(69,0.790477,NULL,213,86,NULL),(70,0.392347,NULL,213,87,NULL),(71,0.732787,NULL,213,88,NULL),(72,0.953918,NULL,213,89,NULL),(73,0.818204,NULL,213,90,NULL),(74,0.341388,NULL,213,91,NULL),(75,0.991448,NULL,213,92,NULL),(76,0.20172,NULL,213,93,NULL),(77,0.21405,NULL,213,94,NULL),(78,0.388251,NULL,210,46,NULL),(79,0.854824,NULL,210,47,NULL),(80,0.390501,NULL,210,48,NULL),(81,0.399157,NULL,210,49,NULL),(82,0.824502,NULL,210,50,NULL),(83,0.418726,NULL,210,51,NULL),(84,0.318352,NULL,210,52,NULL),(85,0.450714,NULL,210,53,NULL),(86,0.501075,NULL,210,54,NULL),(87,0.971424,NULL,210,55,NULL),(88,0.62663,NULL,210,56,NULL),(89,0.772,NULL,210,57,NULL),(90,0.125362,NULL,210,58,NULL),(91,0.702358,NULL,210,59,NULL),(92,0.455153,NULL,210,60,NULL),(93,0.481519,NULL,210,61,NULL),(94,0.709247,NULL,210,62,NULL),(95,0.203892,NULL,212,82,NULL),(96,0.461376,NULL,240,24,'2024-02-29 21:36:29.568'),(97,NULL,2,240,25,'2024-02-29 21:36:29.570'),(98,NULL,2,240,26,'2024-02-29 21:36:29.571'),(99,0.327323,NULL,253,24,'2024-03-03 22:47:18.042'),(100,NULL,2,253,25,'2024-03-03 22:47:18.044'),(101,NULL,2,253,26,'2024-03-03 22:47:18.045'),(102,0.594408,NULL,238,5,'2024-03-04 08:42:54.962'),(103,NULL,2,238,6,'2024-03-04 08:42:54.964'),(104,NULL,2,238,7,'2024-03-04 08:42:54.965'),(105,NULL,2,238,8,'2024-03-04 08:42:54.965'),(106,NULL,2,238,9,'2024-03-04 08:42:54.966'),(107,0.66589,NULL,238,10,'2024-03-04 08:42:54.966'),(108,NULL,2,238,11,'2024-03-04 08:42:54.966'),(109,NULL,2,238,12,'2024-03-04 08:42:54.967'),(110,NULL,2,238,13,'2024-03-04 08:42:54.967'),(111,NULL,2,238,14,'2024-03-04 08:42:54.968'),(112,0.0398548,NULL,245,46,'2024-03-04 08:45:22.405'),(113,0.489023,NULL,245,47,'2024-03-04 08:45:22.405'),(114,0.414569,NULL,245,48,'2024-03-04 08:45:22.405'),(115,0.404361,NULL,245,49,'2024-03-04 08:45:22.405'),(116,0.64244,NULL,245,50,'2024-03-04 08:45:22.405'),(117,0.330247,NULL,245,51,'2024-03-04 08:45:22.405'),(118,0.54207,NULL,245,52,'2024-03-04 08:45:22.405'),(119,0.540487,NULL,245,53,'2024-03-04 08:45:22.405'),(120,0.649336,NULL,245,54,'2024-03-04 08:45:22.405'),(121,0.516118,NULL,245,55,'2024-03-04 08:45:22.405'),(122,0.334309,NULL,245,56,'2024-03-04 08:45:22.405'),(123,0.963967,NULL,245,57,'2024-03-04 08:45:22.405'),(124,0.860555,NULL,245,58,'2024-03-04 08:45:22.405'),(125,0.604679,NULL,245,59,'2024-03-04 08:45:22.405'),(126,0.923196,NULL,245,60,'2024-03-04 08:45:22.405'),(127,0.544436,NULL,245,61,'2024-03-04 08:45:22.405'),(128,0.00347083,NULL,245,62,'2024-03-04 08:45:22.405'),(129,0.327594,NULL,249,82,'2024-03-04 08:48:12.786'),(130,0.157491,NULL,248,81,'2024-03-04 08:48:15.811'),(131,0.741102,NULL,247,78,'2024-03-04 08:48:18.145'),(132,0.939326,NULL,247,79,'2024-03-04 08:48:18.145'),(133,0.00495724,NULL,247,80,'2024-03-04 08:48:18.145'),(134,0.604292,NULL,250,83,'2024-03-04 08:48:19.538'),(135,0.466235,NULL,250,84,'2024-03-04 08:48:19.538'),(136,0.780037,NULL,250,85,'2024-03-04 08:48:19.538'),(137,0.903248,NULL,250,86,'2024-03-04 08:48:19.538'),(138,0.264951,NULL,250,87,'2024-03-04 08:48:19.538'),(139,0.780678,NULL,250,88,'2024-03-04 08:48:19.538'),(140,0.475491,NULL,250,89,'2024-03-04 08:48:19.538'),(141,0.838279,NULL,250,90,'2024-03-04 08:48:19.538'),(142,0.169905,NULL,250,91,'2024-03-04 08:48:19.538'),(143,0.189279,NULL,250,92,'2024-03-04 08:48:19.538'),(144,0.14482,NULL,250,93,'2024-03-04 08:48:19.538'),(145,0.746324,NULL,250,94,'2024-03-04 08:48:19.538'),(146,0.88794,NULL,243,38,'2024-03-04 08:53:12.620'),(147,0.825028,NULL,243,39,'2024-03-04 08:53:12.620'),(148,NULL,2,243,40,'2024-03-04 08:53:12.621'),(149,NULL,2,243,41,'2024-03-04 08:53:12.621'),(150,NULL,2,243,42,'2024-03-04 08:53:12.622'),(151,NULL,2,243,43,'2024-03-04 08:53:12.622'),(152,NULL,2,243,44,'2024-03-04 08:53:12.622'),(153,0.464003,NULL,241,27,'2024-03-04 09:02:59.141'),(154,NULL,2,241,28,'2024-03-04 09:02:59.142'),(155,NULL,2,241,29,'2024-03-04 09:02:59.143'),(156,NULL,2,241,30,'2024-03-04 09:02:59.143'),(157,NULL,2,241,31,'2024-03-04 09:02:59.144'),(158,0.147627,NULL,239,15,'2024-03-04 09:08:36.082'),(159,NULL,2,239,16,'2024-03-04 09:08:36.083'),(160,NULL,2,239,17,'2024-03-04 09:08:36.083'),(161,NULL,2,239,18,'2024-03-04 09:08:36.084'),(162,NULL,2,239,19,'2024-03-04 09:08:36.084'),(163,NULL,2,239,20,'2024-03-04 09:08:36.085'),(164,NULL,2,239,21,'2024-03-04 09:08:36.085'),(165,NULL,2,239,22,'2024-03-04 09:08:36.085'),(166,NULL,2,239,23,'2024-03-04 09:08:36.086'),(167,0.278776,NULL,242,32,'2024-03-04 09:10:33.514'),(168,NULL,2,242,33,'2024-03-04 09:10:33.516'),(169,NULL,2,242,34,'2024-03-04 09:10:33.516'),(170,NULL,2,242,35,'2024-03-04 09:10:33.517'),(171,NULL,2,242,36,'2024-03-04 09:10:33.517'),(172,NULL,2,242,37,'2024-03-04 09:10:33.518'),(173,0.404217,NULL,244,45,'2024-03-04 09:10:36.465'),(174,0.711672,NULL,237,1,'2024-03-04 09:10:59.630'),(175,0.161149,NULL,237,2,'2024-03-04 09:10:59.630'),(176,0.708688,NULL,237,3,'2024-03-04 09:10:59.630'),(177,0.974307,NULL,237,4,'2024-03-04 09:10:59.630'),(178,0.793647,NULL,251,5,'2024-03-04 14:56:16.111'),(179,NULL,2,251,6,'2024-03-04 14:56:16.111'),(180,NULL,2,251,7,'2024-03-04 14:56:16.112'),(181,NULL,2,251,8,'2024-03-04 14:56:16.113'),(182,NULL,2,251,9,'2024-03-04 14:56:16.113'),(183,0.648759,NULL,251,10,'2024-03-04 14:56:16.113'),(184,NULL,2,251,11,'2024-03-04 14:56:16.114'),(185,NULL,2,251,12,'2024-03-04 14:56:16.114'),(186,NULL,2,251,13,'2024-03-04 14:56:16.115'),(187,NULL,2,251,14,'2024-03-04 14:56:16.115'),(188,0.22473,NULL,255,38,'2024-03-04 15:41:16.982'),(189,0.162745,NULL,255,39,'2024-03-04 15:41:16.982'),(190,NULL,12,255,40,'2024-03-04 15:41:16.983'),(191,NULL,12,255,41,'2024-03-04 15:41:16.983'),(192,NULL,12,255,42,'2024-03-04 15:41:16.984'),(193,NULL,12,255,43,'2024-03-04 15:41:16.984'),(194,NULL,12,255,44,'2024-03-04 15:41:16.985'),(195,0.981964,NULL,254,27,'2024-03-04 15:41:19.641'),(196,NULL,12,254,28,'2024-03-04 15:41:19.641'),(197,NULL,12,254,29,'2024-03-04 15:41:19.641'),(198,NULL,12,254,30,'2024-03-04 15:41:19.642'),(199,NULL,12,254,31,'2024-03-04 15:41:19.642'),(200,0.608974,NULL,252,15,'2024-03-04 15:41:22.027'),(201,NULL,12,252,16,'2024-03-04 15:41:22.028'),(202,NULL,12,252,17,'2024-03-04 15:41:22.028'),(203,NULL,12,252,18,'2024-03-04 15:41:22.028'),(204,NULL,12,252,19,'2024-03-04 15:41:22.029'),(205,NULL,12,252,20,'2024-03-04 15:41:22.029'),(206,NULL,12,252,21,'2024-03-04 15:41:22.030'),(207,NULL,12,252,22,'2024-03-04 15:41:22.030'),(208,NULL,12,252,23,'2024-03-04 15:41:22.030'),(209,0.658693,NULL,256,46,'2024-03-04 15:43:52.315'),(210,0.0636746,NULL,256,47,'2024-03-04 15:43:52.315'),(211,0.464184,NULL,256,48,'2024-03-04 15:43:52.315'),(212,0.08377,NULL,256,49,'2024-03-04 15:43:52.315'),(213,0.452304,NULL,256,50,'2024-03-04 15:43:52.315'),(214,0.717203,NULL,256,51,'2024-03-04 15:43:52.315'),(215,0.461962,NULL,256,52,'2024-03-04 15:43:52.315'),(216,0.174121,NULL,256,53,'2024-03-04 15:43:52.315'),(217,0.874083,NULL,256,54,'2024-03-04 15:43:52.315'),(218,0.732162,NULL,256,55,'2024-03-04 15:43:52.315'),(219,0.35315,NULL,256,56,'2024-03-04 15:43:52.315'),(220,0.124174,NULL,256,57,'2024-03-04 15:43:52.315'),(221,0.112883,NULL,256,58,'2024-03-04 15:43:52.315'),(222,0.445798,NULL,256,59,'2024-03-04 15:43:52.315'),(223,0.721123,NULL,256,60,'2024-03-04 15:43:52.315'),(224,0.763668,NULL,256,61,'2024-03-04 15:43:52.315'),(225,0.534537,NULL,256,62,'2024-03-04 15:43:52.315'),(226,0.271829,NULL,258,5,'2024-03-04 15:57:16.128'),(227,NULL,2,258,6,'2024-03-04 15:57:16.129'),(228,NULL,2,258,7,'2024-03-04 15:57:16.129'),(229,NULL,2,258,8,'2024-03-04 15:57:16.130'),(230,NULL,2,258,9,'2024-03-04 15:57:16.130'),(231,0.125666,NULL,258,10,'2024-03-04 15:57:16.130'),(232,NULL,2,258,11,'2024-03-04 15:57:16.130'),(233,NULL,2,258,12,'2024-03-04 15:57:16.131'),(234,NULL,2,258,13,'2024-03-04 15:57:16.131'),(235,NULL,2,258,14,'2024-03-04 15:57:16.131'),(236,0.992902,NULL,263,46,'2024-03-04 15:57:28.518'),(237,0.159915,NULL,263,47,'2024-03-04 15:57:28.518'),(238,0.550889,NULL,263,48,'2024-03-04 15:57:28.518'),(239,0.89553,NULL,263,49,'2024-03-04 15:57:28.518'),(240,0.424726,NULL,263,50,'2024-03-04 15:57:28.518'),(241,0.706367,NULL,263,51,'2024-03-04 15:57:28.518'),(242,0.159589,NULL,263,52,'2024-03-04 15:57:28.518'),(243,0.788746,NULL,263,53,'2024-03-04 15:57:28.518'),(244,0.766129,NULL,263,54,'2024-03-04 15:57:28.518'),(245,0.87858,NULL,263,55,'2024-03-04 15:57:28.518'),(246,0.300813,NULL,263,56,'2024-03-04 15:57:28.518'),(247,0.327974,NULL,263,57,'2024-03-04 15:57:28.518'),(248,0.679596,NULL,263,58,'2024-03-04 15:57:28.518'),(249,0.390731,NULL,263,59,'2024-03-04 15:57:28.518'),(250,0.48045,NULL,263,60,'2024-03-04 15:57:28.518'),(251,0.787249,NULL,263,61,'2024-03-04 15:57:28.518'),(252,0.761974,NULL,263,62,'2024-03-04 15:57:28.518'),(253,0.0185433,NULL,262,38,'2024-03-04 15:57:38.698'),(254,0.254492,NULL,262,39,'2024-03-04 15:57:38.698'),(255,NULL,2,262,40,'2024-03-04 15:57:38.698'),(256,NULL,2,262,41,'2024-03-04 15:57:38.699'),(257,NULL,2,262,42,'2024-03-04 15:57:38.699'),(258,NULL,2,262,43,'2024-03-04 15:57:38.700'),(259,NULL,2,262,44,'2024-03-04 15:57:38.700'),(260,0.745012,NULL,261,27,'2024-03-04 15:57:50.507'),(261,NULL,2,261,28,'2024-03-04 15:57:50.508'),(262,NULL,2,261,29,'2024-03-04 15:57:50.509'),(263,NULL,2,261,30,'2024-03-04 15:57:50.509'),(264,NULL,2,261,31,'2024-03-04 15:57:50.509'),(265,0.624131,NULL,259,15,'2024-03-04 15:58:00.583'),(266,NULL,2,259,16,'2024-03-04 15:58:00.584'),(267,NULL,2,259,17,'2024-03-04 15:58:00.584'),(268,NULL,2,259,18,'2024-03-04 15:58:00.584'),(269,NULL,2,259,19,'2024-03-04 15:58:00.584'),(270,NULL,2,259,20,'2024-03-04 15:58:00.584'),(271,NULL,2,259,21,'2024-03-04 15:58:00.585'),(272,NULL,2,259,22,'2024-03-04 15:58:00.585'),(273,NULL,2,259,23,'2024-03-04 15:58:00.585'),(274,0.0824779,NULL,267,24,'2024-03-05 16:01:31.423'),(275,NULL,2,267,25,'2024-03-05 16:01:31.424'),(276,NULL,2,267,26,'2024-03-05 16:01:31.424'),(277,0.68671,NULL,265,5,'2024-03-05 16:03:38.701'),(278,NULL,2,265,6,'2024-03-05 16:03:38.704'),(279,NULL,2,265,7,'2024-03-05 16:03:38.705'),(280,NULL,2,265,8,'2024-03-05 16:03:38.705'),(281,NULL,2,265,9,'2024-03-05 16:03:38.706'),(282,0.189104,NULL,265,10,'2024-03-05 16:03:38.706'),(283,NULL,2,265,11,'2024-03-05 16:03:38.707'),(284,NULL,2,265,12,'2024-03-05 16:03:38.708'),(285,NULL,2,265,13,'2024-03-05 16:03:38.709'),(286,NULL,2,265,14,'2024-03-05 16:03:38.710'),(287,0.813691,NULL,271,46,'2024-03-05 16:03:56.594'),(288,0.327118,NULL,271,47,'2024-03-05 16:03:56.595'),(289,0.802487,NULL,271,48,'2024-03-05 16:03:56.595'),(290,0.165428,NULL,271,49,'2024-03-05 16:03:56.595'),(291,0.356398,NULL,271,50,'2024-03-05 16:03:56.595'),(292,0.523305,NULL,271,51,'2024-03-05 16:03:56.595'),(293,0.738061,NULL,271,52,'2024-03-05 16:03:56.595'),(294,0.572946,NULL,271,53,'2024-03-05 16:03:56.595'),(295,0.954184,NULL,271,54,'2024-03-05 16:03:56.595'),(296,0.28047,NULL,271,55,'2024-03-05 16:03:56.595'),(297,0.532114,NULL,271,56,'2024-03-05 16:03:56.595'),(298,0.895883,NULL,271,57,'2024-03-05 16:03:56.595'),(299,0.52311,NULL,271,58,'2024-03-05 16:03:56.595'),(300,0.52631,NULL,271,59,'2024-03-05 16:03:56.595'),(301,0.431972,NULL,271,60,'2024-03-05 16:03:56.595'),(302,0.810705,NULL,271,61,'2024-03-05 16:03:56.595'),(303,0.138952,NULL,271,62,'2024-03-05 16:03:56.595'),(304,0.924688,NULL,274,82,'2024-03-05 16:04:06.735'),(305,0.746191,NULL,273,81,'2024-03-05 16:04:10.152'),(306,0.531041,NULL,272,78,'2024-03-05 16:04:13.682'),(307,0.0876225,NULL,272,79,'2024-03-05 16:04:13.682'),(308,0.418085,NULL,272,80,'2024-03-05 16:04:13.682'),(309,0.324684,NULL,275,83,'2024-03-05 16:04:16.863'),(310,0.891379,NULL,275,84,'2024-03-05 16:04:16.863'),(311,0.851448,NULL,275,85,'2024-03-05 16:04:16.863'),(312,0.200673,NULL,275,86,'2024-03-05 16:04:16.863'),(313,0.759374,NULL,275,87,'2024-03-05 16:04:16.863'),(314,0.988386,NULL,275,88,'2024-03-05 16:04:16.863'),(315,0.22302,NULL,275,89,'2024-03-05 16:04:16.863'),(316,0.0422219,NULL,275,90,'2024-03-05 16:04:16.863'),(317,0.788885,NULL,275,91,'2024-03-05 16:04:16.863'),(318,0.616643,NULL,275,92,'2024-03-05 16:04:16.863'),(319,0.272652,NULL,275,93,'2024-03-05 16:04:16.863'),(320,0.924295,NULL,275,94,'2024-03-05 16:04:16.863'),(321,0.182779,NULL,268,27,'2024-03-05 16:05:02.340'),(322,NULL,2,268,28,'2024-03-05 16:05:02.341'),(323,NULL,2,268,29,'2024-03-05 16:05:02.341'),(324,NULL,2,268,30,'2024-03-05 16:05:02.342'),(325,NULL,2,268,31,'2024-03-05 16:05:02.342'),(326,0.91719,NULL,266,15,'2024-03-05 16:05:25.522'),(327,NULL,2,266,16,'2024-03-05 16:05:25.523'),(328,NULL,2,266,17,'2024-03-05 16:05:25.523'),(329,NULL,2,266,18,'2024-03-05 16:05:25.523'),(330,NULL,2,266,19,'2024-03-05 16:05:25.523'),(331,NULL,2,266,20,'2024-03-05 16:05:25.524'),(332,NULL,2,266,21,'2024-03-05 16:05:25.524'),(333,NULL,2,266,22,'2024-03-05 16:05:25.524'),(334,NULL,2,266,23,'2024-03-05 16:05:25.524'),(335,0.176142,NULL,269,32,'2024-03-05 16:05:41.111'),(336,NULL,2,269,33,'2024-03-05 16:05:41.112'),(337,NULL,2,269,34,'2024-03-05 16:05:41.113'),(338,NULL,2,269,35,'2024-03-05 16:05:41.114'),(339,NULL,2,269,36,'2024-03-05 16:05:41.114'),(340,NULL,2,269,37,'2024-03-05 16:05:41.115'),(341,0.590774,NULL,270,45,'2024-03-05 16:05:43.112'),(342,0.561503,NULL,264,1,'2024-03-05 16:05:51.400'),(343,0.928514,NULL,264,2,'2024-03-05 16:05:51.400'),(344,0.296244,NULL,264,3,'2024-03-05 16:05:51.400'),(345,0.76458,NULL,264,4,'2024-03-05 16:05:51.400'),(346,0.530062,NULL,278,24,'2024-03-05 16:59:34.409'),(347,NULL,2,278,25,'2024-03-05 16:59:34.414'),(348,NULL,2,278,26,'2024-03-05 16:59:34.416'),(349,0.927446,NULL,276,5,'2024-03-05 16:59:45.225'),(350,NULL,2,276,6,'2024-03-05 16:59:45.226'),(351,NULL,2,276,7,'2024-03-05 16:59:45.227'),(352,NULL,2,276,8,'2024-03-05 16:59:45.228'),(353,NULL,2,276,9,'2024-03-05 16:59:45.228'),(354,0.210165,NULL,276,10,'2024-03-05 16:59:45.228'),(355,NULL,2,276,11,'2024-03-05 16:59:45.229'),(356,NULL,2,276,12,'2024-03-05 16:59:45.229'),(357,NULL,2,276,13,'2024-03-05 16:59:45.230'),(358,NULL,2,276,14,'2024-03-05 16:59:45.232'),(359,0.263571,NULL,281,46,'2024-03-05 16:59:51.377'),(360,0.185101,NULL,281,47,'2024-03-05 16:59:51.377'),(361,0.0760271,NULL,281,48,'2024-03-05 16:59:51.377'),(362,0.195691,NULL,281,49,'2024-03-05 16:59:51.377'),(363,0.0343708,NULL,281,50,'2024-03-05 16:59:51.377'),(364,0.77755,NULL,281,51,'2024-03-05 16:59:51.377'),(365,0.210858,NULL,281,52,'2024-03-05 16:59:51.377'),(366,0.86422,NULL,281,53,'2024-03-05 16:59:51.377'),(367,0.379652,NULL,281,54,'2024-03-05 16:59:51.377'),(368,0.580503,NULL,281,55,'2024-03-05 16:59:51.377'),(369,0.711367,NULL,281,56,'2024-03-05 16:59:51.377'),(370,0.669025,NULL,281,57,'2024-03-05 16:59:51.377'),(371,0.107442,NULL,281,58,'2024-03-05 16:59:51.377'),(372,0.410094,NULL,281,59,'2024-03-05 16:59:51.377'),(373,0.970783,NULL,281,60,'2024-03-05 16:59:51.377'),(374,0.0505679,NULL,281,61,'2024-03-05 16:59:51.377'),(375,0.167469,NULL,281,62,'2024-03-05 16:59:51.377'),(376,0.0855084,NULL,280,38,'2024-03-05 17:00:00.926'),(377,0.0194923,NULL,280,39,'2024-03-05 17:00:00.926'),(378,NULL,2,280,40,'2024-03-05 17:00:00.927'),(379,NULL,2,280,41,'2024-03-05 17:00:00.927'),(380,NULL,2,280,42,'2024-03-05 17:00:00.928'),(381,NULL,2,280,43,'2024-03-05 17:00:00.928'),(382,NULL,2,280,44,'2024-03-05 17:00:00.928'),(383,0.608513,NULL,279,27,'2024-03-05 17:00:07.893'),(384,NULL,2,279,28,'2024-03-05 17:00:07.894'),(385,NULL,2,279,29,'2024-03-05 17:00:07.894'),(386,NULL,2,279,30,'2024-03-05 17:00:07.894'),(387,NULL,2,279,31,'2024-03-05 17:00:07.894'),(388,0.505593,NULL,277,15,'2024-03-05 17:00:16.500'),(389,NULL,2,277,16,'2024-03-05 17:00:16.501'),(390,NULL,2,277,17,'2024-03-05 17:00:16.502'),(391,NULL,2,277,18,'2024-03-05 17:00:16.503'),(392,NULL,2,277,19,'2024-03-05 17:00:16.506'),(393,NULL,2,277,20,'2024-03-05 17:00:16.508'),(394,NULL,2,277,21,'2024-03-05 17:00:16.509'),(395,NULL,2,277,22,'2024-03-05 17:00:16.510'),(396,NULL,2,277,23,'2024-03-05 17:00:16.510'),(397,0.293646,NULL,356,24,'2024-04-16 15:55:36.616'),(398,NULL,2,356,25,'2024-04-16 15:55:36.618'),(399,NULL,2,356,26,'2024-04-16 15:55:36.619'),(400,0.663684,NULL,354,5,'2024-04-16 15:55:54.482'),(401,NULL,2,354,6,'2024-04-16 15:55:54.483'),(402,NULL,2,354,7,'2024-04-16 15:55:54.483'),(403,NULL,2,354,8,'2024-04-16 15:55:54.484'),(404,NULL,2,354,9,'2024-04-16 15:55:54.484'),(405,0.0756353,NULL,354,10,'2024-04-16 15:55:54.484'),(406,NULL,2,354,11,'2024-04-16 15:55:54.485'),(407,NULL,2,354,12,'2024-04-16 15:55:54.485'),(408,NULL,2,354,13,'2024-04-16 15:55:54.486'),(409,NULL,2,354,14,'2024-04-16 15:55:54.486'),(410,0.10212,NULL,359,46,'2024-04-16 15:56:08.826'),(411,0.259005,NULL,359,47,'2024-04-16 15:56:08.826'),(412,0.845892,NULL,359,48,'2024-04-16 15:56:08.826'),(413,0.593937,NULL,359,49,'2024-04-16 15:56:08.826'),(414,0.993398,NULL,359,50,'2024-04-16 15:56:08.826'),(415,0.70332,NULL,359,51,'2024-04-16 15:56:08.826'),(416,0.256269,NULL,359,52,'2024-04-16 15:56:08.826'),(417,0.297987,NULL,359,53,'2024-04-16 15:56:08.826'),(418,0.980398,NULL,359,54,'2024-04-16 15:56:08.826'),(419,0.581803,NULL,359,55,'2024-04-16 15:56:08.826'),(420,0.573114,NULL,359,56,'2024-04-16 15:56:08.826'),(421,0.376175,NULL,359,57,'2024-04-16 15:56:08.826'),(422,0.459918,NULL,359,58,'2024-04-16 15:56:08.826'),(423,0.874513,NULL,359,59,'2024-04-16 15:56:08.826'),(424,0.218909,NULL,359,60,'2024-04-16 15:56:08.826'),(425,0.41423,NULL,359,61,'2024-04-16 15:56:08.826'),(426,0.860833,NULL,359,62,'2024-04-16 15:56:08.826'),(427,0.134974,NULL,358,38,'2024-04-16 15:56:18.900'),(428,0.936618,NULL,358,39,'2024-04-16 15:56:18.900'),(429,NULL,2,358,40,'2024-04-16 15:56:18.900'),(430,NULL,2,358,41,'2024-04-16 15:56:18.901'),(431,NULL,2,358,42,'2024-04-16 15:56:18.901'),(432,NULL,2,358,43,'2024-04-16 15:56:18.901'),(433,NULL,2,358,44,'2024-04-16 15:56:18.902'),(434,0.518109,NULL,357,27,'2024-04-16 15:57:31.486'),(435,NULL,2,357,28,'2024-04-16 15:57:31.486'),(436,NULL,2,357,29,'2024-04-16 15:57:31.487'),(437,NULL,2,357,30,'2024-04-16 15:57:31.487'),(438,NULL,2,357,31,'2024-04-16 15:57:31.488'),(439,0.0724505,NULL,355,15,'2024-04-16 15:57:41.994'),(440,NULL,2,355,16,'2024-04-16 15:57:41.994'),(441,NULL,2,355,17,'2024-04-16 15:57:41.995'),(442,NULL,2,355,18,'2024-04-16 15:57:41.995'),(443,NULL,2,355,19,'2024-04-16 15:57:41.996'),(444,NULL,2,355,20,'2024-04-16 15:57:41.996'),(445,NULL,2,355,21,'2024-04-16 15:57:41.996'),(446,NULL,2,355,22,'2024-04-16 15:57:41.996'),(447,NULL,2,355,23,'2024-04-16 15:57:41.997'),(448,0.938199,NULL,362,24,'2024-04-16 16:02:40.655'),(449,NULL,3,362,25,'2024-04-16 16:02:40.655'),(450,NULL,3,362,26,'2024-04-16 16:02:40.656'),(451,0.894869,NULL,360,5,'2024-04-16 16:02:54.894'),(452,NULL,3,360,6,'2024-04-16 16:02:54.895'),(453,NULL,3,360,7,'2024-04-16 16:02:54.896'),(454,NULL,3,360,8,'2024-04-16 16:02:54.896'),(455,NULL,3,360,9,'2024-04-16 16:02:54.896'),(456,0.0274173,NULL,360,10,'2024-04-16 16:02:54.896'),(457,NULL,3,360,11,'2024-04-16 16:02:54.897'),(458,NULL,3,360,12,'2024-04-16 16:02:54.897'),(459,NULL,3,360,13,'2024-04-16 16:02:54.898'),(460,NULL,3,360,14,'2024-04-16 16:02:54.898'),(461,0.802,NULL,365,46,'2024-04-16 16:03:04.796'),(462,0.484814,NULL,365,47,'2024-04-16 16:03:04.796'),(463,0.894515,NULL,365,48,'2024-04-16 16:03:04.796'),(464,0.193966,NULL,365,49,'2024-04-16 16:03:04.796'),(465,0.405567,NULL,365,50,'2024-04-16 16:03:04.796'),(466,0.087682,NULL,365,51,'2024-04-16 16:03:04.796'),(467,0.229633,NULL,365,52,'2024-04-16 16:03:04.796'),(468,0.391851,NULL,365,53,'2024-04-16 16:03:04.796'),(469,0.567491,NULL,365,54,'2024-04-16 16:03:04.796'),(470,0.26817,NULL,365,55,'2024-04-16 16:03:04.796'),(471,0.186932,NULL,365,56,'2024-04-16 16:03:04.796'),(472,0.685301,NULL,365,57,'2024-04-16 16:03:04.796'),(473,0.0947264,NULL,365,58,'2024-04-16 16:03:04.796'),(474,0.780918,NULL,365,59,'2024-04-16 16:03:04.796'),(475,0.345928,NULL,365,60,'2024-04-16 16:03:04.796'),(476,0.892767,NULL,365,61,'2024-04-16 16:03:04.796'),(477,0.656673,NULL,365,62,'2024-04-16 16:03:04.796'),(478,0.907632,NULL,364,38,'2024-04-16 16:03:12.010'),(479,0.758617,NULL,364,39,'2024-04-16 16:03:12.010'),(480,NULL,3,364,40,'2024-04-16 16:03:12.011'),(481,NULL,3,364,41,'2024-04-16 16:03:12.011'),(482,NULL,3,364,42,'2024-04-16 16:03:12.012'),(483,NULL,3,364,43,'2024-04-16 16:03:12.012'),(484,NULL,3,364,44,'2024-04-16 16:03:12.013'),(485,0.776293,NULL,363,27,'2024-04-16 16:03:18.032'),(486,NULL,3,363,28,'2024-04-16 16:03:18.032'),(487,NULL,3,363,29,'2024-04-16 16:03:18.032'),(488,NULL,3,363,30,'2024-04-16 16:03:18.033'),(489,NULL,3,363,31,'2024-04-16 16:03:18.033'),(490,0.883349,NULL,361,15,'2024-04-16 16:03:27.262'),(491,NULL,3,361,16,'2024-04-16 16:03:27.262'),(492,NULL,3,361,17,'2024-04-16 16:03:27.263'),(493,NULL,3,361,18,'2024-04-16 16:03:27.263'),(494,NULL,3,361,19,'2024-04-16 16:03:27.263'),(495,NULL,3,361,20,'2024-04-16 16:03:27.264'),(496,NULL,3,361,21,'2024-04-16 16:03:27.264'),(497,NULL,3,361,22,'2024-04-16 16:03:27.264'),(498,NULL,3,361,23,'2024-04-16 16:03:27.265'),(499,0.692563,NULL,368,24,'2024-04-16 16:06:12.835'),(500,NULL,2,368,25,'2024-04-16 16:06:12.835'),(501,NULL,2,368,26,'2024-04-16 16:06:12.836'),(502,0.0293054,NULL,366,5,'2024-04-16 16:06:24.955'),(503,NULL,2,366,6,'2024-04-16 16:06:24.956'),(504,NULL,2,366,7,'2024-04-16 16:06:24.956'),(505,NULL,2,366,8,'2024-04-16 16:06:24.957'),(506,NULL,2,366,9,'2024-04-16 16:06:24.957'),(507,0.186358,NULL,366,10,'2024-04-16 16:06:24.957'),(508,NULL,2,366,11,'2024-04-16 16:06:24.958'),(509,NULL,2,366,12,'2024-04-16 16:06:24.958'),(510,NULL,2,366,13,'2024-04-16 16:06:24.959'),(511,NULL,2,366,14,'2024-04-16 16:06:24.959'),(512,0.764667,NULL,371,46,'2024-04-16 16:06:30.458'),(513,0.898182,NULL,371,47,'2024-04-16 16:06:30.458'),(514,0.717457,NULL,371,48,'2024-04-16 16:06:30.458'),(515,0.949333,NULL,371,49,'2024-04-16 16:06:30.458'),(516,0.525061,NULL,371,50,'2024-04-16 16:06:30.458'),(517,0.0218022,NULL,371,51,'2024-04-16 16:06:30.458'),(518,0.022846,NULL,371,52,'2024-04-16 16:06:30.458'),(519,0.881383,NULL,371,53,'2024-04-16 16:06:30.458'),(520,0.990609,NULL,371,54,'2024-04-16 16:06:30.458'),(521,0.800636,NULL,371,55,'2024-04-16 16:06:30.458'),(522,0.162248,NULL,371,56,'2024-04-16 16:06:30.458'),(523,0.652252,NULL,371,57,'2024-04-16 16:06:30.458'),(524,0.546942,NULL,371,58,'2024-04-16 16:06:30.458'),(525,0.743349,NULL,371,59,'2024-04-16 16:06:30.458'),(526,0.988719,NULL,371,60,'2024-04-16 16:06:30.458'),(527,0.20497,NULL,371,61,'2024-04-16 16:06:30.458'),(528,0.394614,NULL,371,62,'2024-04-16 16:06:30.458'),(529,0.140375,NULL,370,38,'2024-04-16 16:06:42.076'),(530,0.279683,NULL,370,39,'2024-04-16 16:06:42.076'),(531,NULL,2,370,40,'2024-04-16 16:06:42.077'),(532,NULL,2,370,41,'2024-04-16 16:06:42.077'),(533,NULL,2,370,42,'2024-04-16 16:06:42.078'),(534,NULL,2,370,43,'2024-04-16 16:06:42.078'),(535,NULL,2,370,44,'2024-04-16 16:06:42.079'),(536,0.596994,NULL,369,27,'2024-04-16 16:06:54.713'),(537,NULL,2,369,28,'2024-04-16 16:06:54.713'),(538,NULL,2,369,29,'2024-04-16 16:06:54.714'),(539,NULL,2,369,30,'2024-04-16 16:06:54.714'),(540,NULL,2,369,31,'2024-04-16 16:06:54.715'),(541,0.9897,NULL,367,15,'2024-04-16 16:07:10.795'),(542,NULL,2,367,16,'2024-04-16 16:07:10.796'),(543,NULL,2,367,17,'2024-04-16 16:07:10.796'),(544,NULL,2,367,18,'2024-04-16 16:07:10.797'),(545,NULL,2,367,19,'2024-04-16 16:07:10.797'),(546,NULL,2,367,20,'2024-04-16 16:07:10.797'),(547,NULL,2,367,21,'2024-04-16 16:07:10.797'),(548,NULL,2,367,22,'2024-04-16 16:07:10.798'),(549,NULL,2,367,23,'2024-04-16 16:07:10.798');
+/*!40000 ALTER TABLE `examination_result` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `examinee`
+--
+
 DROP TABLE IF EXISTS `examinee`;
-CREATE TABLE `examinee`  (
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `examinee` (
   `id` int NOT NULL AUTO_INCREMENT,
-  `name` char(4) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL COMMENT '体检人姓名',
-  `identification_number` char(18) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL COMMENT '身份证号',
-  `sex` char(1) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL COMMENT '性别',
+  `name` char(4) NOT NULL COMMENT '体检人姓名',
+  `identification_number` char(18) NOT NULL COMMENT '身份证号',
+  `sex` char(1) NOT NULL COMMENT '性别',
   `birthday` date NOT NULL COMMENT '出生日期',
-  `phone` char(11) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL COMMENT '手机号码',
+  `phone` char(11) NOT NULL COMMENT '手机号码',
   `create_time` timestamp NOT NULL COMMENT '创建时间',
   `user_id` int NOT NULL COMMENT '所在账户的用户id',
   `relationship_id` int NOT NULL COMMENT '关系id',
-  PRIMARY KEY (`id`) USING BTREE,
-  INDEX `relationship_id`(`relationship_id` ASC) USING BTREE,
-  INDEX `user_id`(`user_id` ASC) USING BTREE,
-  CONSTRAINT `examinee_ibfk_1` FOREIGN KEY (`relationship_id`) REFERENCES `relationship` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT,
-  CONSTRAINT `examinee_ibfk_2` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT
-) ENGINE = InnoDB AUTO_INCREMENT = 9 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = Dynamic;
+  PRIMARY KEY (`id`),
+  KEY `relationship_id` (`relationship_id`),
+  KEY `user_id` (`user_id`),
+  CONSTRAINT `examinee_ibfk_1` FOREIGN KEY (`relationship_id`) REFERENCES `relationship` (`id`),
+  CONSTRAINT `examinee_ibfk_2` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
 
--- ----------------------------
--- Records of examinee
--- ----------------------------
-INSERT INTO `examinee` VALUES (1, '张雨绮', '230293847123112312', '女', '2011-02-11', '18937829582', '2023-04-12 19:35:28', 11, 1);
-INSERT INTO `examinee` VALUES (2, '王思博', '310112462738193721', '男', '2011-02-12', '13829223132', '2023-04-23 12:06:12', 22, 1);
-INSERT INTO `examinee` VALUES (7, '丁欣欣', '310201197902044427', '男', '1989-01-01', '13291625628', '2024-03-05 16:00:44', 23, 1);
-INSERT INTO `examinee` VALUES (8, '张涛', '620101200211211021', '男', '2007-01-01', '13720999653', '2024-03-05 16:58:33', 24, 1);
+--
+-- Dumping data for table `examinee`
+--
 
--- ----------------------------
--- Table structure for group_information
--- ----------------------------
+LOCK TABLES `examinee` WRITE;
+/*!40000 ALTER TABLE `examinee` DISABLE KEYS */;
+INSERT INTO `examinee` VALUES (1,'张雨绮','230293847123112312','女','2011-02-11','18937829582','2023-04-12 11:35:28',11,1),(2,'王思博','310112462738193721','男','2011-02-12','13829223132','2023-04-23 04:06:12',22,1),(7,'丁欣欣','310201197902044427','男','1989-01-01','13291625628','2024-03-05 08:00:44',23,1),(8,'张涛','620101200211211021','男','2007-01-01','13720999653','2024-03-05 08:58:33',24,1),(9,'洛南','310112200106087213','女','2011-02-12','18773703523','2024-04-16 06:57:36',21,1);
+/*!40000 ALTER TABLE `examinee` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `group_information`
+--
+
 DROP TABLE IF EXISTS `group_information`;
-CREATE TABLE `group_information`  (
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `group_information` (
   `id` int NOT NULL AUTO_INCREMENT,
-  `company_name` varchar(26) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL COMMENT '公司名称',
+  `package_id` int NOT NULL COMMENT '团检套餐',
+  `center_id` int NOT NULL COMMENT '体检中心',
   `create_time` timestamp(6) NOT NULL COMMENT '订单创建时间',
   `start_time` timestamp(6) NULL DEFAULT NULL COMMENT '团检开始时间',
   `end_time` timestamp(6) NULL DEFAULT NULL COMMENT '团检结束时间',
   `number` smallint NOT NULL COMMENT '团检人数',
-  PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 2 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = Dynamic;
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
 
--- ----------------------------
--- Records of group_information
--- ----------------------------
-INSERT INTO `group_information` VALUES (1, '无', '2023-04-12 20:28:30.000000', '2023-04-12 20:28:32.000000', '2023-04-12 20:28:34.000000', 0);
+--
+-- Dumping data for table `group_information`
+--
 
--- ----------------------------
--- Table structure for item
--- ----------------------------
+LOCK TABLES `group_information` WRITE;
+/*!40000 ALTER TABLE `group_information` DISABLE KEYS */;
+INSERT INTO `group_information` VALUES (7,6,3,'2024-04-16 07:19:59.706000','2024-04-16 07:19:59.706000','2024-04-17 07:19:59.706000',3);
+/*!40000 ALTER TABLE `group_information` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `item`
+--
+
 DROP TABLE IF EXISTS `item`;
-CREATE TABLE `item`  (
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `item` (
   `id` int NOT NULL AUTO_INCREMENT,
-  `name` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL COMMENT '项目名称',
-  `unit` varchar(10) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL COMMENT '单位',
-  `normal_range_id` int NULL DEFAULT NULL COMMENT '正常结果范围id',
-  `normal_option_id` int NULL DEFAULT NULL COMMENT '正常结果文本值id',
+  `name` varchar(20) NOT NULL COMMENT '项目名称',
+  `unit` varchar(10) NOT NULL COMMENT '单位',
+  `normal_range_id` int DEFAULT NULL COMMENT '正常结果范围id',
+  `normal_option_id` int DEFAULT NULL COMMENT '正常结果文本值id',
   `average_duration` float NOT NULL COMMENT '平均进行时长（分钟）',
   `value_type` smallint NOT NULL COMMENT '0-数值型 1-文字型',
   `category_id` int NOT NULL COMMENT '项目分类id',
-  PRIMARY KEY (`id`) USING BTREE,
-  INDEX `category_id`(`category_id` ASC) USING BTREE,
-  INDEX `normal_option_id`(`normal_option_id` ASC) USING BTREE,
-  INDEX `normal_range_id`(`normal_range_id` ASC) USING BTREE,
-  CONSTRAINT `item_ibfk_1` FOREIGN KEY (`category_id`) REFERENCES `category` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT,
-  CONSTRAINT `item_ibfk_2` FOREIGN KEY (`normal_option_id`) REFERENCES `result_text_option` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT,
-  CONSTRAINT `item_ibfk_3` FOREIGN KEY (`normal_range_id`) REFERENCES `normal_range` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT
-) ENGINE = InnoDB AUTO_INCREMENT = 95 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = Dynamic;
+  PRIMARY KEY (`id`),
+  KEY `category_id` (`category_id`),
+  KEY `normal_option_id` (`normal_option_id`),
+  KEY `normal_range_id` (`normal_range_id`),
+  CONSTRAINT `item_ibfk_1` FOREIGN KEY (`category_id`) REFERENCES `category` (`id`),
+  CONSTRAINT `item_ibfk_2` FOREIGN KEY (`normal_option_id`) REFERENCES `result_text_option` (`id`),
+  CONSTRAINT `item_ibfk_3` FOREIGN KEY (`normal_range_id`) REFERENCES `normal_range` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=95 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
 
--- ----------------------------
--- Records of item
--- ----------------------------
-INSERT INTO `item` VALUES (1, '收缩压', 'mmHG', 1, 2, 1, 0, 1);
-INSERT INTO `item` VALUES (2, '舒张压', 'mmHG', 2, 2, 1, 0, 1);
-INSERT INTO `item` VALUES (3, '身高', 'cm', NULL, 2, 1, 0, 1);
-INSERT INTO `item` VALUES (4, '体重', 'Kg', NULL, 2, 1, 0, 1);
-INSERT INTO `item` VALUES (5, '胸廓', 'text', NULL, 4, 0.5, 1, 2);
-INSERT INTO `item` VALUES (6, '肺部', 'text', NULL, 2, 0.5, 1, 2);
-INSERT INTO `item` VALUES (7, '心界', 'text', NULL, 2, 0.5, 1, 2);
-INSERT INTO `item` VALUES (8, '心音', 'text', NULL, 1, 0.5, 1, 2);
-INSERT INTO `item` VALUES (9, '心律', 'text', NULL, 5, 0.5, 1, 2);
-INSERT INTO `item` VALUES (10, '心率', '次/分', 3, 2, 0.5, 0, 2);
-INSERT INTO `item` VALUES (11, '心脏杂音', 'text', 2, 3, 0.5, 1, 2);
-INSERT INTO `item` VALUES (12, '腹部外形', 'text', 2, 2, 0.5, 1, 2);
-INSERT INTO `item` VALUES (13, '腹部压痛', 'text', 2, 3, 0.5, 1, 2);
-INSERT INTO `item` VALUES (14, '内科其它', 'text', 2, 3, 0.5, 1, 2);
-INSERT INTO `item` VALUES (15, '皮肤', 'text', NULL, 2, 0.5, 1, 3);
-INSERT INTO `item` VALUES (16, '颈部', 'text', NULL, 2, 0.5, 1, 3);
-INSERT INTO `item` VALUES (17, '脊柱', 'text', NULL, 2, 0.5, 1, 3);
-INSERT INTO `item` VALUES (18, '四肢', 'text', NULL, 2, 0.5, 1, 3);
-INSERT INTO `item` VALUES (19, '肛门、直肠', 'text', NULL, 2, 0.5, 1, 3);
-INSERT INTO `item` VALUES (20, '疝气', 'text', NULL, 3, 0.5, 1, 3);
-INSERT INTO `item` VALUES (21, '泌尿生殖器', 'text', NULL, 2, 0.5, 1, 3);
-INSERT INTO `item` VALUES (22, '甲状腺', 'text', 1, 2, 0.5, 1, 3);
-INSERT INTO `item` VALUES (23, '浅表淋巴结', 'text', 1, 2, 0.5, 1, 3);
-INSERT INTO `item` VALUES (24, '心率', '次/分', 3, 1, 0.5, 0, 4);
-INSERT INTO `item` VALUES (25, '心律', 'text', 1, 5, 0.5, 1, 4);
-INSERT INTO `item` VALUES (26, '心电图检查', 'text', 1, 6, 0.5, 1, 4);
-INSERT INTO `item` VALUES (27, '耳部', 'text', 1, 2, 0.5, 1, 5);
-INSERT INTO `item` VALUES (28, '鼻部', 'text', 1, 1, 0.5, 1, 5);
-INSERT INTO `item` VALUES (29, '咽部', 'text', 1, 1, 0.5, 1, 5);
-INSERT INTO `item` VALUES (30, '喉部', 'text', 1, 1, 0.5, 1, 5);
-INSERT INTO `item` VALUES (31, '耳鼻喉科其它', 'text', 1, 2, 0.5, 1, 5);
-INSERT INTO `item` VALUES (32, '肝', 'text', 1, 2, 0.5, 1, 6);
-INSERT INTO `item` VALUES (33, '胆', 'text', 1, 2, 0.5, 1, 6);
-INSERT INTO `item` VALUES (34, '胰', 'text', 1, 2, 0.5, 1, 6);
-INSERT INTO `item` VALUES (35, '脾', 'text', 1, 2, 0.5, 1, 6);
-INSERT INTO `item` VALUES (36, '左肾', 'text', 1, 2, 0.5, 1, 6);
-INSERT INTO `item` VALUES (37, '右肾', 'text', 1, 2, 0.5, 1, 6);
-INSERT INTO `item` VALUES (38, '视力右', '度', 1, 1, 0.5, 0, 7);
-INSERT INTO `item` VALUES (39, '视力左', '度', 1, 1, 0.5, 0, 7);
-INSERT INTO `item` VALUES (40, '眼睑', 'text', 1, 1, 0.5, 1, 7);
-INSERT INTO `item` VALUES (41, '眼球', 'text', 1, 1, 0.5, 1, 7);
-INSERT INTO `item` VALUES (42, '结膜', 'text', 1, 1, 0.5, 1, 7);
-INSERT INTO `item` VALUES (43, '巩膜', 'text', 1, 1, 0.5, 1, 7);
-INSERT INTO `item` VALUES (44, '眼底', 'text', 1, 1, 0.5, 1, 7);
-INSERT INTO `item` VALUES (45, '甲状腺超声', 'text', 1, 2, 0.5, 1, 8);
-INSERT INTO `item` VALUES (46, 'MCV', 'fl', 4, 1, 0.5, 0, 9);
-INSERT INTO `item` VALUES (47, '红细胞比积', '%', 5, 1, 0.5, 0, 9);
-INSERT INTO `item` VALUES (48, '血小板', '10^9/L', 6, 1, 0.5, 0, 9);
-INSERT INTO `item` VALUES (49, '嗜酸性粒细胞', '%', 7, 1, 0.5, 0, 9);
-INSERT INTO `item` VALUES (50, '单核细胞', '%', 8, 1, 0.5, 0, 9);
-INSERT INTO `item` VALUES (51, '白细胞', '10^9/L', 9, 1, 0.5, 0, 9);
-INSERT INTO `item` VALUES (52, 'MCH', 'pg', 10, 1, 0.5, 0, 9);
-INSERT INTO `item` VALUES (53, '红细胞', '10^12/L', 11, 1, 0.5, 0, 9);
-INSERT INTO `item` VALUES (54, '嗜喊性粒细胞', '%', 12, 1, 0.5, 0, 9);
-INSERT INTO `item` VALUES (55, '中性粒细胞', '10^9/L', 13, 1, 0.5, 0, 9);
-INSERT INTO `item` VALUES (56, '单核细胞', '10^9/L', 14, 1, 0.5, 0, 9);
-INSERT INTO `item` VALUES (57, '淋巴细胞', '10^9/L', 15, 1, 0.5, 0, 9);
-INSERT INTO `item` VALUES (58, 'MCHC', 'g/L', 16, 1, 0.5, 0, 9);
-INSERT INTO `item` VALUES (59, '林巴细胞', '%', 17, 1, 0.5, 0, 9);
-INSERT INTO `item` VALUES (60, '嗜酸性粒细胞', '10^9/L', 18, 1, 0.5, 0, 9);
-INSERT INTO `item` VALUES (61, '血红蛋白', 'g/L', 19, 1, 0.5, 0, 9);
-INSERT INTO `item` VALUES (62, '中性粒细胞', '%', 20, 1, 0.5, 0, 9);
-INSERT INTO `item` VALUES (63, '白细胞脂酶', 'text', 1, 7, 0.5, 1, 10);
-INSERT INTO `item` VALUES (64, '蛋白', 'g/L', 1, 7, 0.5, 1, 10);
-INSERT INTO `item` VALUES (65, '胆红素', 'umol/l', 1, 7, 0.5, 1, 10);
-INSERT INTO `item` VALUES (66, '亚硝酸盐', 'text', 1, 7, 0.5, 1, 10);
-INSERT INTO `item` VALUES (67, '透明度', 'text', 1, 8, 0.5, 1, 10);
-INSERT INTO `item` VALUES (68, '葡萄糖', 'mmol/l', 1, 7, 0.5, 1, 10);
-INSERT INTO `item` VALUES (69, '红细胞（镜检）', '/HPF', 21, 1, 0.5, 0, 10);
-INSERT INTO `item` VALUES (70, '尿隐血', '/ul', 1, 7, 0.5, 1, 10);
-INSERT INTO `item` VALUES (71, '尿胆原', 'text', 1, 7, 0.5, 1, 10);
-INSERT INTO `item` VALUES (72, '管型（镜检）', '/LPF', 1, 9, 0.5, 1, 10);
-INSERT INTO `item` VALUES (73, '酸碱度', 'pH', 22, 1, 0.5, 0, 10);
-INSERT INTO `item` VALUES (74, '酮体', 'mmol/l', 1, 7, 0.5, 1, 10);
-INSERT INTO `item` VALUES (75, '颜色', 'text', 1, 10, 0.5, 1, 10);
-INSERT INTO `item` VALUES (76, '白细胞（镜检）', '/HPF', 1, 1, 0.5, 1, 10);
-INSERT INTO `item` VALUES (77, '上皮细胞（镜检）', '/HPF', 1, 1, 0.5, 1, 10);
-INSERT INTO `item` VALUES (78, '尿素', 'mmol/l', 23, 1, 0.5, 0, 11);
-INSERT INTO `item` VALUES (79, '肌酐', 'umol/l', 24, 1, 0.5, 0, 11);
-INSERT INTO `item` VALUES (80, '尿酸', 'umol/l', 25, 1, 0.5, 0, 11);
-INSERT INTO `item` VALUES (81, '糖化血红蛋白', '%', 26, 1, 0.5, 0, 12);
-INSERT INTO `item` VALUES (82, '空腹血糖', 'mmol/l', 27, 1, 0.5, 0, 13);
-INSERT INTO `item` VALUES (83, '血清β人绒毛膜促性腺激素', 'ng/ml', 28, 1, 0.5, 0, 14);
-INSERT INTO `item` VALUES (84, '癌胚抗原测定定量', 'ng/ml', 29, 1, 0.5, 0, 14);
-INSERT INTO `item` VALUES (85, '甲胎蛋白测定定量', 'ng/ml', 30, 1, 0.5, 0, 14);
-INSERT INTO `item` VALUES (86, '神经元特异烯醇化酶测定', 'ng/ml', 31, 1, 0.5, 0, 14);
-INSERT INTO `item` VALUES (87, '细胞角蛋白19片段', 'ng/ml', 32, 1, 0.5, 0, 14);
-INSERT INTO `item` VALUES (88, '糖链抗原50测定', 'u/ml', 33, 1, 0.5, 0, 14);
-INSERT INTO `item` VALUES (89, '糖链抗原125测定', 'u/ml', 34, 1, 0.5, 0, 14);
-INSERT INTO `item` VALUES (90, '糖链抗原19-9测定', 'u/ml', 35, 1, 0.5, 0, 14);
-INSERT INTO `item` VALUES (91, '糖链抗原242测定', 'u/ml', 36, 1, 0.5, 0, 14);
-INSERT INTO `item` VALUES (92, '糖链抗原15-3测定', 'u/ml', 37, 1, 0.5, 0, 14);
-INSERT INTO `item` VALUES (93, '糖链抗原72-4测定', 'u/ml', 38, 1, 0.5, 0, 14);
-INSERT INTO `item` VALUES (94, '特异生长因子测定', 'u/ml', 39, 1, 0.5, 0, 14);
+--
+-- Dumping data for table `item`
+--
 
--- ----------------------------
--- Table structure for item_option
--- ----------------------------
+LOCK TABLES `item` WRITE;
+/*!40000 ALTER TABLE `item` DISABLE KEYS */;
+INSERT INTO `item` VALUES (1,'收缩压','mmHG',1,2,1,0,1),(2,'舒张压','mmHG',2,2,1,0,1),(3,'身高','cm',NULL,2,1,0,1),(4,'体重','Kg',NULL,2,1,0,1),(5,'胸廓','text',NULL,4,0.5,1,2),(6,'肺部','text',NULL,2,0.5,1,2),(7,'心界','text',NULL,2,0.5,1,2),(8,'心音','text',NULL,1,0.5,1,2),(9,'心律','text',NULL,5,0.5,1,2),(10,'心率','次/分',3,2,0.5,0,2),(11,'心脏杂音','text',2,3,0.5,1,2),(12,'腹部外形','text',2,2,0.5,1,2),(13,'腹部压痛','text',2,3,0.5,1,2),(14,'内科其它','text',2,3,0.5,1,2),(15,'皮肤','text',NULL,2,0.5,1,3),(16,'颈部','text',NULL,2,0.5,1,3),(17,'脊柱','text',NULL,2,0.5,1,3),(18,'四肢','text',NULL,2,0.5,1,3),(19,'肛门、直肠','text',NULL,2,0.5,1,3),(20,'疝气','text',NULL,3,0.5,1,3),(21,'泌尿生殖器','text',NULL,2,0.5,1,3),(22,'甲状腺','text',1,2,0.5,1,3),(23,'浅表淋巴结','text',1,2,0.5,1,3),(24,'心率','次/分',3,1,0.5,0,4),(25,'心律','text',1,5,0.5,1,4),(26,'心电图检查','text',1,6,0.5,1,4),(27,'耳部','text',1,2,0.5,1,5),(28,'鼻部','text',1,1,0.5,1,5),(29,'咽部','text',1,1,0.5,1,5),(30,'喉部','text',1,1,0.5,1,5),(31,'耳鼻喉科其它','text',1,2,0.5,1,5),(32,'肝','text',1,2,0.5,1,6),(33,'胆','text',1,2,0.5,1,6),(34,'胰','text',1,2,0.5,1,6),(35,'脾','text',1,2,0.5,1,6),(36,'左肾','text',1,2,0.5,1,6),(37,'右肾','text',1,2,0.5,1,6),(38,'视力右','度',1,1,0.5,0,7),(39,'视力左','度',1,1,0.5,0,7),(40,'眼睑','text',1,1,0.5,1,7),(41,'眼球','text',1,1,0.5,1,7),(42,'结膜','text',1,1,0.5,1,7),(43,'巩膜','text',1,1,0.5,1,7),(44,'眼底','text',1,1,0.5,1,7),(45,'甲状腺超声','text',1,2,0.5,1,8),(46,'MCV','fl',4,1,0.5,0,9),(47,'红细胞比积','%',5,1,0.5,0,9),(48,'血小板','10^9/L',6,1,0.5,0,9),(49,'嗜酸性粒细胞','%',7,1,0.5,0,9),(50,'单核细胞','%',8,1,0.5,0,9),(51,'白细胞','10^9/L',9,1,0.5,0,9),(52,'MCH','pg',10,1,0.5,0,9),(53,'红细胞','10^12/L',11,1,0.5,0,9),(54,'嗜喊性粒细胞','%',12,1,0.5,0,9),(55,'中性粒细胞','10^9/L',13,1,0.5,0,9),(56,'单核细胞','10^9/L',14,1,0.5,0,9),(57,'淋巴细胞','10^9/L',15,1,0.5,0,9),(58,'MCHC','g/L',16,1,0.5,0,9),(59,'林巴细胞','%',17,1,0.5,0,9),(60,'嗜酸性粒细胞','10^9/L',18,1,0.5,0,9),(61,'血红蛋白','g/L',19,1,0.5,0,9),(62,'中性粒细胞','%',20,1,0.5,0,9),(63,'白细胞脂酶','text',1,7,0.5,1,10),(64,'蛋白','g/L',1,7,0.5,1,10),(65,'胆红素','umol/l',1,7,0.5,1,10),(66,'亚硝酸盐','text',1,7,0.5,1,10),(67,'透明度','text',1,8,0.5,1,10),(68,'葡萄糖','mmol/l',1,7,0.5,1,10),(69,'红细胞（镜检）','/HPF',21,1,0.5,0,10),(70,'尿隐血','/ul',1,7,0.5,1,10),(71,'尿胆原','text',1,7,0.5,1,10),(72,'管型（镜检）','/LPF',1,9,0.5,1,10),(73,'酸碱度','pH',22,1,0.5,0,10),(74,'酮体','mmol/l',1,7,0.5,1,10),(75,'颜色','text',1,10,0.5,1,10),(76,'白细胞（镜检）','/HPF',1,1,0.5,1,10),(77,'上皮细胞（镜检）','/HPF',1,1,0.5,1,10),(78,'尿素','mmol/l',23,1,0.5,0,11),(79,'肌酐','umol/l',24,1,0.5,0,11),(80,'尿酸','umol/l',25,1,0.5,0,11),(81,'糖化血红蛋白','%',26,1,0.5,0,12),(82,'空腹血糖','mmol/l',27,1,0.5,0,13),(83,'血清β人绒毛膜促性腺激素','ng/ml',28,1,0.5,0,14),(84,'癌胚抗原测定定量','ng/ml',29,1,0.5,0,14),(85,'甲胎蛋白测定定量','ng/ml',30,1,0.5,0,14),(86,'神经元特异烯醇化酶测定','ng/ml',31,1,0.5,0,14),(87,'细胞角蛋白19片段','ng/ml',32,1,0.5,0,14),(88,'糖链抗原50测定','u/ml',33,1,0.5,0,14),(89,'糖链抗原125测定','u/ml',34,1,0.5,0,14),(90,'糖链抗原19-9测定','u/ml',35,1,0.5,0,14),(91,'糖链抗原242测定','u/ml',36,1,0.5,0,14),(92,'糖链抗原15-3测定','u/ml',37,1,0.5,0,14),(93,'糖链抗原72-4测定','u/ml',38,1,0.5,0,14),(94,'特异生长因子测定','u/ml',39,1,0.5,0,14);
+/*!40000 ALTER TABLE `item` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `item_option`
+--
+
 DROP TABLE IF EXISTS `item_option`;
-CREATE TABLE `item_option`  (
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `item_option` (
   `id` int NOT NULL AUTO_INCREMENT,
   `option_id` int NOT NULL COMMENT '文本选项id',
   `item_id` int NOT NULL COMMENT '项目id',
-  PRIMARY KEY (`id`) USING BTREE,
-  INDEX `item_id`(`item_id` ASC) USING BTREE,
-  INDEX `option_id`(`option_id` ASC) USING BTREE,
-  CONSTRAINT `item_option_ibfk_1` FOREIGN KEY (`item_id`) REFERENCES `item` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT,
-  CONSTRAINT `item_option_ibfk_2` FOREIGN KEY (`option_id`) REFERENCES `result_text_option` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT
-) ENGINE = InnoDB AUTO_INCREMENT = 3 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = Dynamic;
+  PRIMARY KEY (`id`),
+  KEY `item_id` (`item_id`),
+  KEY `option_id` (`option_id`),
+  CONSTRAINT `item_option_ibfk_1` FOREIGN KEY (`item_id`) REFERENCES `item` (`id`),
+  CONSTRAINT `item_option_ibfk_2` FOREIGN KEY (`option_id`) REFERENCES `result_text_option` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
 
--- ----------------------------
--- Records of item_option
--- ----------------------------
-INSERT INTO `item_option` VALUES (1, 1, 10);
-INSERT INTO `item_option` VALUES (2, 2, 20);
+--
+-- Dumping data for table `item_option`
+--
 
--- ----------------------------
--- Table structure for normal_range
--- ----------------------------
+LOCK TABLES `item_option` WRITE;
+/*!40000 ALTER TABLE `item_option` DISABLE KEYS */;
+INSERT INTO `item_option` VALUES (1,1,10),(2,2,20);
+/*!40000 ALTER TABLE `item_option` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `normal_range`
+--
+
 DROP TABLE IF EXISTS `normal_range`;
-CREATE TABLE `normal_range`  (
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `normal_range` (
   `id` int NOT NULL AUTO_INCREMENT,
   `start` float NOT NULL COMMENT '正常范围开始值',
   `end` float NOT NULL COMMENT '正常范围终止值',
-  PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 40 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = Dynamic;
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=40 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
 
--- ----------------------------
--- Records of normal_range
--- ----------------------------
-INSERT INTO `normal_range` VALUES (1, 0, 0);
-INSERT INTO `normal_range` VALUES (2, 90, 140);
-INSERT INTO `normal_range` VALUES (3, 60, 90);
-INSERT INTO `normal_range` VALUES (4, 59, 101);
-INSERT INTO `normal_range` VALUES (5, 40, 50);
-INSERT INTO `normal_range` VALUES (6, 125, 350);
-INSERT INTO `normal_range` VALUES (7, 0.4, 8);
-INSERT INTO `normal_range` VALUES (8, 3, 10);
-INSERT INTO `normal_range` VALUES (9, 3.5, 9.5);
-INSERT INTO `normal_range` VALUES (10, 27, 34);
-INSERT INTO `normal_range` VALUES (11, 4.3, 5.8);
-INSERT INTO `normal_range` VALUES (12, 0, 1);
-INSERT INTO `normal_range` VALUES (13, 1.8, 6.3);
-INSERT INTO `normal_range` VALUES (14, 0.1, 0.6);
-INSERT INTO `normal_range` VALUES (15, 1.1, 3.2);
-INSERT INTO `normal_range` VALUES (16, 316, 354);
-INSERT INTO `normal_range` VALUES (17, 20, 50);
-INSERT INTO `normal_range` VALUES (18, 0.02, 0.52);
-INSERT INTO `normal_range` VALUES (19, 130, 175);
-INSERT INTO `normal_range` VALUES (20, 40, 75);
-INSERT INTO `normal_range` VALUES (21, 0, 3);
-INSERT INTO `normal_range` VALUES (22, 5.4, 8.4);
-INSERT INTO `normal_range` VALUES (23, 2.8, 7.2);
-INSERT INTO `normal_range` VALUES (24, 59, 104);
-INSERT INTO `normal_range` VALUES (25, 208, 428);
-INSERT INTO `normal_range` VALUES (26, 4.27, 6.07);
-INSERT INTO `normal_range` VALUES (27, 3.9, 6.1);
-INSERT INTO `normal_range` VALUES (28, 0, 5);
-INSERT INTO `normal_range` VALUES (29, 0, 5);
-INSERT INTO `normal_range` VALUES (30, 0, 10);
-INSERT INTO `normal_range` VALUES (31, 0, 15);
-INSERT INTO `normal_range` VALUES (32, 0, 3.3);
-INSERT INTO `normal_range` VALUES (33, 0, 20);
-INSERT INTO `normal_range` VALUES (34, 0, 35);
-INSERT INTO `normal_range` VALUES (35, 0, 37);
-INSERT INTO `normal_range` VALUES (36, 0, 20);
-INSERT INTO `normal_range` VALUES (37, 0, 28);
-INSERT INTO `normal_range` VALUES (38, 0, 10);
-INSERT INTO `normal_range` VALUES (39, 0, 64);
+--
+-- Dumping data for table `normal_range`
+--
 
--- ----------------------------
--- Table structure for package
--- ----------------------------
+LOCK TABLES `normal_range` WRITE;
+/*!40000 ALTER TABLE `normal_range` DISABLE KEYS */;
+INSERT INTO `normal_range` VALUES (1,0,0),(2,90,140),(3,60,90),(4,59,101),(5,40,50),(6,125,350),(7,0.4,8),(8,3,10),(9,3.5,9.5),(10,27,34),(11,4.3,5.8),(12,0,1),(13,1.8,6.3),(14,0.1,0.6),(15,1.1,3.2),(16,316,354),(17,20,50),(18,0.02,0.52),(19,130,175),(20,40,75),(21,0,3),(22,5.4,8.4),(23,2.8,7.2),(24,59,104),(25,208,428),(26,4.27,6.07),(27,3.9,6.1),(28,0,5),(29,0,5),(30,0,10),(31,0,15),(32,0,3.3),(33,0,20),(34,0,35),(35,0,37),(36,0,20),(37,0,28),(38,0,10),(39,0,64);
+/*!40000 ALTER TABLE `normal_range` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `package`
+--
+
 DROP TABLE IF EXISTS `package`;
-CREATE TABLE `package`  (
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `package` (
   `id` int NOT NULL AUTO_INCREMENT,
-  `name` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL COMMENT '套餐名称',
+  `name` varchar(20) NOT NULL COMMENT '套餐名称',
   `price` smallint NOT NULL COMMENT '套餐价格',
-  `applicable_group` varchar(10) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL COMMENT '适用人群',
-  `img_src` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL COMMENT '套餐图片',
-  PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 9 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = Dynamic;
+  `applicable_group` varchar(10) NOT NULL COMMENT '适用人群',
+  `img_src` varchar(255) DEFAULT NULL COMMENT '套餐图片',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
 
--- ----------------------------
--- Records of package
--- ----------------------------
-INSERT INTO `package` VALUES (1, '全身体检', 1000, '一般人', 'QuanShen.jpg');
-INSERT INTO `package` VALUES (2, '无', 0, '人', NULL);
-INSERT INTO `package` VALUES (3, '基础一', 917, '所有人', NULL);
-INSERT INTO `package` VALUES (4, '常规体检', 666, '所有人', 'ChangGui.jpg');
-INSERT INTO `package` VALUES (5, '老年体检', 555, '老年人', 'LaoNian.jpg');
-INSERT INTO `package` VALUES (6, '入职体检', 288, '职场人', 'RuZhi.jpg');
-INSERT INTO `package` VALUES (7, '父母体检', 888, '中年人', 'FuMu.jpg');
+--
+-- Dumping data for table `package`
+--
 
--- ----------------------------
--- Table structure for package_category
--- ----------------------------
+LOCK TABLES `package` WRITE;
+/*!40000 ALTER TABLE `package` DISABLE KEYS */;
+INSERT INTO `package` VALUES (1,'全身体检',1000,'一般人','QuanShen.jpg'),(2,'无',0,'人',NULL),(3,'基础一',917,'所有人',NULL),(4,'常规体检',666,'所有人','ChangGui.jpg'),(5,'老年体检',555,'老年人','LaoNian.jpg'),(6,'入职体检',288,'职场人','RuZhi.jpg'),(7,'父母体检',888,'中年人','FuMu.jpg');
+/*!40000 ALTER TABLE `package` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `package_category`
+--
+
 DROP TABLE IF EXISTS `package_category`;
-CREATE TABLE `package_category`  (
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `package_category` (
   `id` int NOT NULL AUTO_INCREMENT,
   `package_id` int NOT NULL COMMENT '套餐id',
   `category_id` int NOT NULL COMMENT '分类id',
-  PRIMARY KEY (`id`) USING BTREE,
-  INDEX `category_id`(`category_id` ASC) USING BTREE,
-  INDEX `package_id`(`package_id` ASC) USING BTREE,
-  CONSTRAINT `package_category_ibfk_1` FOREIGN KEY (`category_id`) REFERENCES `category` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT,
-  CONSTRAINT `package_category_ibfk_2` FOREIGN KEY (`package_id`) REFERENCES `package` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT
-) ENGINE = InnoDB AUTO_INCREMENT = 54 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = Dynamic;
+  PRIMARY KEY (`id`),
+  KEY `category_id` (`category_id`),
+  KEY `package_id` (`package_id`),
+  CONSTRAINT `package_category_ibfk_1` FOREIGN KEY (`category_id`) REFERENCES `category` (`id`),
+  CONSTRAINT `package_category_ibfk_2` FOREIGN KEY (`package_id`) REFERENCES `package` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=54 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
 
--- ----------------------------
--- Records of package_category
--- ----------------------------
-INSERT INTO `package_category` VALUES (1, 1, 1);
-INSERT INTO `package_category` VALUES (2, 1, 2);
-INSERT INTO `package_category` VALUES (3, 1, 3);
-INSERT INTO `package_category` VALUES (4, 1, 4);
-INSERT INTO `package_category` VALUES (5, 1, 5);
-INSERT INTO `package_category` VALUES (6, 1, 6);
-INSERT INTO `package_category` VALUES (7, 1, 7);
-INSERT INTO `package_category` VALUES (8, 1, 8);
-INSERT INTO `package_category` VALUES (10, 1, 9);
-INSERT INTO `package_category` VALUES (11, 1, 11);
-INSERT INTO `package_category` VALUES (12, 1, 12);
-INSERT INTO `package_category` VALUES (13, 1, 13);
-INSERT INTO `package_category` VALUES (14, 1, 14);
-INSERT INTO `package_category` VALUES (15, 2, 15);
-INSERT INTO `package_category` VALUES (16, 3, 2);
-INSERT INTO `package_category` VALUES (17, 3, 3);
-INSERT INTO `package_category` VALUES (19, 3, 1);
-INSERT INTO `package_category` VALUES (20, 3, 3);
-INSERT INTO `package_category` VALUES (21, 3, 5);
-INSERT INTO `package_category` VALUES (22, 3, 7);
-INSERT INTO `package_category` VALUES (24, 5, 2);
-INSERT INTO `package_category` VALUES (25, 5, 4);
-INSERT INTO `package_category` VALUES (26, 5, 6);
-INSERT INTO `package_category` VALUES (27, 5, 7);
-INSERT INTO `package_category` VALUES (28, 5, 8);
-INSERT INTO `package_category` VALUES (30, 5, 9);
-INSERT INTO `package_category` VALUES (31, 5, 12);
-INSERT INTO `package_category` VALUES (32, 5, 13);
-INSERT INTO `package_category` VALUES (33, 5, 14);
-INSERT INTO `package_category` VALUES (34, 6, 2);
-INSERT INTO `package_category` VALUES (35, 6, 3);
-INSERT INTO `package_category` VALUES (36, 6, 4);
-INSERT INTO `package_category` VALUES (37, 6, 5);
-INSERT INTO `package_category` VALUES (38, 6, 7);
-INSERT INTO `package_category` VALUES (40, 6, 9);
-INSERT INTO `package_category` VALUES (41, 7, 1);
-INSERT INTO `package_category` VALUES (42, 7, 2);
-INSERT INTO `package_category` VALUES (43, 7, 3);
-INSERT INTO `package_category` VALUES (44, 7, 4);
-INSERT INTO `package_category` VALUES (45, 7, 5);
-INSERT INTO `package_category` VALUES (46, 7, 6);
-INSERT INTO `package_category` VALUES (47, 7, 8);
-INSERT INTO `package_category` VALUES (49, 7, 9);
-INSERT INTO `package_category` VALUES (50, 7, 11);
-INSERT INTO `package_category` VALUES (51, 7, 12);
-INSERT INTO `package_category` VALUES (52, 7, 13);
-INSERT INTO `package_category` VALUES (53, 7, 14);
+--
+-- Dumping data for table `package_category`
+--
 
--- ----------------------------
--- Table structure for permission
--- ----------------------------
+LOCK TABLES `package_category` WRITE;
+/*!40000 ALTER TABLE `package_category` DISABLE KEYS */;
+INSERT INTO `package_category` VALUES (1,1,1),(2,1,2),(3,1,3),(4,1,4),(5,1,5),(6,1,6),(7,1,7),(8,1,8),(10,1,9),(11,1,11),(12,1,12),(13,1,13),(14,1,14),(15,2,15),(16,3,2),(17,3,3),(19,3,1),(20,3,3),(21,3,5),(22,3,7),(24,5,2),(25,5,4),(26,5,6),(27,5,7),(28,5,8),(30,5,9),(31,5,12),(32,5,13),(33,5,14),(34,6,2),(35,6,3),(36,6,4),(37,6,5),(38,6,7),(40,6,9),(41,7,1),(42,7,2),(43,7,3),(44,7,4),(45,7,5),(46,7,6),(47,7,8),(49,7,9),(50,7,11),(51,7,12),(52,7,13),(53,7,14);
+/*!40000 ALTER TABLE `package_category` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `permission`
+--
+
 DROP TABLE IF EXISTS `permission`;
-CREATE TABLE `permission`  (
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `permission` (
   `id` int NOT NULL AUTO_INCREMENT,
-  `name` varchar(10) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL COMMENT '权限名称',
+  `name` varchar(10) NOT NULL COMMENT '权限名称',
   `parent_id` int NOT NULL COMMENT '父级权限id',
   `level` smallint NOT NULL COMMENT '权限层级',
-  `path` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL COMMENT '对应的前端路由名称',
-  `component` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL COMMENT '对应的前端组件名称',
-  `icon` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL COMMENT '对应的图标名称',
-  `index` smallint NULL DEFAULT NULL COMMENT '序号',
-  PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 25 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = Dynamic;
+  `path` varchar(20) NOT NULL COMMENT '对应的前端路由名称',
+  `component` varchar(20) DEFAULT NULL COMMENT '对应的前端组件名称',
+  `icon` varchar(20) DEFAULT NULL COMMENT '对应的图标名称',
+  `index` smallint DEFAULT NULL COMMENT '序号',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=25 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
 
--- ----------------------------
--- Records of permission
--- ----------------------------
-INSERT INTO `permission` VALUES (1, '目录', -1, 0, '/examination', 'Layout', NULL, 1);
-INSERT INTO `permission` VALUES (2, '用户管理', 1, 1, '/user', '', 'User', 2);
-INSERT INTO `permission` VALUES (3, '套餐管理', 1, 1, '/package', '', 'Package', 3);
-INSERT INTO `permission` VALUES (4, '订单管理', 1, 1, '/order', '', 'Order', 4);
-INSERT INTO `permission` VALUES (5, '体检机构管理', 1, 1, '/center', 'Center', 'Center', 5);
-INSERT INTO `permission` VALUES (6, '科室管理', 1, 1, '/department', '', 'Department', 6);
-INSERT INTO `permission` VALUES (7, '前台用户', 2, 2, '/user', 'User', NULL, 1);
-INSERT INTO `permission` VALUES (8, '后台用户', 2, 2, '/admin', 'Admin', NULL, 2);
-INSERT INTO `permission` VALUES (9, '权限列表', 24, 2, '/permission', 'Permission', '', 2);
-INSERT INTO `permission` VALUES (10, '角色列表', 24, 2, '/role', 'Role', '', 1);
-INSERT INTO `permission` VALUES (11, '套餐管理', 3, 2, '/package', 'Package', NULL, 1);
-INSERT INTO `permission` VALUES (12, '分类列表', 3, 2, '/category', 'Category', NULL, 2);
-INSERT INTO `permission` VALUES (13, '个人订单', 4, 2, '/order', 'Order', NULL, 1);
-INSERT INTO `permission` VALUES (14, '团检订单', 4, 2, '/groupOrder', 'GroupOrder', NULL, 2);
-INSERT INTO `permission` VALUES (15, '医生详情', 6, 2, '/department', 'Department', '', 1);
-INSERT INTO `permission` VALUES (16, '心血管内科', 6, 2, '/department9', 'Department9', NULL, 2);
-INSERT INTO `permission` VALUES (17, '神经内科', 6, 2, '/department10', 'Department10', NULL, 3);
-INSERT INTO `permission` VALUES (18, '血液内科', 6, 2, '/department14', 'Department14', NULL, 4);
-INSERT INTO `permission` VALUES (19, '眼科', 6, 2, '/department16', 'Department16', NULL, 5);
-INSERT INTO `permission` VALUES (20, '耳鼻喉科', 6, 2, '/department17', 'Department17', NULL, 6);
-INSERT INTO `permission` VALUES (21, '普外科', 6, 2, '/department19', 'Department19', NULL, 7);
-INSERT INTO `permission` VALUES (22, '超声科', 6, 2, '/department24', 'Department24', NULL, 8);
-INSERT INTO `permission` VALUES (23, '体检科', 6, 2, '/department25', 'Department25', NULL, 9);
-INSERT INTO `permission` VALUES (24, '权限管理', 1, 1, '/permission', '', 'Permission', 1);
+--
+-- Dumping data for table `permission`
+--
 
--- ----------------------------
--- Table structure for queue
--- ----------------------------
+LOCK TABLES `permission` WRITE;
+/*!40000 ALTER TABLE `permission` DISABLE KEYS */;
+INSERT INTO `permission` VALUES (1,'目录',-1,0,'/examination','Layout',NULL,1),(2,'用户管理',1,1,'/user','','User',2),(3,'套餐管理',1,1,'/package','','Package',3),(4,'订单管理',1,1,'/order','','Order',4),(5,'体检机构管理',1,1,'/center','Center','Center',5),(6,'科室管理',1,1,'/department','','Department',6),(7,'前台用户',2,2,'/user','User',NULL,1),(8,'后台用户',2,2,'/admin','Admin',NULL,2),(9,'权限列表',24,2,'/permission','Permission','',2),(10,'角色列表',24,2,'/role','Role','',1),(11,'套餐管理',3,2,'/package','Package',NULL,1),(12,'分类列表',3,2,'/category','Category',NULL,2),(13,'个人订单',4,2,'/order','Order',NULL,1),(14,'团检订单',4,2,'/groupOrder','GroupOrder',NULL,2),(15,'医生详情',6,2,'/department','Department','',1),(16,'心血管内科',6,2,'/department9','Department9',NULL,2),(17,'神经内科',6,2,'/department10','Department10',NULL,3),(18,'血液内科',6,2,'/department14','Department14',NULL,4),(19,'眼科',6,2,'/department16','Department16',NULL,5),(20,'耳鼻喉科',6,2,'/department17','Department17',NULL,6),(21,'普外科',6,2,'/department19','Department19',NULL,7),(22,'超声科',6,2,'/department24','Department24',NULL,8),(23,'体检科',6,2,'/department25','Department25',NULL,9),(24,'权限管理',1,1,'/permission','','Permission',1);
+/*!40000 ALTER TABLE `permission` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `queue`
+--
+
 DROP TABLE IF EXISTS `queue`;
-CREATE TABLE `queue`  (
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `queue` (
   `id` int NOT NULL AUTO_INCREMENT,
   `department_id` int NOT NULL COMMENT '科室id',
   `serial_number` smallint NOT NULL COMMENT '序号(表明排队顺序)',
   `order_id` int NOT NULL COMMENT '订单id',
-  `time` int NULL DEFAULT NULL COMMENT '排队时长',
-  PRIMARY KEY (`id`) USING BTREE,
-  INDEX `department_id`(`department_id` ASC) USING BTREE,
-  INDEX `order_id`(`order_id` ASC) USING BTREE,
-  CONSTRAINT `queue_ibfk_1` FOREIGN KEY (`department_id`) REFERENCES `department` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT,
-  CONSTRAINT `queue_ibfk_2` FOREIGN KEY (`order_id`) REFERENCES `examination_order` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT
-) ENGINE = InnoDB AUTO_INCREMENT = 176 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = Dynamic;
+  `time` int DEFAULT NULL COMMENT '排队时长',
+  PRIMARY KEY (`id`),
+  KEY `department_id` (`department_id`),
+  KEY `order_id` (`order_id`),
+  CONSTRAINT `queue_ibfk_1` FOREIGN KEY (`department_id`) REFERENCES `department` (`id`),
+  CONSTRAINT `queue_ibfk_2` FOREIGN KEY (`order_id`) REFERENCES `examination_order` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=266 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
 
--- ----------------------------
--- Records of queue
--- ----------------------------
-INSERT INTO `queue` VALUES (170, 9, 30, 29, 30);
-INSERT INTO `queue` VALUES (171, 10, 31, 29, 30);
-INSERT INTO `queue` VALUES (172, 14, 32, 29, 30);
-INSERT INTO `queue` VALUES (173, 19, 35, 29, 30);
-INSERT INTO `queue` VALUES (174, 16, 33, 29, 30);
-INSERT INTO `queue` VALUES (175, 17, 34, 29, 30);
+--
+-- Dumping data for table `queue`
+--
 
--- ----------------------------
--- Table structure for relationship
--- ----------------------------
+LOCK TABLES `queue` WRITE;
+/*!40000 ALTER TABLE `queue` DISABLE KEYS */;
+/*!40000 ALTER TABLE `queue` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `relationship`
+--
+
 DROP TABLE IF EXISTS `relationship`;
-CREATE TABLE `relationship`  (
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `relationship` (
   `id` int NOT NULL AUTO_INCREMENT,
-  `name` char(4) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL COMMENT '关系名称',
-  PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 4 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = Dynamic;
+  `name` char(4) NOT NULL COMMENT '关系名称',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
 
--- ----------------------------
--- Records of relationship
--- ----------------------------
-INSERT INTO `relationship` VALUES (1, '本人');
-INSERT INTO `relationship` VALUES (2, '父亲');
-INSERT INTO `relationship` VALUES (3, '母亲');
+--
+-- Dumping data for table `relationship`
+--
 
--- ----------------------------
--- Table structure for result_text_option
--- ----------------------------
+LOCK TABLES `relationship` WRITE;
+/*!40000 ALTER TABLE `relationship` DISABLE KEYS */;
+INSERT INTO `relationship` VALUES (1,'本人'),(2,'父亲'),(3,'母亲');
+/*!40000 ALTER TABLE `relationship` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `result_text_option`
+--
+
 DROP TABLE IF EXISTS `result_text_option`;
-CREATE TABLE `result_text_option`  (
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `result_text_option` (
   `id` int NOT NULL AUTO_INCREMENT,
-  `text` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL COMMENT '结果选项内容',
-  PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 15 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = Dynamic;
+  `text` varchar(20) NOT NULL COMMENT '结果选项内容',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
 
--- ----------------------------
--- Records of result_text_option
--- ----------------------------
-INSERT INTO `result_text_option` VALUES (1, '——');
-INSERT INTO `result_text_option` VALUES (2, '正常');
-INSERT INTO `result_text_option` VALUES (3, '未见异常');
-INSERT INTO `result_text_option` VALUES (4, '无');
-INSERT INTO `result_text_option` VALUES (5, '无畸形');
-INSERT INTO `result_text_option` VALUES (6, '规则');
-INSERT INTO `result_text_option` VALUES (7, '正常心电图');
-INSERT INTO `result_text_option` VALUES (8, 'neg');
-INSERT INTO `result_text_option` VALUES (9, '透明');
-INSERT INTO `result_text_option` VALUES (10, '未查见');
-INSERT INTO `result_text_option` VALUES (11, '黄色');
-INSERT INTO `result_text_option` VALUES (12, '请输入');
-INSERT INTO `result_text_option` VALUES (13, '80');
-INSERT INTO `result_text_option` VALUES (14, '9999');
+--
+-- Dumping data for table `result_text_option`
+--
 
--- ----------------------------
--- Table structure for role
--- ----------------------------
+LOCK TABLES `result_text_option` WRITE;
+/*!40000 ALTER TABLE `result_text_option` DISABLE KEYS */;
+INSERT INTO `result_text_option` VALUES (1,'——'),(2,'正常'),(3,'未见异常'),(4,'无'),(5,'无畸形'),(6,'规则'),(7,'正常心电图'),(8,'neg'),(9,'透明'),(10,'未查见'),(11,'黄色'),(12,'请输入'),(13,'80'),(14,'9999');
+/*!40000 ALTER TABLE `result_text_option` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `role`
+--
+
 DROP TABLE IF EXISTS `role`;
-CREATE TABLE `role`  (
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `role` (
   `id` int NOT NULL AUTO_INCREMENT,
-  `name` varchar(10) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL COMMENT '角色名称',
-  `description` varchar(40) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL COMMENT '角色描述',
-  PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 37 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = Dynamic;
+  `name` varchar(10) NOT NULL COMMENT '角色名称',
+  `description` varchar(40) DEFAULT NULL COMMENT '角色描述',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=37 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
 
--- ----------------------------
--- Records of role
--- ----------------------------
-INSERT INTO `role` VALUES (1, '超级管理员', '获得所有权限');
-INSERT INTO `role` VALUES (19, '前台', '医院前台');
-INSERT INTO `role` VALUES (20, '科室主任', '管理科室的医生');
-INSERT INTO `role` VALUES (21, '业务员', '管理订单');
-INSERT INTO `role` VALUES (22, '心血管内科医生', '做心电图');
-INSERT INTO `role` VALUES (23, '神经内科医生', '内科检查');
-INSERT INTO `role` VALUES (24, '血液内科医生', '抽血');
-INSERT INTO `role` VALUES (25, '眼科医生', '测视力');
-INSERT INTO `role` VALUES (26, '耳鼻喉科医生', '检查');
-INSERT INTO `role` VALUES (27, '普外科医生', '外科检查');
-INSERT INTO `role` VALUES (28, '超声科医生', '做超声');
-INSERT INTO `role` VALUES (29, '体检科医生', '其它');
-INSERT INTO `role` VALUES (34, '测试角色', '测试');
+--
+-- Dumping data for table `role`
+--
 
--- ----------------------------
--- Table structure for role_permission
--- ----------------------------
+LOCK TABLES `role` WRITE;
+/*!40000 ALTER TABLE `role` DISABLE KEYS */;
+INSERT INTO `role` VALUES (1,'超级管理员','获得所有权限'),(19,'前台','医院前台'),(20,'科室主任','管理科室的医生'),(21,'业务员','管理订单'),(22,'心血管内科医生','做心电图'),(23,'神经内科医生','内科检查'),(24,'血液内科医生','抽血'),(25,'眼科医生','测视力'),(26,'耳鼻喉科医生','检查'),(27,'普外科医生','外科检查'),(28,'超声科医生','做超声'),(29,'体检科医生','其它'),(34,'测试角色','测试');
+/*!40000 ALTER TABLE `role` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `role_permission`
+--
+
 DROP TABLE IF EXISTS `role_permission`;
-CREATE TABLE `role_permission`  (
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `role_permission` (
   `id` int NOT NULL AUTO_INCREMENT,
   `permission_id` int NOT NULL COMMENT '权限id',
   `role_id` int NOT NULL COMMENT '角色id',
-  PRIMARY KEY (`id`) USING BTREE,
-  INDEX `permission_id`(`permission_id` ASC) USING BTREE,
-  INDEX `role_id`(`role_id` ASC) USING BTREE,
-  CONSTRAINT `role_permission_ibfk_1` FOREIGN KEY (`permission_id`) REFERENCES `permission` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT,
-  CONSTRAINT `role_permission_ibfk_2` FOREIGN KEY (`role_id`) REFERENCES `role` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT
-) ENGINE = InnoDB AUTO_INCREMENT = 75 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = Dynamic;
+  PRIMARY KEY (`id`),
+  KEY `permission_id` (`permission_id`),
+  KEY `role_id` (`role_id`),
+  CONSTRAINT `role_permission_ibfk_1` FOREIGN KEY (`permission_id`) REFERENCES `permission` (`id`),
+  CONSTRAINT `role_permission_ibfk_2` FOREIGN KEY (`role_id`) REFERENCES `role` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=75 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
 
--- ----------------------------
--- Records of role_permission
--- ----------------------------
-INSERT INTO `role_permission` VALUES (1, 1, 1);
-INSERT INTO `role_permission` VALUES (2, 24, 1);
-INSERT INTO `role_permission` VALUES (3, 2, 1);
-INSERT INTO `role_permission` VALUES (4, 3, 1);
-INSERT INTO `role_permission` VALUES (5, 4, 1);
-INSERT INTO `role_permission` VALUES (6, 5, 1);
-INSERT INTO `role_permission` VALUES (7, 6, 1);
-INSERT INTO `role_permission` VALUES (8, 7, 1);
-INSERT INTO `role_permission` VALUES (9, 8, 1);
-INSERT INTO `role_permission` VALUES (10, 9, 1);
-INSERT INTO `role_permission` VALUES (11, 10, 1);
-INSERT INTO `role_permission` VALUES (12, 11, 1);
-INSERT INTO `role_permission` VALUES (13, 12, 1);
-INSERT INTO `role_permission` VALUES (14, 13, 1);
-INSERT INTO `role_permission` VALUES (15, 14, 1);
-INSERT INTO `role_permission` VALUES (20, 1, 19);
-INSERT INTO `role_permission` VALUES (21, 2, 19);
-INSERT INTO `role_permission` VALUES (22, 7, 19);
-INSERT INTO `role_permission` VALUES (23, 1, 20);
-INSERT INTO `role_permission` VALUES (24, 6, 20);
-INSERT INTO `role_permission` VALUES (25, 1, 21);
-INSERT INTO `role_permission` VALUES (26, 4, 21);
-INSERT INTO `role_permission` VALUES (27, 13, 21);
-INSERT INTO `role_permission` VALUES (28, 15, 1);
-INSERT INTO `role_permission` VALUES (29, 16, 1);
-INSERT INTO `role_permission` VALUES (30, 17, 1);
-INSERT INTO `role_permission` VALUES (31, 18, 1);
-INSERT INTO `role_permission` VALUES (32, 19, 1);
-INSERT INTO `role_permission` VALUES (33, 20, 1);
-INSERT INTO `role_permission` VALUES (34, 21, 1);
-INSERT INTO `role_permission` VALUES (35, 22, 1);
-INSERT INTO `role_permission` VALUES (36, 23, 1);
-INSERT INTO `role_permission` VALUES (37, 16, 22);
-INSERT INTO `role_permission` VALUES (38, 17, 23);
-INSERT INTO `role_permission` VALUES (39, 18, 24);
-INSERT INTO `role_permission` VALUES (40, 19, 25);
-INSERT INTO `role_permission` VALUES (41, 20, 26);
-INSERT INTO `role_permission` VALUES (42, 21, 27);
-INSERT INTO `role_permission` VALUES (43, 22, 28);
-INSERT INTO `role_permission` VALUES (44, 23, 29);
-INSERT INTO `role_permission` VALUES (45, 15, 20);
-INSERT INTO `role_permission` VALUES (46, 1, 22);
-INSERT INTO `role_permission` VALUES (47, 6, 22);
-INSERT INTO `role_permission` VALUES (48, 1, 23);
-INSERT INTO `role_permission` VALUES (49, 6, 23);
-INSERT INTO `role_permission` VALUES (50, 1, 24);
-INSERT INTO `role_permission` VALUES (51, 6, 24);
-INSERT INTO `role_permission` VALUES (52, 1, 25);
-INSERT INTO `role_permission` VALUES (53, 6, 25);
-INSERT INTO `role_permission` VALUES (54, 1, 26);
-INSERT INTO `role_permission` VALUES (55, 6, 26);
-INSERT INTO `role_permission` VALUES (56, 1, 27);
-INSERT INTO `role_permission` VALUES (57, 6, 27);
-INSERT INTO `role_permission` VALUES (58, 1, 28);
-INSERT INTO `role_permission` VALUES (59, 6, 28);
-INSERT INTO `role_permission` VALUES (60, 1, 29);
-INSERT INTO `role_permission` VALUES (61, 6, 29);
-INSERT INTO `role_permission` VALUES (66, 6, 34);
-INSERT INTO `role_permission` VALUES (67, 15, 34);
-INSERT INTO `role_permission` VALUES (68, 16, 34);
-INSERT INTO `role_permission` VALUES (69, 17, 34);
+--
+-- Dumping data for table `role_permission`
+--
 
--- ----------------------------
--- Table structure for user
--- ----------------------------
+LOCK TABLES `role_permission` WRITE;
+/*!40000 ALTER TABLE `role_permission` DISABLE KEYS */;
+INSERT INTO `role_permission` VALUES (1,1,1),(2,24,1),(3,2,1),(4,3,1),(5,4,1),(6,5,1),(7,6,1),(8,7,1),(9,8,1),(10,9,1),(11,10,1),(12,11,1),(13,12,1),(14,13,1),(15,14,1),(20,1,19),(21,2,19),(22,7,19),(23,1,20),(24,6,20),(25,1,21),(26,4,21),(27,13,21),(28,15,1),(29,16,1),(30,17,1),(31,18,1),(32,19,1),(33,20,1),(34,21,1),(35,22,1),(36,23,1),(37,16,22),(38,17,23),(39,18,24),(40,19,25),(41,20,26),(42,21,27),(43,22,28),(44,23,29),(45,15,20),(46,1,22),(47,6,22),(48,1,23),(49,6,23),(50,1,24),(51,6,24),(52,1,25),(53,6,25),(54,1,26),(55,6,26),(56,1,27),(57,6,27),(58,1,28),(59,6,28),(60,1,29),(61,6,29),(66,6,34),(67,15,34),(68,16,34),(69,17,34);
+/*!40000 ALTER TABLE `role_permission` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `user`
+--
+
 DROP TABLE IF EXISTS `user`;
-CREATE TABLE `user`  (
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `user` (
   `id` int NOT NULL AUTO_INCREMENT,
-  `name` char(4) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL COMMENT '用户姓名',
-  `identification_number` char(18) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL COMMENT '身份证号',
-  `sex` char(1) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL COMMENT '性别',
-  `birthday` date NULL DEFAULT NULL COMMENT '出生日期',
-  `phone` char(11) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL COMMENT '手机号码',
+  `name` char(4) NOT NULL COMMENT '用户姓名',
+  `identification_number` char(18) NOT NULL COMMENT '身份证号',
+  `sex` char(1) DEFAULT NULL COMMENT '性别',
+  `birthday` date DEFAULT NULL COMMENT '出生日期',
+  `phone` char(11) NOT NULL COMMENT '手机号码',
   `create_time` timestamp NOT NULL COMMENT '创建时间',
-  PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 25 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = Dynamic;
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=25 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
 
--- ----------------------------
--- Records of user
--- ----------------------------
-INSERT INTO `user` VALUES (11, '张雨绮', '230293847123112312', '女', '2011-02-12', '18937829582', '2024-01-19 11:46:29');
-INSERT INTO `user` VALUES (21, '洛南', '310112200106087213', '女', '2011-02-12', '18773703523', '2024-01-21 23:58:50');
-INSERT INTO `user` VALUES (22, '王思博', '310112462738193721', '男', '2011-02-12', '13829223132', '2024-01-21 23:58:50');
-INSERT INTO `user` VALUES (23, '丁欣欣', '310201197902044427', '男', '1989-01-01', '13291625628', '2024-03-05 11:32:10');
-INSERT INTO `user` VALUES (24, '张涛', '620101200211211021', '男', '2007-01-01', '13720999653', '2024-03-05 16:49:38');
+--
+-- Dumping data for table `user`
+--
 
-SET FOREIGN_KEY_CHECKS = 1;
+LOCK TABLES `user` WRITE;
+/*!40000 ALTER TABLE `user` DISABLE KEYS */;
+INSERT INTO `user` VALUES (11,'张雨绮','230293847123112312','女','2011-02-12','18937829582','2024-01-19 03:46:29'),(21,'洛南','310112200106087213','女','2011-02-12','18773703523','2024-01-21 15:58:50'),(22,'王思博','310112462738193721','男','2011-02-12','13829223132','2024-01-21 15:58:50'),(23,'丁欣欣','310201197902044427','男','1989-01-01','13291625628','2024-03-05 03:32:10'),(24,'张涛','620101200211211021','男','2007-01-01','13720999653','2024-03-05 08:49:38');
+/*!40000 ALTER TABLE `user` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Dumping routines for database 'examination'
+--
+/*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
+
+/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
+/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
+/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
+
+-- Dump completed on 2024-04-20 19:20:37
