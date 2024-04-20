@@ -15,12 +15,6 @@
     </van-cell-group>
 
     <van-cell-group class="package-detail-cell-group">
-      <van-cell icon="shop-o" is-link>
-        <template #title>
-          <span class="van-cell-text">有赞的店</span>
-          <van-tag class="package-detail-tag" type="danger">官方</van-tag>
-        </template>
-      </van-cell>
       <van-cell title="线下门店" icon="location-o" is-link />
     </van-cell-group>
 
